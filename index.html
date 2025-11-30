@@ -204,33 +204,32 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        /* Esconder "Free Google Reviews Widget" do Elfsight */
+        /* Esconder completamente "Free Google Reviews Widget" do Elfsight */
         .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="elfsight-widget"],
         .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="widget-branding"],
         .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 a[href*="elfsight"],
         .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="branding"],
-        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [id*="branding"] {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-            height: 0 !important;
-            overflow: hidden !important;
-        }
-        
-        /* Esconder qualquer texto que contenha "Free Google Reviews Widget" */
-        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 * {
-            text-transform: none;
-        }
-        
-        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 *:not(script):not(style) {
-            font-size: inherit;
-        }
-        
-        /* Tentar esconder elementos específicos do Elfsight */
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [id*="branding"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="powered"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="free"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="widget-text"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="widget-footer"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="widget-link"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="widget-credits"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="elfsight-credits"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="elfsight-link"],
         [class*="elfsight"] [class*="powered"],
         [class*="elfsight"] [class*="free"],
         [class*="elfsight"] [class*="widget-text"],
-        [class*="elfsight"] a[href*="elfsight.com"] {
+        [class*="elfsight"] [class*="widget-footer"],
+        [class*="elfsight"] [class*="widget-link"],
+        [class*="elfsight"] [class*="widget-credits"],
+        [class*="elfsight"] [class*="elfsight-credits"],
+        [class*="elfsight"] a[href*="elfsight.com"],
+        [class*="elfsight"] a[href*="elfsight"],
+        [id*="elfsight"] [class*="powered"],
+        [id*="elfsight"] [class*="free"],
+        [id*="elfsight"] a[href*="elfsight"] {
             display: none !important;
             visibility: hidden !important;
             opacity: 0 !important;
@@ -239,7 +238,13 @@
             overflow: hidden !important;
             position: absolute !important;
             left: -9999px !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            text-indent: -9999px !important;
         }
+        
     </style>
 </head>
 <body class="bg-dark-900 text-dark-100 font-exo overflow-x-hidden">
@@ -722,6 +727,55 @@
         reveals.forEach(reveal => {
             revealObserver.observe(reveal);
         });
+
+        // Remover elementos do Elfsight que contenham "Free Google Reviews Widget"
+        function removeElfsightBranding() {
+            const elfsightContainer = document.querySelector('.elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648');
+            if (!elfsightContainer) return;
+
+            // Buscar e remover elementos que contenham o texto
+            const allElements = elfsightContainer.querySelectorAll('*');
+            allElements.forEach(element => {
+                const text = element.textContent || element.innerText || '';
+                if (text.includes('Free Google Reviews Widget') || 
+                    text.includes('Free') && text.includes('Widget') ||
+                    element.href && element.href.includes('elfsight')) {
+                    element.style.display = 'none';
+                    element.style.visibility = 'hidden';
+                    element.style.opacity = '0';
+                    element.style.height = '0';
+                    element.style.width = '0';
+                    element.style.overflow = 'hidden';
+                    element.style.position = 'absolute';
+                    element.style.left = '-9999px';
+                    element.remove();
+                }
+            });
+
+            // Remover links do Elfsight
+            const elfsightLinks = elfsightContainer.querySelectorAll('a[href*="elfsight"]');
+            elfsightLinks.forEach(link => {
+                link.remove();
+            });
+        }
+
+        // Executar após o carregamento do widget
+        setTimeout(() => {
+            removeElfsightBranding();
+        }, 2000);
+
+        // Observar mudanças no DOM para remover elementos adicionados dinamicamente
+        const observer = new MutationObserver(() => {
+            removeElfsightBranding();
+        });
+
+        const depoimentosSection = document.getElementById('depoimentos');
+        if (depoimentosSection) {
+            observer.observe(depoimentosSection, {
+                childList: true,
+                subtree: true
+            });
+        }
     </script>
 </body>
 </html>
