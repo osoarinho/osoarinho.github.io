@@ -203,6 +203,43 @@
         * {
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
+        
+        /* Esconder "Free Google Reviews Widget" do Elfsight */
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="elfsight-widget"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="widget-branding"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 a[href*="elfsight"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [class*="branding"],
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 [id*="branding"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Esconder qualquer texto que contenha "Free Google Reviews Widget" */
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 * {
+            text-transform: none;
+        }
+        
+        .elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648 *:not(script):not(style) {
+            font-size: inherit;
+        }
+        
+        /* Tentar esconder elementos específicos do Elfsight */
+        [class*="elfsight"] [class*="powered"],
+        [class*="elfsight"] [class*="free"],
+        [class*="elfsight"] [class*="widget-text"],
+        [class*="elfsight"] a[href*="elfsight.com"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            width: 0 !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            left: -9999px !important;
+        }
     </style>
 </head>
 <body class="bg-dark-900 text-dark-100 font-exo overflow-x-hidden">
@@ -507,7 +544,7 @@
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Depoimentos</h2>
                 <p class="text-dark-300 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
-                    O que dizem as pessoas que já trabalharam comigo
+                    O que dizem as pessoas que já foram atendidas por mim e trabalharam comigo
                 </p>
                 <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-8"></div>
                 <a href="https://share.google/tKvgYwdlS9tb5WQ2N" target="_blank" class="inline-flex items-center gap-2 text-dark-200 hover:text-white transition-colors text-sm md:text-base">
