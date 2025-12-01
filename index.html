@@ -81,6 +81,42 @@
             scroll-behavior: smooth;
         }
         
+        * {
+            cursor: none;
+        }
+        
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+        
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+        }
+        
+        @media (max-width: 768px) {
+            * {
+                cursor: auto;
+            }
+            .custom-cursor, .cursor-dot {
+                display: none;
+            }
+        }
+        
         body {
             font-family: 'Exo 2', sans-serif;
             background-color: #0a0a0a;
@@ -155,6 +191,33 @@
             margin: 4rem 0;
         }
         
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .whatsapp-button {
+            width: 56px;
+            height: 56px;
+            background: rgba(30, 30, 30, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+        
         .btn-primary {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(224, 224, 224, 0.15));
             border: 1px solid rgba(255, 255, 255, 0.4);
@@ -216,6 +279,17 @@
     </style>
 </head>
 <body class="bg-dark-900 text-dark-100 font-exo overflow-x-hidden">
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5524998540552" target="_blank" class="whatsapp-button animate-glow">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <!-- Floating Background Elements -->
     <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div class="floating-element" style="top: 20%; left: 10%; width: 200px; height: 200px; animation-delay: 0s;"></div>
@@ -603,22 +677,22 @@
         <div class="container mx-auto px-4">
             <div class="text-center">
                 <div class="flex justify-center items-center mb-6">
-                    <img src="https://soarinho.com/identity/marca-soarinho.png" alt="Marca Soarinho" class="h-24 md:h-32 lg:h-40 w-auto">
+                    <img src="https://soarinho.com/identity/marca-soarinho.png" alt="Marca Soarinho" class="h-24 md:h-32 lg:h-36 w-auto">
                 </div>
                 <p class="text-dark-400 mb-8 text-lg">Artista Tecnológico - Unindo Arte e Tecnologia</p>
                 
                 <div class="flex justify-center space-x-6 mb-8">
-                    <a href="https://instagram.com/osoarinho" target="_blank" class="text-dark-400 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300">
-                        <i class="fab fa-instagram"></i>
+                    <a href="https://instagram.com/osoarinho" target="_blank" class="w-12 h-12 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-dark-400 hover:text-white hover:border-white transition-all hover:scale-110 transform duration-300">
+                        <i class="fab fa-instagram text-xl"></i>
                     </a>
-                    <a href="https://www.youtube.com/@osoarinho" target="_blank" class="text-dark-400 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300">
-                        <i class="fab fa-youtube"></i>
+                    <a href="https://www.youtube.com/@osoarinho" target="_blank" class="w-12 h-12 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-dark-400 hover:text-white hover:border-white transition-all hover:scale-110 transform duration-300">
+                        <i class="fab fa-youtube text-xl"></i>
                     </a>
-                    <a href="https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e?si=wZOs2RH9QYCxpdOxmr_Osw" target="_blank" class="text-dark-400 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300">
-                        <i class="fab fa-spotify"></i>
+                    <a href="https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e?si=wZOs2RH9QYCxpdOxmr_Osw" target="_blank" class="w-12 h-12 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-dark-400 hover:text-white hover:border-white transition-all hover:scale-110 transform duration-300">
+                        <i class="fab fa-spotify text-xl"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/" target="_blank" class="text-dark-400 hover:text-white transition-colors text-2xl hover:scale-110 transform duration-300">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/" target="_blank" class="w-12 h-12 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-dark-400 hover:text-white hover:border-white transition-all hover:scale-110 transform duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
                     </a>
                 </div>
                 
@@ -688,6 +762,19 @@
         reveals.forEach(reveal => {
             revealObserver.observe(reveal);
         });
+        
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+        
+        if (cursor && cursorDot) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursorDot.style.left = e.clientX + 'px';
+                cursorDot.style.top = e.clientY + 'px';
+            });
+        }
     </script>
 </body>
 </html>
