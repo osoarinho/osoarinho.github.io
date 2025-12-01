@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soarinho - Artista Tecnológico</title>
-    <meta name="description" content="Soarinho - Artista Tecnológico. Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam.">
+    <title>Soarinho - Artista Tecnológico | Unindo Arte e Tecnologia</title>
+    <meta name="description" content="Soarinho - Artista Tecnológico. Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual, Desenvolvimento Web e Suporte Técnico.">
+    <meta name="keywords" content="Soarinho, Artista Tecnológico, Música, Locução, Dublagem, Edição de Vídeo, Desenvolvimento Web, Suporte Técnico, Angra dos Reis">
+    <meta name="author" content="Lucas Soares dos Santos - Soarinho">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://soarinho.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soarinho.com">
+    <meta property="og:title" content="Soarinho - Artista Tecnológico | Unindo Arte e Tecnologia">
+    <meta property="og:description" content="Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual, Desenvolvimento Web e Suporte Técnico.">
+    <meta property="og:image" content="https://soarinho.com/identity/marca-soarinho.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://soarinho.com">
+    <meta property="twitter:title" content="Soarinho - Artista Tecnológico | Unindo Arte e Tecnologia">
+    <meta property="twitter:description" content="Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam.">
+    <meta property="twitter:image" content="https://soarinho.com/identity/marca-soarinho.png">
+    
     <link rel="icon" type="image/png" href="https://soarinho.com/identity/marca-soarinho.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -308,8 +327,8 @@
     <header id="header" class="fixed top-0 left-0 w-full z-50 glass-effect py-4 transition-all duration-300">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center">
-                <a href="#hero" class="flex items-center hover:scale-105 transition-transform duration-300">
-                    <img src="https://soarinho.com/identity/logo-soarinho.png" alt="Soarinho" class="h-16 md:h-24 lg:h-28 w-auto">
+                <a href="#hero" class="flex items-center hover:scale-105 transition-transform duration-300" aria-label="Soarinho - Página Inicial">
+                    <img src="https://soarinho.com/identity/logo-soarinho.png" alt="Soarinho - Artista Tecnológico" class="h-16 md:h-24 lg:h-28 w-auto">
                 </a>
                 <nav class="hidden md:block">
                     <ul class="flex space-x-8">
@@ -355,13 +374,13 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20" itemscope itemtype="https://schema.org/Person">
         <div class="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-900 to-dark-900 z-0"></div>
         
         <div class="container mx-auto px-4 text-center z-10 relative">
             <div class="reveal">
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-6 animate-float">Um Artista Tecnológico</h1>
-                <p class="text-xl md:text-2xl lg:text-3xl text-dark-200 max-w-4xl mx-auto mb-10 leading-relaxed">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-6 animate-float" itemprop="jobTitle">Um Artista Tecnológico</h1>
+                <p class="text-xl md:text-2xl lg:text-3xl text-dark-200 max-w-4xl mx-auto mb-10 leading-relaxed" itemprop="description">
                     Unindo <span class="text-white font-semibold">Arte</span> e <span class="text-white font-semibold">Tecnologia</span> para Criar Experiências que <span class="text-white font-semibold">Conectam</span>, <span class="text-white font-semibold">Encantam</span> e <span class="text-white font-semibold">Resolvem</span>.
                 </p>
                 <a href="#ecosystem" class="inline-block btn-primary font-bold py-4 px-10 rounded-full transition-all duration-300 hover:shadow-lg hover:animate-glow text-lg">
@@ -599,15 +618,6 @@
                 <div>
                     <div class="elfsight-app-c85a5979-e427-4d08-9d3a-647b2e14c648" data-elfsight-app-lazy></div>
                 </div>
-                
-                <!-- Link para ver mais depoimentos -->
-                <div class="text-center mt-12 reveal">
-                    <a href="https://share.google/tKvgYwdlS9tb5WQ2N" target="_blank" class="inline-block btn-primary font-bold py-4 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:animate-glow">
-                        <i class="fab fa-google mr-2"></i>
-                        Ver todos os depoimentos no Google
-                        <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -700,6 +710,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lucas Soares dos Santos",
+        "alternateName": "Soarinho",
+        "jobTitle": "Artista Tecnológico",
+        "description": "Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam",
+        "url": "https://soarinho.com",
+        "sameAs": [
+            "https://instagram.com/osoarinho",
+            "https://www.youtube.com/@osoarinho",
+            "https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e",
+            "https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/"
+        ],
+        "knowsAbout": ["Música", "Locução", "Dublagem", "Edição de Vídeo", "Desenvolvimento Web", "Suporte Técnico"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Angra dos Reis",
+            "addressRegion": "RJ",
+            "addressCountry": "BR"
+        }
+    }
+    </script>
 
     <script>
         // Header scroll effect
