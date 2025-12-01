@@ -214,6 +214,8 @@
         .image-overlay-dark {
             position: relative;
             overflow: hidden;
+            width: 100%;
+            height: 100%;
         }
         
         .image-overlay-dark::before {
@@ -232,11 +234,27 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
+            display: block;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .image-overlay-dark:hover img {
             transform: scale(1.05);
+        }
+        
+        /* Hero Background Image */
+        #hero .image-overlay-dark {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        
+        #hero .image-overlay-dark img {
+            object-fit: cover;
+            object-position: center center;
+            width: 100%;
+            height: 100%;
         }
         
         /* Hero Image Container */
@@ -245,6 +263,20 @@
             border-radius: 2rem;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 50px rgba(224, 224, 224, 0.1);
+            width: 100%;
+            aspect-ratio: 4/5;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .hero-image-container .image-overlay-dark {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-image-container img {
+            object-fit: cover;
+            object-position: center center;
         }
         
         /* Dual Section Images */
@@ -252,14 +284,17 @@
             position: relative;
             border-radius: 1.5rem;
             overflow: hidden;
-            height: 100%;
-            min-height: 400px;
+            width: 100%;
+            aspect-ratio: 4/5;
+            min-height: 500px;
         }
         
         .dual-section-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
+            display: block;
             filter: grayscale(30%) brightness(0.7);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -275,8 +310,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(180deg, rgba(10, 10, 10, 0.4) 0%, rgba(10, 10, 10, 0.8) 100%);
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.85) 100%);
             z-index: 1;
+            pointer-events: none;
         }
         
         /* About Section Image */
@@ -284,12 +320,17 @@
             border-radius: 1.5rem;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            aspect-ratio: 3/4;
+            max-height: 600px;
         }
         
         .about-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
+            display: block;
             filter: grayscale(20%) brightness(0.8);
             transition: all 0.6s ease;
         }
@@ -479,14 +520,14 @@
             <div class="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-900 to-dark-900 z-0"></div>
             
             <!-- Hero Background Image -->
-            <div class="absolute inset-0 z-0 image-overlay-dark">
+            <div class="absolute inset-0 z-0 image-overlay-dark opacity-30">
                 <img src="https://soarinho.com/portraits/IMG-20251201-WA0021.jpg" alt="Soarinho trabalhando" class="parallax-image" id="hero-bg-image" onerror="this.style.display='none'">
             </div>
             
             <div class="container mx-auto px-4 z-10 relative">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <!-- Text Content -->
-                    <div class="text-center lg:text-left reveal">
+                    <div class="text-center lg:text-left reveal order-2 lg:order-1">
                         <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-6 animate-float" itemprop="jobTitle">Um Artista Tecnológico</h1>
                         <p class="text-xl md:text-2xl lg:text-3xl text-dark-200 max-w-4xl mx-auto lg:mx-0 mb-10 leading-relaxed" itemprop="description">
                             Unindo <strong class="text-white font-semibold">Arte</strong> e <strong class="text-white font-semibold">Tecnologia</strong> para Criar Experiências que <strong class="text-white font-semibold">Conectam</strong>, <strong class="text-white font-semibold">Encantam</strong> e <strong class="text-white font-semibold">Resolvem</strong>.
@@ -498,7 +539,7 @@
                     </div>
                     
                     <!-- Hero Image -->
-                    <div class="hero-image-container reveal" style="animation-delay: 0.2s;">
+                    <div class="hero-image-container reveal order-1 lg:order-2" style="animation-delay: 0.2s;">
                         <div class="image-overlay-dark">
                             <img src="https://soarinho.com/portraits/IMG-20251201-WA0021.jpg" alt="Soarinho - Artista Tecnológico" class="parallax-image" onerror="this.style.display='none'">
                         </div>
@@ -671,12 +712,12 @@
                 <div class="dual-section-image reveal">
                     <img src="https://soarinho.com/portraits/IMG-20251201-WA0023.jpg" alt="Soarinho - Artista Musical" class="parallax-image" onerror="this.src='https://soarinho.com/portraits/IMG-20251201-WA0024.jpg'">
                     <div class="dual-section-overlay"></div>
-                    <div class="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12">
-                        <div class="text-5xl md:text-6xl mb-4 text-white opacity-90">
+                    <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8 lg:p-12">
+                        <div class="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 text-white opacity-90">
                             <i class="fas fa-music"></i>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">O Artista</h3>
-                        <p class="text-dark-200 text-lg md:text-xl leading-relaxed">
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">O Artista</h3>
+                        <p class="text-dark-200 text-base md:text-lg lg:text-xl leading-relaxed">
                             Música, composição e performances que emocionam. Violoncelo, voz e criação artística.
                         </p>
                     </div>
@@ -686,12 +727,12 @@
                 <div class="dual-section-image reveal" style="animation-delay: 0.2s;">
                     <img src="https://soarinho.com/portraits/IMG-20251201-WA0022.jpg" alt="Soarinho - Desenvolvedor" class="parallax-image" onerror="this.src='https://soarinho.com/portraits/IMG-20251201-WA0021.jpg'">
                     <div class="dual-section-overlay"></div>
-                    <div class="absolute inset-0 z-10 flex flex-col justify-end p-8 md:p-12">
-                        <div class="text-5xl md:text-6xl mb-4 text-white opacity-90">
+                    <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8 lg:p-12">
+                        <div class="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 text-white opacity-90">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">O Tecnólogo</h3>
-                        <p class="text-dark-200 text-lg md:text-xl leading-relaxed">
+                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">O Tecnólogo</h3>
+                        <p class="text-dark-200 text-base md:text-lg lg:text-xl leading-relaxed">
                             Desenvolvimento web, sistemas e soluções digitais que transformam ideias em realidade.
                         </p>
                     </div>
@@ -734,7 +775,7 @@
                             </div>
                         </div>
                         
-                        <div class="space-y-6">
+                        <div class="space-y-6 order-1 lg:order-2">
                             <div class="card-effect rounded-xl p-6">
                                 <h4 class="text-lg md:text-xl font-bold text-white mb-3">Expertise Tecnológica</h4>
                                 <p class="text-dark-200 leading-relaxed text-sm md:text-base">
