@@ -279,6 +279,11 @@
         .hero-image-container img {
             object-fit: cover;
             object-position: center center;
+            filter: brightness(1.2) contrast(1.1);
+        }
+        
+        .hero-image-container .image-overlay-dark::before {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(15, 15, 15, 0.5) 50%, rgba(10, 10, 10, 0.6) 100%);
         }
         
         /* Dual Section Images */
@@ -437,6 +442,122 @@
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
         
+        /* Timeline Styles */
+        #about .card-effect:hover {
+            transform: translateY(-4px);
+        }
+        
+        #about .card-effect.border-l-2 {
+            transition: all 0.3s ease;
+        }
+        
+        #about .card-effect.border-l-2:hover {
+            border-left-color: rgba(255, 255, 255, 0.4);
+            transform: translateX(4px);
+        }
+        
+        /* Timeline dots animation */
+        #about .relative .absolute.w-4.h-4 {
+            transition: all 0.3s ease;
+            animation: pulse-timeline 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-timeline {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 4px rgba(255, 255, 255, 0);
+            }
+        }
+        
+        /* Icon containers hover effect */
+        #about .w-14.h-14,
+        #about .w-16.h-16,
+        #about .w-12.h-12 {
+            transition: all 0.3s ease;
+        }
+        
+        #about .card-effect:hover .w-14.h-14,
+        #about .card-effect:hover .w-16.h-16,
+        #about .card-effect:hover .w-12.h-12 {
+            transform: scale(1.1) rotate(5deg);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Final statement card glow */
+        #about .bg-gradient-to-br.from-white\/10 {
+            position: relative;
+        }
+        
+        #about .bg-gradient-to-br.from-white\/10::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #about .bg-gradient-to-br.from-white\/10:hover::before {
+            opacity: 1;
+        }
+        
+        /* Responsive adjustments for timeline */
+        @media (max-width: 768px) {
+            #about .pl-12 {
+                padding-left: 2.5rem;
+            }
+            
+            #about .absolute.-left-8 {
+                left: -1.5rem;
+            }
+        }
+        
+        /* Button Glow Effects */
+        .btn-glow {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: #ffffff !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn-glow:hover::after {
+            left: 100%;
+        }
+        
+        .btn-glow:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+        }
+        
+        .btn-primary-glow {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
         
     </style>
 </head>
@@ -491,6 +612,10 @@
                             Depoimentos
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                         </a></li>
+                        <li><a href="#links" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium relative group">
+                            Links
+                            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                        </a></li>
                         <li><a href="#contact" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium relative group">
                             Contato
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -510,6 +635,7 @@
                     <li><a href="#ecosystem" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium block py-2">Ecossistema</a></li>
                     <li><a href="#about" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium block py-2">Sobre</a></li>
                     <li><a href="#depoimentos" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium block py-2">Depoimentos</a></li>
+                    <li><a href="#links" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium block py-2">Links</a></li>
                     <li><a href="#contact" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium block py-2">Contato</a></li>
                 </ul>
             </nav>
@@ -546,14 +672,6 @@
                             <img src="https://soarinho.com/portraits/IMG-20251201-WA0023.jpg" alt="Soarinho - Artista Tecnológico" class="parallax-image" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
                         </div>
                     </div>
-                </div>
-            </div>
-        
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-                <div class="flex flex-col items-center text-dark-300">
-                    <span class="text-sm mb-2">Scroll</span>
-                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
         </section>
@@ -702,58 +820,137 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 md:py-32 bg-dark-900 relative">
-        <div class="container mx-auto px-4">
+    <section id="about" class="py-20 md:py-32 bg-dark-900 relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-dark-800/30 to-transparent rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-dark-800/30 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Minha Jornada</h2>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 gradient-text">Minha Jornada</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent mx-auto mt-6"></div>
             </div>
             
             <div class="max-w-7xl mx-auto">
-                <div class="card-effect rounded-3xl p-8 md:p-12 neon-border reveal">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
-                        <div class="space-y-6">
-                            <!-- About Image -->
-                            <div class="about-image reveal" style="animation-delay: 0.1s;">
-                                <img src="https://soarinho.com/portraits/IMG-20251201-WA0031.jpg" alt="Soarinho tocando violoncelo" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
-                            </div>
-                            
-                            <div>
-                                <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Me chamo Lucas Soares, mas pode me chamar de Soarinho.</h3>
-                                <p class="text-dark-200 leading-relaxed mb-4 text-base md:text-lg">
-                                    Meu propósito é unir arte e tecnologia para criar experiências que conectam, encantam e resolvem.
-                                </p>
-                                <p class="text-dark-200 leading-relaxed text-base md:text-lg">
-                                    Sou Cantor, Músico, Compositor e Produtor Musical, apaixonado por transformar momentos em memórias através da música — em cerimônias, eventos e apresentações especiais. Minhas canções transitam entre o amor e a fé, com mensagens que tocam. Em 2022, lancei meu primeiro single, "Diamante Meu!". Desde então, sigo em constante evolução musical, com álbum autoral, colaborações e novos projetos em construção.
-                                </p>
-                            </div>
-                            
-                            <div class="card-effect rounded-xl p-6">
-                                <h4 class="text-lg md:text-xl font-bold text-white mb-3">Atuação Multifacetada</h4>
-                                <p class="text-dark-200 leading-relaxed text-sm md:text-base">
-                                    Também atuo como Locutor e Dublador, dando voz com versatilidade a campanhas, vídeos, marcas e personagens. No audiovisual, sou Editor de Vídeo, Áudio, Imagens e Artes Visuais, criando conteúdos que comunicam, impactam e geram valor.
-                                </p>
+                <!-- Main Introduction Card -->
+                <div class="card-effect rounded-3xl p-8 md:p-12 lg:p-16 neon-border reveal mb-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+                        <!-- Image Section -->
+                        <div class="reveal" style="animation-delay: 0.1s;">
+                            <div class="about-image relative group">
+                                <div class="absolute -inset-1 bg-gradient-to-r from-white/20 to-white/5 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+                                <img src="https://soarinho.com/portraits/IMG-20251201-WA0031.jpg" alt="Soarinho tocando violoncelo" class="relative rounded-2xl" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
                             </div>
                         </div>
                         
-                        <div class="space-y-6 order-1 lg:order-2">
-                            <div class="card-effect rounded-xl p-6">
-                                <h4 class="text-lg md:text-xl font-bold text-white mb-3">Expertise Tecnológica</h4>
-                                <p class="text-dark-200 leading-relaxed text-sm md:text-base">
-                                    Na área da tecnologia, sou Analista de Sistemas e Desenvolvedor Web, criando sites, sistemas e soluções digitais para pessoas, negócios e empresas se posicionarem online. Amo estilo e comunicação visual. Tudo que envolve expressão, arte, criatividade e tecnologia faz parte da minha essência.
-                                </p>
+                        <!-- Introduction Text -->
+                        <div class="space-y-6 reveal" style="animation-delay: 0.2s;">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-white/5 flex items-center justify-center border border-white/10">
+                                    <i class="fas fa-user text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white">Me chamo Lucas Soares, mas pode me chamar de <span class="gradient-text">Soarinho</span>.</h3>
                             </div>
                             
-                            <div>
-                                <h4 class="text-xl md:text-2xl font-bold text-white mb-4">Trajetória Profissional</h4>
-                                <p class="text-dark-200 leading-relaxed mb-4 text-sm md:text-base">
-                                    Minha trajetória começou como Assistente Comercial em uma agência de turismo em Angra dos Reis. Depois, fui Monitor de Alunos e Instrutor de Informática numa escola profissionalizante. No serviço público, atuei como estagiário em Suporte Técnico, passei pelo setor Administrativo e hoje estou na Coordenação Técnica de Desenvolvimento de Sistemas da Prefeitura de Angra dos Reis, onde crio e mantenho sites, sistemas e aplicativos que facilitam a vida das pessoas.
+                            <div class="space-y-4">
+                                <p class="text-dark-200 leading-relaxed text-base md:text-lg">
+                                    Meu propósito é unir <strong class="text-white">arte</strong> e <strong class="text-white">tecnologia</strong> para criar experiências que conectam, encantam e resolvem.
                                 </p>
-                                <div class="card-effect rounded-xl p-6">
-                                    <p class="text-dark-200 leading-relaxed text-sm md:text-base font-semibold">
-                                        Por isso, Soarinho é um "Artista Tecnológico", apaixonado por transformar ideias em soluções, atuando na interseção entre tecnologia, criatividade, arte e comunicação.
+                                <p class="text-dark-200 leading-relaxed text-base md:text-lg">
+                                    Sou Cantor, Músico, Compositor e Produtor Musical, apaixonado por transformar momentos em memórias através da música — em cerimônias, eventos e apresentações especiais. Minhas canções transitam entre o amor e a fé, com mensagens que tocam. Em 2022, lancei meu primeiro single, <strong class="text-white">"Diamante Meu!"</strong>. Desde então, sigo em constante evolução musical, com álbum autoral, colaborações e novos projetos em construção.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Expertise Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8">
+                    <!-- Atuação Multifacetada Card -->
+                    <div class="card-effect rounded-2xl p-6 md:p-8 neon-border reveal hover:scale-[1.02] transition-transform duration-300" style="animation-delay: 0.3s;">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/15 to-white/5 flex items-center justify-center border border-white/10 flex-shrink-0">
+                                <i class="fas fa-theater-masks text-white text-2xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Atuação Multifacetada</h4>
+                            </div>
+                        </div>
+                        <p class="text-dark-200 leading-relaxed text-sm md:text-base">
+                            Também atuo como Locutor e Dublador, dando voz com versatilidade a campanhas, vídeos, marcas e personagens. No audiovisual, sou Editor de Vídeo, Áudio, Imagens e Artes Visuais, criando conteúdos que comunicam, impactam e geram valor.
+                        </p>
+                    </div>
+                    
+                    <!-- Expertise Tecnológica Card -->
+                    <div class="card-effect rounded-2xl p-6 md:p-8 neon-border reveal hover:scale-[1.02] transition-transform duration-300" style="animation-delay: 0.4s;">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-white/15 to-white/5 flex items-center justify-center border border-white/10 flex-shrink-0">
+                                <i class="fas fa-laptop-code text-white text-2xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl md:text-2xl font-bold text-white mb-3">Expertise Tecnológica</h4>
+                            </div>
+                        </div>
+                        <p class="text-dark-200 leading-relaxed text-sm md:text-base">
+                            Na área da tecnologia, sou Analista de Sistemas e Desenvolvedor Web, criando sites, sistemas e soluções digitais para pessoas, negócios e empresas se posicionarem online. Amo estilo e comunicação visual. Tudo que envolve expressão, arte, criatividade e tecnologia faz parte da minha essência.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Trajetória Profissional Section -->
+                <div class="card-effect rounded-3xl p-8 md:p-12 neon-border reveal" style="animation-delay: 0.5s;">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-white/15 to-white/5 flex items-center justify-center border border-white/10">
+                            <i class="fas fa-route text-white text-3xl"></i>
+                        </div>
+                        <h4 class="text-2xl md:text-3xl font-bold text-white">Trajetória Profissional</h4>
+                    </div>
+                    
+                    <!-- Timeline Visual -->
+                    <div class="relative mb-8">
+                        <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 via-white/10 to-white/20"></div>
+                        
+                        <div class="space-y-6 pl-12 md:pl-16">
+                            <div class="relative">
+                                <div class="absolute -left-8 md:-left-12 top-2 w-4 h-4 rounded-full bg-white/30 border-2 border-white/50"></div>
+                                <div class="card-effect rounded-xl p-5 md:p-6 border-l-2 border-white/20">
+                                    <p class="text-dark-200 leading-relaxed text-sm md:text-base">
+                                        Minha trajetória começou como <strong class="text-white">Assistente Comercial</strong> em uma agência de turismo em Angra dos Reis.
                                     </p>
                                 </div>
                             </div>
+                            
+                            <div class="relative">
+                                <div class="absolute -left-8 md:-left-12 top-2 w-4 h-4 rounded-full bg-white/30 border-2 border-white/50"></div>
+                                <div class="card-effect rounded-xl p-5 md:p-6 border-l-2 border-white/20">
+                                    <p class="text-dark-200 leading-relaxed text-sm md:text-base">
+                                        Depois, fui <strong class="text-white">Monitor de Alunos</strong> e <strong class="text-white">Instrutor de Informática</strong> numa escola profissionalizante.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <div class="absolute -left-8 md:-left-12 top-2 w-4 h-4 rounded-full bg-white/30 border-2 border-white/50"></div>
+                                <div class="card-effect rounded-xl p-5 md:p-6 border-l-2 border-white/20">
+                                    <p class="text-dark-200 leading-relaxed text-sm md:text-base">
+                                        No serviço público, atuei como <strong class="text-white">estagiário em Suporte Técnico</strong>, passei pelo setor <strong class="text-white">Administrativo</strong> e hoje estou na <strong class="text-white">Coordenação Técnica de Desenvolvimento de Sistemas</strong> da Prefeitura de Angra dos Reis, onde crio e mantenho sites, sistemas e aplicativos que facilitam a vida das pessoas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Final Statement Card -->
+                    <div class="card-effect rounded-2xl p-6 md:p-8 bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-quote-left text-white/50 text-2xl"></i>
+                                <h5 class="text-lg md:text-xl font-bold text-white">Artista Tecnológico</h5>
+                            </div>
+                            <p class="text-dark-100 leading-relaxed text-base md:text-lg font-medium">
+                                Por isso, Soarinho é um "Artista Tecnológico", apaixonado por transformar ideias em soluções, atuando na interseção entre tecnologia, criatividade, arte e comunicação.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -786,89 +983,124 @@
         </div>
     </section>
 
+    <!-- Links Section -->
+    <section id="links" class="py-20 md:py-32 bg-dark-900 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Links</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto"></div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                    <a href="https://wa.me/5524998540552" target="_blank" class="group reveal">
+                        <div class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
+                            <div class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="text-white font-medium text-base md:text-lg">WhatsApp</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://instagram.com/osoarinho" target="_blank" class="group reveal">
+                        <div class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
+                            <div class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="text-white font-medium text-base md:text-lg">Instagram</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.youtube.com/@osoarinho" target="_blank" class="group reveal">
+                        <div class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
+                            <div class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                            <div class="text-white font-medium text-base md:text-lg">YouTube</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e?si=wZOs2RH9QYCxpdOxmr_Osw" target="_blank" class="group reveal">
+                        <div class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
+                            <div class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
+                                <i class="fab fa-spotify"></i>
+                            </div>
+                            <div class="text-white font-medium text-base md:text-lg">Spotify</div>
+                        </div>
+                    </a>
+                    
+                    <a href="mailto:contato@soarinho.com" class="group reveal">
+                        <div class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
+                            <div class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="text-white font-medium text-base md:text-lg">E-mail</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/" target="_blank" class="group reveal">
+                        <div class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
+                            <div class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="text-white font-medium text-base md:text-lg">LinkedIn</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 md:py-32 bg-dark-800 relative">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Conecte-se</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto"></div>
             </div>
             
-            <div class="max-w-5xl mx-auto">
-                <div class="card-effect rounded-3xl p-8 md:p-12 text-center neon-border reveal">
-                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Vamos transformar ideias em experiências?</h3>
-                    <p class="text-dark-200 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                        Entre em contato para projetos, colaborações ou dúvidas
-                    </p>
-                    
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto mb-10">
-                        <a href="https://api.whatsapp.com/send?phone=5524998540552" target="_blank" class="group">
-                            <div class="card-effect rounded-xl p-4 md:p-6 neon-border hover:scale-105 transition-transform duration-300">
-                                <div class="text-3xl md:text-4xl text-dark-200 mb-2 group-hover:text-white transition-colors">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div class="text-white font-medium text-sm md:text-base">WhatsApp</div>
+            <div class="max-w-3xl mx-auto reveal">
+                <div class="card-effect rounded-3xl p-8 md:p-12 neon-border">
+                    <form id="contactForm" class="space-y-6" action="mailto:contato@soarinho.com" method="post" enctype="text/plain">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <input type="text" name="name" class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:border-white transition-all text-white placeholder-dark-400" placeholder="Seu nome" required>
                             </div>
-                        </a>
-                        
-                        <a href="https://instagram.com/osoarinho" target="_blank" class="group">
-                            <div class="card-effect rounded-xl p-4 md:p-6 neon-border hover:scale-105 transition-transform duration-300">
-                                <div class="text-3xl md:text-4xl text-dark-200 mb-2 group-hover:text-white transition-colors">
-                                    <i class="fab fa-instagram"></i>
-                                </div>
-                                <div class="text-white font-medium text-sm md:text-base">Instagram</div>
+                            <div>
+                                <input type="email" name="email" class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:border-white transition-all text-white placeholder-dark-400" placeholder="Seu e-mail" required>
                             </div>
-                        </a>
-                        
-                        <a href="https://www.youtube.com/@osoarinho" target="_blank" class="group">
-                            <div class="card-effect rounded-xl p-4 md:p-6 neon-border hover:scale-105 transition-transform duration-300">
-                                <div class="text-3xl md:text-4xl text-dark-200 mb-2 group-hover:text-white transition-colors">
-                                    <i class="fab fa-youtube"></i>
-                                </div>
-                                <div class="text-white font-medium text-sm md:text-base">YouTube</div>
-                            </div>
-                        </a>
-                        
-                        <a href="https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e?si=wZOs2RH9QYCxpdOxmr_Osw" target="_blank" class="group">
-                            <div class="card-effect rounded-xl p-4 md:p-6 neon-border hover:scale-105 transition-transform duration-300">
-                                <div class="text-3xl md:text-4xl text-dark-200 mb-2 group-hover:text-white transition-colors">
-                                    <i class="fab fa-spotify"></i>
-                                </div>
-                                <div class="text-white font-medium text-sm md:text-base">Spotify</div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <a href="https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/" target="_blank" class="inline-block btn-primary font-bold py-4 px-8 rounded-full transition-all duration-300 hover:shadow-lg hover:animate-glow">
-                        <i class="fab fa-linkedin mr-2"></i> LinkedIn Professional
-                    </a>
+                        </div>
+                        <div>
+                            <input type="text" name="subject" class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:border-white transition-all text-white placeholder-dark-400" placeholder="Assunto">
+                        </div>
+                        <div>
+                            <textarea name="message" rows="5" class="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:border-white transition-all text-white placeholder-dark-400 resize-none" placeholder="Sua mensagem" required></textarea>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button type="submit" class="btn-glow btn-primary-glow py-4 px-8 rounded-full font-semibold text-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Enviar Mensagem
+                            </button>
+                            <a href="https://wa.me/5524998540552?text=Olá! Gostaria de mais informações." class="btn-glow py-4 px-8 rounded-full font-semibold text-lg inline-flex items-center justify-center" target="_blank">
+                                <i class="fab fa-whatsapp mr-2"></i>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        </section>
+    </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark-900 py-12 border-t border-dark-800">
+    <footer class="bg-dark-900 py-12 border-t border-dark-800 relative z-10">
         <div class="container mx-auto px-4">
             <div class="text-center">
                 <div class="flex justify-center items-center mb-6">
                     <img src="https://soarinho.com/identity/marca-soarinho.png" alt="Marca Soarinho" class="h-24 md:h-32 lg:h-36 w-auto">
                 </div>
-                <p class="text-dark-400 mb-8 text-lg">Artista Tecnológico - Artes e Tecnologia</p>
-                
-                <div class="flex justify-center space-x-6 mb-8">
-                    <a href="https://instagram.com/osoarinho" target="_blank" class="w-12 h-12 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-dark-400 hover:text-white hover:border-white transition-all hover:scale-110 transform duration-300">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@osoarinho" target="_blank" class="w-12 h-12 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-dark-400 hover:text-white hover:border-white transition-all hover:scale-110 transform duration-300">
-                        <i class="fab fa-youtube text-xl"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/" target="_blank" class="w-12 h-12 rounded-full bg-dark-800 border border-dark-700 flex items-center justify-center text-dark-400 hover:text-white hover:border-white transition-all hover:scale-110 transform duration-300">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                </div>
-                
-                <p class="text-dark-500 text-sm">&copy; 2025 Soarinho. Todos os direitos reservados.</p>
+                <p class="text-dark-500 text-sm">Soarinho. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
