@@ -101,7 +101,7 @@
         }
         
         * {
-            cursor: none;
+            cursor: auto;
         }
         
         .custom-cursor {
@@ -114,6 +114,7 @@
             z-index: 9999;
             mix-blend-mode: difference;
             transition: transform 0.1s ease;
+            display: none;
         }
         
         .cursor-dot {
@@ -125,6 +126,7 @@
             pointer-events: none;
             z-index: 9999;
             mix-blend-mode: difference;
+            display: none;
         }
         
         @media (max-width: 768px) {
@@ -521,7 +523,7 @@
             
             <!-- Hero Background Image -->
             <div class="absolute inset-0 z-0 image-overlay-dark opacity-30">
-                <img src="https://soarinho.com/portraits/IMG-20251201-WA0021.jpg" alt="Soarinho trabalhando" class="parallax-image" id="hero-bg-image" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
+                <img src="https://soarinho.com/portraits/IMG-20251201-WA0023.jpg" alt="Soarinho trabalhando" class="parallax-image" id="hero-bg-image" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
             </div>
             
             <div class="container mx-auto px-4 z-10 relative">
@@ -541,7 +543,7 @@
                     <!-- Hero Image -->
                     <div class="hero-image-container reveal order-1 lg:order-2" style="animation-delay: 0.2s;">
                         <div class="image-overlay-dark">
-                            <img src="https://soarinho.com/portraits/IMG-20251201-WA0021.jpg" alt="Soarinho - Artista Tecnológico" class="parallax-image" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
+                            <img src="https://soarinho.com/portraits/IMG-20251201-WA0023.jpg" alt="Soarinho - Artista Tecnológico" class="parallax-image" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
                         </div>
                     </div>
                 </div>
@@ -699,48 +701,6 @@
         </div>
     </section>
 
-    <!-- Dual Identity Section - Arte & Tecnologia -->
-    <section class="py-20 md:py-32 bg-dark-800 relative overflow-hidden">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 reveal">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Arte & Tecnologia</h2>
-                <p class="text-dark-300 text-lg md:text-xl max-w-3xl mx-auto">Duas paixões, uma essência</p>
-            </div>
-            
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                <!-- Arte Side -->
-                <div class="dual-section-image reveal">
-                    <img src="https://soarinho.com/portraits/IMG-20251201-WA0023.jpg" alt="Soarinho - Artista Musical" class="parallax-image" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
-                    <div class="dual-section-overlay"></div>
-                    <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8 lg:p-12">
-                        <div class="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 text-white opacity-90">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">O Artista</h3>
-                        <p class="text-dark-200 text-base md:text-lg lg:text-xl leading-relaxed">
-                            Música, composição e performances que emocionam. Violoncelo, voz e criação artística.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Tecnologia Side -->
-                <div class="dual-section-image reveal" style="animation-delay: 0.2s;">
-                    <img src="https://soarinho.com/portraits/IMG-20251201-WA0022.jpg" alt="Soarinho - Desenvolvedor" class="parallax-image" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
-                    <div class="dual-section-overlay"></div>
-                    <div class="absolute inset-0 z-10 flex flex-col justify-end p-6 md:p-8 lg:p-12">
-                        <div class="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 text-white opacity-90">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">O Tecnólogo</h3>
-                        <p class="text-dark-200 text-base md:text-lg lg:text-xl leading-relaxed">
-                            Desenvolvimento web, sistemas e soluções digitais que transformam ideias em realidade.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- About Section -->
     <section id="about" class="py-20 md:py-32 bg-dark-900 relative">
         <div class="container mx-auto px-4">
@@ -754,7 +714,7 @@
                         <div class="space-y-6">
                             <!-- About Image -->
                             <div class="about-image reveal" style="animation-delay: 0.1s;">
-                                <img src="https://soarinho.com/portraits/IMG-20251201-WA0023.jpg" alt="Soarinho tocando violoncelo" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
+                                <img src="https://soarinho.com/portraits/IMG-20251201-WA0031.jpg" alt="Soarinho tocando violoncelo" onerror="this.onerror=null; this.src='https://soarinho.com/identity/marca-soarinho.png';">
                             </div>
                             
                             <div>
