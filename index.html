@@ -142,6 +142,148 @@
             font-family: 'Exo 2', sans-serif;
             background-color: #0a0a0a;
             color: #e0e0e0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .theme-toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: scale(1.1);
+        }
+        
+        .theme-toggle-btn i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle-btn:hover i {
+            transform: rotate(15deg);
+        }
+        
+        /* Light Theme Styles */
+        body.light-theme {
+            background-color: #ffffff;
+            color: #0a0a0a;
+        }
+        
+        body.light-theme .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .card-effect {
+            background: linear-gradient(145deg, rgba(250, 250, 250, 0.9), rgba(245, 245, 245, 0.9));
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .card-effect:hover {
+            border-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.light-theme .text-white,
+        body.light-theme .text-dark-100,
+        body.light-theme .text-dark-200,
+        body.light-theme h1,
+        body.light-theme h2,
+        body.light-theme h3,
+        body.light-theme h4,
+        body.light-theme h5,
+        body.light-theme h6 {
+            color: #0a0a0a !important;
+        }
+        
+        body.light-theme .text-dark-300,
+        body.light-theme .text-dark-400 {
+            color: #404040 !important;
+        }
+        
+        body.light-theme .bg-dark-900,
+        body.light-theme .bg-dark-800,
+        body.light-theme .bg-dark-700 {
+            background-color: #ffffff !important;
+        }
+        
+        body.light-theme .bg-dark-600 {
+            background-color: #f5f5f5 !important;
+        }
+        
+        body.light-theme .border-dark-800,
+        body.light-theme .border-dark-600 {
+            border-color: rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        body.light-theme .theme-toggle-btn {
+            border-color: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.05);
+            color: #0a0a0a;
+        }
+        
+        body.light-theme .theme-toggle-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        body.light-theme img[src*="logo-soarinho.png"] {
+            filter: brightness(0) invert(0);
+        }
+        
+        body.light-theme .gradient-text {
+            background: linear-gradient(135deg, #0a0a0a 0%, #404040 50%, #0a0a0a 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        body.light-theme .neon-border::before {
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.1));
+        }
+        
+        body.light-theme .btn-primary,
+        body.light-theme .btn-glow,
+        body.light-theme .btn-primary-glow {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        body.light-theme .btn-primary:hover,
+        body.light-theme .btn-glow:hover,
+        body.light-theme .btn-primary-glow:hover {
+            background: #1a1a1a;
+        }
+        
+        body.light-theme input,
+        body.light-theme textarea {
+            background-color: #f5f5f5 !important;
+            border-color: rgba(0, 0, 0, 0.2) !important;
+            color: #0a0a0a !important;
+        }
+        
+        body.light-theme input::placeholder,
+        body.light-theme textarea::placeholder {
+            color: #808080 !important;
+        }
+        
+        body.light-theme input:focus,
+        body.light-theme textarea:focus {
+            border-color: #0a0a0a !important;
         }
         
         .gradient-text {
@@ -595,7 +737,7 @@
                     <img src="https://soarinho.com/identity/logo-soarinho.png" alt="Soarinho - Artista Tecnológico" class="h-16 md:h-24 lg:h-28 w-auto">
                 </a>
                 <nav class="hidden md:block">
-                    <ul class="flex space-x-8">
+                    <ul class="flex space-x-8 items-center">
                         <li><a href="#hero" class="text-dark-100 hover:text-white transition-colors duration-300 font-medium relative group">
                             Início
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -620,11 +762,21 @@
                             Contato
                             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                         </a></li>
+                        <li>
+                            <button id="theme-toggle" class="theme-toggle-btn ml-4" aria-label="Alternar tema">
+                                <i class="fas fa-moon" id="theme-icon"></i>
+                            </button>
+                        </li>
                     </ul>
                 </nav>
-                <button id="mobile-menu-btn" class="md:hidden text-dark-100 hover:text-white transition-colors mobile-menu">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+                <div class="flex items-center gap-3 md:hidden">
+                    <button id="theme-toggle-mobile" class="theme-toggle-btn" aria-label="Alternar tema">
+                        <i class="fas fa-moon" id="theme-icon-mobile"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-dark-100 hover:text-white transition-colors mobile-menu">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
         <!-- Mobile Menu -->
@@ -1237,6 +1389,62 @@
                     heroBgImage.style.transform = `translateY(${scrolled * 0.5}px)`;
                 }
             });
+        }
+        
+        // Theme Switcher
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+        
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Apply theme on page load
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-theme');
+            if (themeIcon) themeIcon.classList.remove('fa-moon');
+            if (themeIcon) themeIcon.classList.add('fa-sun');
+            if (themeIconMobile) themeIconMobile.classList.remove('fa-moon');
+            if (themeIconMobile) themeIconMobile.classList.add('fa-sun');
+        }
+        
+        // Toggle theme function
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+            
+            // Update icons
+            if (themeIcon) {
+                if (isLight) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+            
+            if (themeIconMobile) {
+                if (isLight) {
+                    themeIconMobile.classList.remove('fa-moon');
+                    themeIconMobile.classList.add('fa-sun');
+                } else {
+                    themeIconMobile.classList.remove('fa-sun');
+                    themeIconMobile.classList.add('fa-moon');
+                }
+            }
+            
+            // Save preference
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+        }
+        
+        // Add event listeners
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
         }
     </script>
 </body>
