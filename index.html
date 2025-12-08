@@ -30,7 +30,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- SociableKit Google Reviews Widget -->
+    <!-- Google Reviews - Static -->
     <script>
         tailwind.config = {
             theme: {
@@ -792,6 +792,48 @@
         }
         
         
+        /* Google Review Cards - Static */
+        .google-review-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            transition: box-shadow 0.2s ease;
+        }
+        
+        .google-review-card:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-theme .google-review-card {
+            background: #ffffff;
+            border-color: #e0e0e0;
+        }
+        
+        body:not(.light-theme) .google-review-card {
+            background: rgba(30, 30, 30, 0.9);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        body:not(.light-theme) .google-review-card .text-gray-900 {
+            color: #ffffff;
+        }
+        
+        body:not(.light-theme) .google-review-card .text-gray-700 {
+            color: #e0e0e0;
+        }
+        
+        body:not(.light-theme) .google-review-card .text-gray-500 {
+            color: #9ca3af;
+        }
+        
+        body:not(.light-theme) .google-review-card .bg-gray-200 {
+            background: rgba(60, 60, 60, 0.8);
+        }
+        
+        body:not(.light-theme) .google-review-card .text-gray-600 {
+            color: #d1d5db;
+        }
     </style>
 </head>
 <body class="bg-dark-900 text-dark-100 font-exo overflow-x-hidden">
@@ -1227,8 +1269,98 @@
             </div>
             
             <div class="max-w-7xl mx-auto">
-                <div class="sk-ww-google-reviews" data-embed-id="25630797"></div>
-                <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Review 1 - Ronildo Bernardo -->
+                    <div class="google-review-card">
+                        <div class="flex items-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                                <span class="text-gray-600 font-semibold text-sm">R</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <div class="font-semibold text-gray-900 text-sm">Ronildo Bernardo</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed">Excelente profissional, atendendo todos as demandas de trabalho, trazendo um som de qualidade e uma harmonia sem igual. Super recomendo esse profissional 🙏</p>
+                    </div>
+                    
+                    <!-- Review 2 - Larissa Backer -->
+                    <div class="google-review-card">
+                        <div class="flex items-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                                <span class="text-gray-600 font-semibold text-sm">L</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <div class="font-semibold text-gray-900 text-sm">Larissa Backer</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed">Trabalho incrível, apresentação impecável!!!
+                            Amei demais ❤️</p>
+                    </div>
+                    
+                    <!-- Review 3 - Marcia Pessoa -->
+                    <div class="google-review-card">
+                        <div class="flex items-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                                <span class="text-gray-600 font-semibold text-sm">M</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <div class="font-semibold text-gray-900 text-sm">Marcia Pessoa</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed">Excelente profissional, "Seu profissionalismo neste projeto fez a diferença"</p>
+                    </div>
+                    
+                    <!-- Review 4 - Luís Carlos Lima -->
+                    <div class="google-review-card">
+                        <div class="flex items-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                                <span class="text-gray-600 font-semibold text-sm">L</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <div class="font-semibold text-gray-900 text-sm">Luís Carlos Lima</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed">Excelente profissional, prestativo e sempre solicito a fazer o melhor pelo cliente.</p>
+                    </div>
+                    
+                    <!-- Review 5 - Pedro Lucas De Carvalho Machado -->
+                    <div class="google-review-card">
+                        <div class="flex items-start gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center flex-shrink-0">
+                                <span class="text-gray-600 font-semibold text-sm">P</span>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <span>★★★★★</span>
+                                    </div>
+                                </div>
+                                <div class="font-semibold text-gray-900 text-sm">Pedro Lucas De Carvalho Machado</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed">Um ótimo desenvolvedor, recomendo ...</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
