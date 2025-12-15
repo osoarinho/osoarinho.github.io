@@ -1,17 +1,20 @@
 /**
- * Frontend compartilhado em https://soarinho.com/api/form_security_frontend.js
+ * Frontend compartilhado para proteção de formulários.
  *
- * Faz:
- * - Honeypot invisível (input name="website")
- * - Time trap (hidden start_time em ms)
- * - CSRF (cookie csrf_token + hidden csrf_token)
- * - Leitura de ?status=&msg= para exibir alert de sucesso/erro
+ * Regras aplicadas no cliente:
+ * - Gera e preenche campo de honeypot invisível (name="website")
+ * - Gera timestamp de início (start_time em ms)
+ * - Gera token CSRF por sessão (cookie + campo oculto)
+ * - Opcionalmente exibe mensagens de sucesso/erro via query string (?status=ok|error&msg=...)
  *
- * Toda validação crítica é feita no backend.
+ * Importante:
+ * - O backend faz TODAS as validações críticas. Este arquivo apenas ajuda a
+ *   alimentar os campos esperados pelo backend sem alterar o layout visual.
  */
 
 (function () {
     function uuid4() {
+        // Gera um token aleatório simples para CSRF
         if (window.crypto && window.crypto.getRandomValues) {
             const array = new Uint8Array(16);
             window.crypto.getRandomValues(array);
@@ -41,7 +44,7 @@
         let token = getCookie('csrf_token');
         if (!token) {
             token = uuid4();
-            setCookie('csrf_token', token, 1);
+            setCookie('csrf_token', token, 1); // dura ~1 dia (sessão simples)
         }
         return token;
     }
@@ -49,7 +52,7 @@
     function setupForm(form) {
         if (!form) return;
 
-        // Honeypot
+        // Honeypot invisível (não impacta layout)
         let honeypot = form.querySelector('input[name="website"]');
         if (!honeypot) {
             honeypot = document.createElement('input');
@@ -64,7 +67,7 @@
             form.appendChild(honeypot);
         }
 
-        // Time trap
+        // Time trap: start_time em ms
         let startInput = form.querySelector('input[name="start_time"]');
         if (!startInput) {
             startInput = document.createElement('input');
@@ -74,7 +77,7 @@
         }
         startInput.value = String(Date.now());
 
-        // CSRF
+        // CSRF: cookie + campo oculto
         const csrfToken = ensureCsrfToken();
         let csrfInput = form.querySelector('input[name="csrf_token"]');
         if (!csrfInput) {
@@ -92,31 +95,29 @@
         const msg = params.get('msg');
         if (!status) return;
 
-        const text = msg || (status === 'ok'
-            ? 'Mensagem enviada com sucesso!'
-            : 'Não foi possível enviar sua mensagem. Tente novamente.');
-
-        alert(text);
-
+        let text;
+        if (status === 'ok') {
+            text = msg || 'Mensagem enviada com sucesso!';
+            alert(text);
+        } else if (status === 'error') {
+            text = msg || 'Não foi possível enviar sua mensagem. Tente novamente.';
+            alert(text);
+        }
+        // Opcional: remover parâmetros da URL após exibir
         if (window.history && window.history.replaceState) {
-            const url = window.location.origin + window.location.pathname + window.location.hash;
+            const url = window.location.origin + window.location.pathname;
             window.history.replaceState({}, document.title, url);
         }
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        const forms = [];
-        const byId = ['contactForm', 'support-form'];
-        byId.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) forms.push(el);
-        });
-        if (!forms.length) {
-            document.querySelectorAll('form').forEach(f => forms.push(f));
-        }
+        // Configura todos os formulários de contato conhecidos
+        const forms = [
+            document.getElementById('contactForm'),
+            document.getElementById('support-form')
+        ].filter(Boolean);
 
         forms.forEach(setupForm);
         showStatusMessage();
     });
 })();
-
