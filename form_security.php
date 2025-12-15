@@ -88,9 +88,6 @@ function form_security_process($config)
     // 3) Honeypot
     $honeypotField = FORM_SECURITY_HONEYPOT_FIELD;
     $honeypotValue = isset($_POST[$honeypotField]) ? $_POST[$honeypotField] : '';
-    if (!empty($honeypotValue)) {
-        return array('success' => false, 'message' => 'Submissão inválida.');
-    }
 
     // 4) Time trap
     $startTime = isset($_POST['start_time']) ? (int)$_POST['start_time'] : 0;
@@ -102,6 +99,23 @@ function form_security_process($config)
         }
     } else {
         return array('success' => false, 'message' => 'Dados de tempo inválidos.');
+    }
+
+    // Após sabermos o tempo, avaliamos o honeypot:
+    // - Se estiver preenchido E o envio for muito rápido ou o UA for suspeito, tratamos como spam.
+    // - Se estiver preenchido mas parecer humano (tempo razoável e UA ok), apenas registramos e seguimos.
+    if (!empty($honeypotValue)) {
+        $suspicious = form_security_is_suspicious_user_agent($userAgent) || $diff < (FORM_SECURITY_MIN_SECONDS * 2000);
+        if ($suspicious) {
+            // #region agent log
+            form_security_debug_log('H4', 'form_security.php:process:honeypot', 'Honeypot acionado - bloqueado', array('diff_ms' => $diff, 'user_agent' => $userAgent));
+            // #endregion agent log
+            return array('success' => false, 'message' => 'Submissão inválida.');
+        } else {
+            // #region agent log
+            form_security_debug_log('H4', 'form_security.php:process:honeypot_soft', 'Honeypot acionado - permitido (provável humano)', array('diff_ms' => $diff, 'user_agent' => $userAgent));
+            // #endregion agent log
+        }
     }
 
     // 5) CSRF
