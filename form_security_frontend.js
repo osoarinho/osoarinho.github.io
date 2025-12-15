@@ -37,7 +37,12 @@
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
             expires = '; expires=' + date.toUTCString();
         }
-        document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/; SameSite=Lax';
+        let cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/; SameSite=Lax';
+        // Garante que o cookie CSRF seja visível no domínio raiz e subdomínios de soarinho.com
+        if (window.location && typeof window.location.hostname === 'string' && window.location.hostname.endsWith('soarinho.com')) {
+            cookie += '; domain=.soarinho.com';
+        }
+        document.cookie = cookie;
     }
 
     function ensureCsrfToken() {

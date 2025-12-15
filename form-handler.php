@@ -9,8 +9,8 @@ require_once __DIR__ . '/form_security.php';
  * - redirect: URL absoluta para redirecionar após o processamento
  */
 
-$site     = $_POST['site'] ?? 'hub';
-$redirect = $_POST['redirect'] ?? 'https://soarinho.com/';
+$site     = isset($_POST['site']) ? $_POST['site'] : 'hub';
+$redirect = isset($_POST['redirect']) ? $_POST['redirect'] : 'https://soarinho.com/';
 
 switch ($site) {
     case 'voz':
