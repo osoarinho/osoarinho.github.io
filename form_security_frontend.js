@@ -46,11 +46,12 @@
     }
 
     function ensureCsrfToken() {
+        // Sempre garante que exista um cookie válido e visível para o domínio raiz.
+        // Se já existir, reaproveita o valor, mas regrava o cookie com domain=.soarinho.com
+        // para unificar o token entre subdomínios.
         let token = getCookie('csrf_token');
-        if (!token) {
-            token = uuid4();
-            setCookie('csrf_token', token, 1); // dura ~1 dia (sessão simples)
-        }
+        if (!token) token = uuid4();
+        setCookie('csrf_token', token, 1); // dura ~1 dia (sessão simples)
         return token;
     }
 
