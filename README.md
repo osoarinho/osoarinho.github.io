@@ -1,6 +1,6 @@
 # Soarinho - Hub do Ecossistema
 
-Site principal do ecossistema Soarinho, apresentando todos os serviços oferecidos.
+Site principal do Ecossistema do Soarinho, apresentando todos os serviços oferecidos.
 
 ## 🌐 Acesso
 
@@ -9,7 +9,7 @@ Site principal do ecossistema Soarinho, apresentando todos os serviços oferecid
 
 ## 🎯 Sobre
 
-Hub central que conecta todos os serviços do ecossistema Soarinho:
+Hub central que conecta todos os serviços do Ecossistema do Soarinho:
 - 🎤 **Voz**: Locução e dublagem
 - 🎵 **Música**: Shows e produção musical
 - 🎬 **Edição**: Produção audiovisual
