@@ -33,7 +33,8 @@
     <link rel="apple-touch-icon" href="https://soarinho.com/identity/marca-soarinho.png">
     <link rel="shortcut icon" type="image/png" href="https://soarinho.com/identity/marca-soarinho.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Reviews - Static -->
@@ -45,6 +46,10 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        'exo': ['Exo 2', 'sans-serif'],
+                        'tech': ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
+                    },
                     colors: {
                         dark: {
                             50: '#fcfcfc',
@@ -58,10 +63,14 @@
                             800: '#171717',
                             900: '#0a0a0a',
                             950: '#050505',
+                        },
+                        code: {
+                            green: '#6A9955',
+                            blue: '#569CD6',
+                            yellow: '#DCDCAA',
+                            orange: '#CE9178',
+                            purple: '#C586C0'
                         }
-                    },
-                    fontFamily: {
-                        'exo': ['Exo 2', 'sans-serif'],
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
@@ -611,6 +620,66 @@
             mask-composite: exclude;
             -webkit-mask-composite: xor;
         }
+
+        /* Terminal and Code Styles */
+        .terminal-body {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            margin-left: 4px;
+            animation: terminalBlink 1s infinite;
+        }
+
+        @keyframes terminalBlink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        body.light-theme .terminal-body {
+            background-color: #f8f8f8 !important;
+            color: #1a1a1a !important;
+        }
+
+        body.light-theme .terminal-header {
+            background-color: #e0e0e0 !important;
+            border-color: rgba(0, 0, 0, 0.1) !important;
+        }
+
+        body.light-theme .text-code-purple {
+            color: #8b1eb9 !important;
+        }
+
+        body.light-theme .text-code-blue {
+            color: #007acc !important;
+        }
+
+        body.light-theme .text-code-yellow {
+            color: #795e26 !important;
+        }
+
+        body.light-theme .text-code-green {
+            color: #008000 !important;
+        }
+
+        body.light-theme .text-code-orange {
+            color: #a31515 !important;
+        }
+
+        body.light-theme .terminal-cursor {
+            background: rgba(0, 0, 0, 0.6) !important;
+        }
     </style>
 </head>
 
@@ -811,41 +880,115 @@
                 class="absolute bottom-0 left-0 w-full overflow-hidden bg-white/5 backdrop-blur-md border-y border-white/5 py-4 z-20">
                 <div class="flex whitespace-nowrap animate-ticker">
                     <div class="flex items-center gap-8 px-4">
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">HTML5</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">CSS3</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">JavaScript</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">PHP</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">SQL</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Laravel</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">jQuery</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Bootstrap</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Tailwind
+                            CSS</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Linux</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Apache</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Git</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">GitHub</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">WordPress</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Elementor</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Canva</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">CapCut</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Audacity</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">BandLab</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
                     </div>
                     <!-- Duplicate for infinite effect -->
                     <div class="flex items-center gap-8 px-4">
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
-                        <span class="text-xs md:text-2xl font-bold tracking-[0.15em] uppercase text-dark-200">
-                            Unindo artes e tecnologia para criar experiências que conectam, encantam e resolvem.
-                        </span>
-                        <span class="w-1.5 h-1.5 md:w-3 md:h-3 rounded-full bg-white/30"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">HTML5</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">CSS3</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">JavaScript</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">PHP</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">SQL</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Laravel</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">jQuery</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Bootstrap</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Tailwind
+                            CSS</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Linux</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Apache</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Git</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">GitHub</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">WordPress</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Elementor</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Canva</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">CapCut</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">Audacity</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
+                        <span
+                            class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">BandLab</span>
+                        <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
                     </div>
                 </div>
             </div>
@@ -1355,86 +1498,92 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16 reveal">
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Loja</h2>
-                    <p class="text-dark-300 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+                    <!-- <p class="text-dark-300 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
                         Produtos de software e soluções desenvolvidas por mim
-                    </p>
+                    </p> -->
                     <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto"></div>
                 </div>
 
+                <!--
                 <div class="max-w-7xl mx-auto">
                     <div class="reveal">
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                            <!-- Praticalista - Lista de Presentes Prática -->
-                            <div class="reveal">
-                                <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col">
-                                    <div
-                                        class="aspect-video rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-dark-700 to-dark-800 flex items-center justify-center">
-                                        <div class="text-center p-8">
-                                            <i class="fas fa-gift text-6xl text-white mb-4"></i>
-                                            <h3 class="text-xl font-bold text-white">Praticalista</h3>
-                                        </div>
-                                    </div>
-                                    <div class="text-center flex-grow flex flex-col">
-                                        <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Praticalista - Lista
-                                            de Presentes Prática</h4>
-                                        <p class="text-dark-300 text-base md:text-lg mb-4">
-                                            Lista de presentes online sem burocracia, logins e complicações. Ideal para
-                                            casamentos, aniversários e qualquer outro evento especial.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 justify-center mb-4">
-                                            <span
-                                                class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Web
-                                                App</span>
-                                            <span
-                                                class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Fácil
-                                                de Usar</span>
-                                            <span
-                                                class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Eventos</span>
-                                        </div>
-                                        <a href="#"
-                                            class="btn-primary py-3 px-8 rounded-full font-semibold text-base inline-flex items-center justify-center mt-auto">
-                                            <i class="fas fa-external-link-alt mr-2"></i>
-                                            Saiba Mais
-                                        </a>
-                                    </div>
-                                </div>
+                <div class="reveal">
+                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col">
+                        <div
+                            class="aspect-video rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-dark-700 to-dark-800 flex items-center justify-center">
+                            <div class="text-center p-8">
+                                <i class="fas fa-gift text-6xl text-white mb-4"></i>
+                                <h3 class="text-xl font-bold text-white">Praticalista</h3>
                             </div>
-
-                            <!-- VirtuaLoja Lite -->
-                            <div class="reveal">
-                                <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col">
-                                    <div
-                                        class="aspect-video rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-dark-700 to-dark-800 flex items-center justify-center">
-                                        <div class="text-center p-8">
-                                            <i class="fas fa-store text-6xl text-white mb-4"></i>
-                                            <h3 class="text-xl font-bold text-white">VirtuaLoja Lite</h3>
-                                        </div>
-                                    </div>
-                                    <div class="text-center flex-grow flex flex-col">
-                                        <h4 class="text-xl md:text-2xl font-bold text-white mb-2">VirtuaLoja Lite</h4>
-                                        <p class="text-dark-300 text-base md:text-lg mb-4">
-                                            Loja virtual minimalista estilo vitrine, personalizável e fácil de usar.
-                                            Ideal para pequenos negócios que querem vender online sem complicações.
-                                        </p>
-                                        <div class="flex flex-wrap gap-2 justify-center mb-4">
-                                            <span
-                                                class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">E-commerce</span>
-                                            <span
-                                                class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Minimalista</span>
-                                            <span
-                                                class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Personalizável</span>
-                                        </div>
-                                        <a href="#"
-                                            class="btn-primary py-3 px-8 rounded-full font-semibold text-base inline-flex items-center justify-center mt-auto">
-                                            <i class="fas fa-external-link-alt mr-2"></i>
-                                            Saiba Mais
-                                        </a>
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="text-center flex-grow flex flex-col">
+                            <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Praticalista - Lista
+                                de Presentes Prática</h4>
+                            <p class="text-dark-300 text-base md:text-lg mb-4">
+                                Lista de presentes online sem burocracia, logins e complicações. Ideal para
+                                casamentos, aniversários e qualquer outro evento especial.
+                            </p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Web
+                                    App</span>
+                                <span
+                                    class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Fácil
+                                    de Usar</span>
+                                <span
+                                    class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Eventos</span>
                             </div>
+                            <a href="#"
+                                class="btn-primary py-3 px-8 rounded-full font-semibold text-base inline-flex items-center justify-center mt-auto">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Saiba Mais
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <div class="reveal">
+                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col">
+                        <div
+                            class="aspect-video rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-dark-700 to-dark-800 flex items-center justify-center">
+                            <div class="text-center p-8">
+                                <i class="fas fa-store text-6xl text-white mb-4"></i>
+                                <h3 class="text-xl font-bold text-white">VirtuaLoja Lite</h3>
+                            </div>
+                        </div>
+                        <div class="text-center flex-grow flex flex-col">
+                            <h4 class="text-xl md:text-2xl font-bold text-white mb-2">VirtuaLoja Lite</h4>
+                            <p class="text-dark-300 text-base md:text-lg mb-4">
+                                Loja virtual minimalista estilo vitrine, personalizável e fácil de usar.
+                                Ideal para pequenos negócios que querem vender online sem complicações.
+                            </p>
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span
+                                    class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">E-commerce</span>
+                                <span
+                                    class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Minimalista</span>
+                                <span
+                                    class="px-3 py-1 bg-dark-700 text-dark-200 rounded-full text-xs font-semibold">Personalizável</span>
+                            </div>
+                            <a href="#"
+                                class="btn-primary py-3 px-8 rounded-full font-semibold text-base inline-flex items-center justify-center mt-auto">
+                                <i class="fas fa-external-link-alt mr-2"></i>
+                                Saiba Mais
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            -->
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Em breve...</h2>
+                    <p class="text-dark-300 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+                        Soluções em desenvolvimento.
+                    </p>
+                </div>
+
             </div>
         </section>
 
@@ -1478,10 +1627,345 @@
                     <div class="reveal">
                         <!-- Web Tab -->
                         <div id="tab-web" class="portfolio-tab-content active">
-                            <div class="max-w-4xl mx-auto reveal">
-                                <div class="card-effect rounded-2xl p-10 text-center">
-                                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-3">Em breve...</h3>
-                                    <p class="text-dark-300 text-lg md:text-xl">Estou organizando estas informações.</p>
+                            <!-- Origin Legend -->
+                            <div class="flex flex-wrap justify-center gap-8 mb-12 reveal">
+                                <div class="flex items-center gap-3 group">
+                                    <div
+                                        class="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_12px_rgba(234,179,8,0.6)] border border-yellow-400/50 group-hover:scale-110 transition-all">
+                                    </div>
+                                    <span
+                                        class="text-dark-300 text-xs md:text-sm font-medium tracking-wide uppercase">Projetos
+                                        Pessoais</span>
+                                </div>
+                                <div class="flex items-center gap-3 group">
+                                    <div
+                                        class="w-2.5 h-2.5 rounded-full bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.6)] border border-green-400/50 group-hover:scale-110 transition-all">
+                                    </div>
+                                    <span
+                                        class="text-dark-300 text-xs md:text-sm font-medium tracking-wide uppercase">Freelance</span>
+                                </div>
+                                <div class="flex items-center gap-3 group">
+                                    <div
+                                        class="w-2.5 h-2.5 rounded-full bg-blue-500 shadow-[0_0_12px_rgba(59,130,246,0.6)] border border-blue-400/50 group-hover:scale-110 transition-transform">
+                                    </div>
+                                    <span
+                                        class="text-dark-300 text-xs md:text-sm font-medium tracking-wide uppercase">Prefeitura
+                                        de Angra</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                                <!-- Ribeiro Izidorio Advocacia -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-dark-800 to-dark-700 relative flex items-center justify-center border border-white/5 transition-colors group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-balance-scale text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-green-600/30 text-green-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-green-400/30 backdrop-blur-md">Freelance</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Ribeiro Izidorio</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Landing page
+                                                profissional para escritório de advocacia com foco em conversão e
+                                                usabilidade.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Desenvolvimento
+                                                    Front-End</p>
+                                                <a href="https://ribeiroizidorioadvocacia.com.br/" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Grupo Volantis -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-[#003366]/20 to-dark-700 relative flex items-center justify-center border border-white/5 group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-ship text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-green-600/30 text-green-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-green-400/30 backdrop-blur-md">Freelance</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Grupo Volantis</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Portal corporativo e
+                                                vitrine para serviços náuticos e gestão de embarcações de luxo.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Desenvolvimento
+                                                    Front-End</p>
+                                                <a href="https://nautica.grupovolantis.com.br/" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Portal Angra -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-blue-900/40 to-dark-700 relative flex items-center justify-center border border-white/5 group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-city text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Prefeitura</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Portal de Angra</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Portal oficial da
+                                                cidade. Coordenação da migração tecnológica de legado para arquitetura
+                                                moderna.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Coordenação Full-Stack
+                                                    (PHP)</p>
+                                                <a href="https://angra.rj.gov.br" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Boletim Meteorológico -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-orange-900/30 to-dark-700 relative flex items-center justify-center border border-white/5 group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-cloud-sun-rain text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Prefeitura</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Boletim Met.</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Sistema de
+                                                monitoramento e alertas críticos para a Defesa Civil em tempo real para
+                                                a população.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Refatoração Full-Stack
+                                                    (Laravel)</p>
+                                                <a href="https://angra.rj.gov.br/boletim-meteorologico" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Portal da Transparência -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-green-900/30 to-dark-700 relative flex items-center justify-center border border-white/5 group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-search-dollar text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Prefeitura</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Transparência</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Plataforma de controle
+                                                social para acompanhamento detalhado de contas e gastos públicos.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Migração Front-End
+                                                    (Laravel)</p>
+                                                <a href="https://transparencia.angra.rj.gov.br" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Portal do Servidor -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-purple-900/30 to-dark-700 relative flex items-center justify-center border border-white/5 group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-user-tie text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Prefeitura</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Portal do Servidor</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Central de serviços e
+                                                dados funcionais para os milhares de servidores municipais da cidade.
+                                            </p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Coordenação Front-End
+                                                    (Laravel)</p>
+                                                <a href="https://portaldoservidor.angra.rj.gov.br" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Visite Angra -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-teal-900/30 to-dark-700 relative flex items-center justify-center border border-white/5 group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-map-marked-alt text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Prefeitura</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Visite Angra</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Portal oficial de
+                                                turismo de Angra dos Reis, focado na divulgação e infraestrutura
+                                                turística.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Coord. e
+                                                    Desenvolvimento Front-End</p>
+                                                <a href="https://visite.angra.rj.gov.br" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Navegue Legal -->
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-cyan-900/30 to-dark-700 relative flex items-center justify-center border border-white/5 group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-anchor text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Prefeitura</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Navegue Legal</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Plataforma de
+                                                fiscalização e consulta de embarcações e guias turísticos legalizados.
+                                            </p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-400 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-white/80 font-medium mb-5">Coordenação Front-End
+                                                    (Laravel)</p>
+                                                <a href="https://navegue.legal.angra.rj.gov.br" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Visitar Site <i
+                                                        class="fas fa-external-link-alt ml-1 text-[10px]"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Outras Soluções -->
+                                <div class="reveal">
+                                    <div
+                                        class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card border-dashed border-white/10 bg-transparent opacity-80 hover:opacity-100 transition-all">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-dark-800 relative flex items-center justify-center border border-white/5">
+                                            <i
+                                                class="fas fa-plus-circle text-5xl text-white/5 group-hover/card:text-white/10 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/20 text-blue-400/50 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/10 backdrop-blur-md">Prefeitura</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white/60 mb-3 group-hover/card:text-white transition-colors">
+                                                Diversos Sistemas</h4>
+                                            <p class="text-dark-400 text-sm mb-4 leading-relaxed italic">Atuação como
+                                                Coordenador no desenvolvimento de diversos outros sites e sistemas
+                                                governamentais críticos.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <p
+                                                    class="text-[10px] text-dark-500 uppercase tracking-wider mb-2 font-bold">
+                                                    Participação</p>
+                                                <p class="text-sm text-dark-400 font-medium mb-5">Coordenação de
+                                                    Desenvolvimento</p>
+                                                <div
+                                                    class="w-full py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center bg-dark-800 text-dark-400 border border-white/5 cursor-default">
+                                                    Sistemas Internos
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1904,49 +2388,106 @@
                         <div class="flex items-center gap-4 mb-8">
                             <div
                                 class="w-16 h-16 rounded-xl bg-gradient-to-br from-white/15 to-white/5 flex items-center justify-center border border-white/10">
-                                <i class="fas fa-route text-white text-3xl"></i>
+                                <i class="fas fa-terminal text-white text-3xl"></i>
                             </div>
                             <h4 class="text-2xl md:text-3xl font-bold text-white">Trajetória Profissional</h4>
                         </div>
 
-                        <!-- Timeline Visual -->
-                        <div class="relative mb-8">
+                        <!-- Terminal Visual -->
+                        <div
+                            class="cyber-border rounded-xl overflow-hidden bg-dark-950/80 mb-8 border border-white/10 shadow-2xl">
                             <div
-                                class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-white/20 via-white/10 to-white/20">
+                                class="terminal-header bg-dark-900 px-4 py-3 md:px-6 md:py-4 border-b border-white/10 flex items-center justify-between">
+                                <div class="flex items-center space-x-2 md:space-x-3">
+                                    <div class="flex space-x-2">
+                                        <div class="w-3 h-3 bg-[#FF5F56] rounded-full shadow-lg shadow-red-500/20">
+                                        </div>
+                                        <div class="w-3 h-3 bg-[#FFBD2E] rounded-full shadow-lg shadow-yellow-500/20">
+                                        </div>
+                                        <div class="w-3 h-3 bg-[#27C93F] rounded-full shadow-lg shadow-green-500/20">
+                                        </div>
+                                    </div>
+                                    <span class="text-dark-400 text-xs md:text-sm font-mono ml-4 opacity-70">jornada.js
+                                        — soarinho</span>
+                                </div>
+                                <div class="hidden md:block text-dark-500 text-xs font-mono opacity-50">UTF-8</div>
                             </div>
-
-                            <div class="space-y-6 pl-12 md:pl-16">
-                                <div class="relative">
-                                    <div class="absolute -left-12 top-2 timeline-dot"></div>
-                                    <div class="card-effect rounded-2xl p-6 border-l-4 border-white">
-                                        <p class="text-dark-100 leading-relaxed font-medium">
-                                            Iniciei como <strong class="text-white">Assistente Comercial</strong> em
-                                            agência de turismo em Angra dos Reis, desenvolvendo as primeiras habilidades
-                                            em atendimento e processos.
-                                        </p>
+                            <div
+                                class="terminal-body p-6 md:p-8 font-mono text-xs sm:text-sm md:text-base overflow-x-auto custom-scrollbar">
+                                <div class="space-y-2 min-w-max">
+                                    <p><span class="text-code-purple">import</span> { passion, tech, art } <span
+                                            class="text-code-purple">from</span> <span
+                                            class="text-code-orange">'essence'</span>;</p>
+                                    <p><span class="text-code-blue">const</span> <span
+                                            class="text-code-yellow">jornada</span> = [</p>
+                                    <div class="pl-6 space-y-4">
+                                        <div class="group">
+                                            <p class="text-code-green opacity-70">// Início: Atendimento e Processos</p>
+                                            <p>{</p>
+                                            <div class="pl-6 border-l border-white/5 ml-1">
+                                                <p>cargo: <span class="text-code-orange">"Assistente Comercial"</span>,
+                                                </p>
+                                                <p>empresa: <span class="text-code-orange">"Agência de Turismo"</span>
+                                                </p>
+                                            </div>
+                                            <p>},</p>
+                                        </div>
+                                        <div class="group">
+                                            <p class="text-code-green opacity-70">// A paixão por ensinar e aprender
+                                                tecnologia</p>
+                                            <p>{</p>
+                                            <div class="pl-6 border-l border-white/5 ml-1">
+                                                <p>cargo: <span class="text-code-orange">"Monitor de Alunos"</span>,</p>
+                                                <p>especialidade: <span class="text-code-orange">"Educação e
+                                                        Tecnologia"</span></p>
+                                            </div>
+                                            <p>},</p>
+                                            <p>{</p>
+                                            <div class="pl-6 border-l border-white/5 ml-1">
+                                                <p>cargo: <span class="text-code-orange">"Instrutor de
+                                                        Informática"</span>,</p>
+                                                <p>especialidade: <span class="text-code-orange">"Montagem e
+                                                        Manutenção"</span></p>
+                                            </div>
+                                            <p>},</p>
+                                        </div>
+                                        <div class="group">
+                                            <p class="text-code-green opacity-70">// Ingresso no serviço público</p>
+                                            <p>{</p>
+                                            <div class="pl-6 border-l border-white/5 ml-1">
+                                                <p>cargos: [<span class="text-code-orange">"Estagiário de Suporte
+                                                        Técnico"</span>, <span class="text-code-orange">"Estagiário de
+                                                        Desenvolvimento Web"</span>],</p>
+                                                <p>local: <span class="text-code-orange">"Prefeitura de Angra"</span>
+                                                </p>
+                                            </div>
+                                            <p>},</p>
+                                        </div>
+                                        <div class="group">
+                                            <p class="text-code-green opacity-70">// Coordenação, Desenvolvimento e
+                                                Impacto</p>
+                                            <p>{</p>
+                                            <div class="pl-6 border-l border-white/5 ml-1">
+                                                <p>cargo: <span class="text-code-orange">"Coordenador de Desenvolvimento
+                                                        e
+                                                        Programação"</span>,</p>
+                                                <p>missão: <span class="text-code-orange">"Soluções para milhares de
+                                                        cidadãos"</span>,</p>
+                                                <p>status: <span class="text-code-orange">"Active"</span></p>
+                                            </div>
+                                            <p>}</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="relative">
-                                    <div class="absolute -left-12 top-2 timeline-dot"></div>
-                                    <div class="card-effect rounded-2xl p-6 border-l-4 border-white">
-                                        <p class="text-dark-100 leading-relaxed font-medium">
-                                            Atuei como <strong class="text-white">Instrutor de Informática</strong>,
-                                            onde descobri a paixão por transmitir conhecimento e tecnologia.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="relative">
-                                    <div class="absolute -left-12 top-2 timeline-dot"></div>
-                                    <div class="card-effect rounded-2xl p-6 border-l-4 border-white">
-                                        <p class="text-dark-100 leading-relaxed font-medium">
-                                            Hoje atuo na <strong class="text-white">Coordenação de
-                                                Desenvolvimento e Programação</strong> da Prefeitura de Angra,
-                                            trabalhando em soluções digitais que impactam milhares de cidadãos
-                                            diariamente.
-                                        </p>
-                                    </div>
+                                    <p>];</p>
+                                    <p class="pt-4"><span class="text-code-blue">async function</span> <span
+                                            class="text-code-yellow">evolucaoContinua</span>() {</p>
+                                    <p class="pl-6"><span class="text-code-purple">await</span> <span
+                                            class="text-code-yellow">merge</span>(arte, tecnologia);</p>
+                                    <p class="pl-6"><span class="text-code-purple">return</span> <span
+                                            class="text-code-orange">"Soluções que conectam, encantam e
+                                            resolvem..."</span>;</p>
+                                    <p>}</p>
+                                    <p class="terminal-cursor"></p>
                                 </div>
                             </div>
                         </div>
