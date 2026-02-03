@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soarinho - Artista Tecnológico | Unindo Arte e Tecnologia</title>
     <meta name="description"
-        content="Soarinho - Artista Tecnológico. Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual, Desenvolvimento Web e Suporte Técnico.">
+        content="Soarinho - Artista Tecnológico. Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual e Desenvolvimento Web.">
     <meta name="keywords"
-        content="Soarinho, Artista Tecnológico, Música, Locução, Dublagem, Edição de Vídeo, Desenvolvimento Web, Suporte Técnico, Angra dos Reis">
+        content="Soarinho, Artista Tecnológico, Música, Locução, Dublagem, Edição de Vídeo, Desenvolvimento Web, Angra dos Reis">
     <meta name="author" content="Lucas Soares dos Santos - Soarinho">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://soarinho.com">
@@ -18,7 +18,7 @@
     <meta property="og:url" content="https://soarinho.com">
     <meta property="og:title" content="Soarinho - Artista Tecnológico | Unindo Arte e Tecnologia">
     <meta property="og:description"
-        content="Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual, Desenvolvimento Web e Suporte Técnico.">
+        content="Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual e Desenvolvimento Web.">
     <meta property="og:image" content="https://soarinho.com/identity/marca-soarinho.png">
 
     <!-- Twitter -->
@@ -134,6 +134,13 @@
             overflow-x: hidden;
         }
 
+        /* Header Scrolled Styles */
+        .header-scrolled {
+            background: rgba(10, 10, 10, 0.8) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+        }
+
         /* Theme Toggle Button */
         .theme-toggle-btn {
             width: 44px;
@@ -160,24 +167,26 @@
 
         /* Light Theme Styles */
         body.light-theme {
-            background-color: #fcfcfc;
-            color: #171717;
+            background-color: #f7f7f7;
+            color: #1a1a1a;
         }
 
         body.light-theme .glass-effect {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(20px);
         }
 
         body.light-theme .card-effect {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.8);
             border: 1px solid rgba(0, 0, 0, 0.05);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
         }
 
         body.light-theme .card-effect:hover {
             border-color: rgba(0, 0, 0, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            background: #ffffff;
         }
 
         body.light-theme .text-white,
@@ -187,17 +196,17 @@
         body.light-theme h4,
         body.light-theme h5,
         body.light-theme h6 {
-            color: #0a0a0a !important;
+            color: #050505 !important;
         }
 
         body.light-theme .text-dark-100,
         body.light-theme .text-dark-200 {
-            color: #262626 !important;
+            color: #171717 !important;
         }
 
         body.light-theme .text-dark-300,
         body.light-theme .text-dark-400 {
-            color: #525252 !important;
+            color: #404040 !important;
         }
 
         body.light-theme .bg-dark-900,
@@ -214,7 +223,7 @@
         }
 
         body.light-theme .gradient-text {
-            background: linear-gradient(135deg, #0a0a0a 0%, #525252 100%);
+            background: linear-gradient(135deg, #050505 0%, #404040 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -228,101 +237,153 @@
         body.light-theme img[src*="logo-soarinho.png"],
         body.light-theme img[src*="marca-soarinho.png"],
         body.light-theme footer img[src*="marca-soarinho.png"] {
-            filter: brightness(0);
+            filter: brightness(0) opacity(0.9);
         }
 
         body.light-theme input,
         body.light-theme textarea {
-            background-color: #f5f5f5 !important;
-            border-color: rgba(0, 0, 0, 0.2) !important;
-            color: #0a0a0a !important;
+            background-color: #f0f0f0 !important;
+            border-color: rgba(0, 0, 0, 0.1) !important;
+            color: #050505 !important;
         }
 
         body.light-theme input::placeholder,
         body.light-theme textarea::placeholder {
-            color: #808080 !important;
+            color: #737373 !important;
         }
 
         body.light-theme input:focus,
         body.light-theme textarea:focus {
-            border-color: #0a0a0a !important;
+            border-color: #000000 !important;
+            background-color: #ffffff !important;
         }
 
         body.light-theme #hero {
-            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)) !important;
-        }
-
-        body.light-theme #hero .image-overlay-dark::before {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(250, 250, 250, 0.5) 50%, rgba(255, 255, 255, 0.6) 100%) !important;
+            background: linear-gradient(rgba(247, 247, 247, 0.8), rgba(247, 247, 247, 0.8)) !important;
         }
 
         body.light-theme #hero .bg-gradient-to-br {
-            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(250, 250, 250, 0.95), rgba(255, 255, 255, 0.9)) !important;
-        }
-
-        body.light-theme .hero-image-container .image-overlay-dark::before {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(250, 250, 250, 0.3) 50%, rgba(255, 255, 255, 0.4) 100%) !important;
+            background: linear-gradient(to bottom right, rgba(230, 230, 230, 0.5), rgba(255, 255, 255, 0.8), rgba(230, 230, 230, 0.5)) !important;
         }
 
         body.light-theme .whatsapp-button {
-            background: rgba(255, 255, 255, 0.95) !important;
-            border: 1px solid rgba(0, 0, 0, 0.1) !important;
-            color: #0a0a0a !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            background: #ffffff !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+            color: #25D366 !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
         }
 
         body.light-theme .whatsapp-button:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+            background: #25D366 !important;
+            color: #ffffff !important;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3) !important;
         }
 
-
-        .gradient-text {
-            background: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 50%, #e0e0e0 100%);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 3s linear infinite;
+        /* Coringas para o Light Theme */
+        body.light-theme .floating-element {
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.03), transparent 70%);
         }
 
-        .glass-effect {
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        body.light-theme .neon-border::after {
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.05), transparent, rgba(0, 0, 0, 0.05));
         }
 
-        .card-effect {
-            background: linear-gradient(145deg, rgba(26, 26, 26, 0.8), rgba(15, 15, 15, 0.8));
-            border: 1px solid rgba(42, 42, 42, 0.5);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
+        body.light-theme .timeline-dot {
+            background: #050505;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .card-effect:hover {
-            border-color: rgba(176, 176, 176, 0.6);
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(224, 224, 224, 0.15), 0 0 30px rgba(224, 224, 224, 0.1);
+        body.light-theme .timeline-dot::after {
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
-        .neon-border {
-            position: relative;
+        body.light-theme .portfolio-tab-btn {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: rgba(0, 0, 0, 0.05);
+            color: #525252;
         }
 
-        .neon-border::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(45deg, rgba(255, 255, 255, 0.15), transparent, rgba(255, 255, 255, 0.15));
-            border-radius: inherit;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.5s ease;
+        body.light-theme .portfolio-tab-btn:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: #000000;
         }
 
-        .neon-border:hover::after {
-            opacity: 1;
+        body.light-theme .portfolio-tab-btn.active {
+            background: #050505;
+            color: #ffffff;
+            border-color: #050505;
         }
+
+        body.light-theme .section-divider {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-theme #servicos-detalhados svg path,
+        body.light-theme #servicos-detalhados svg line,
+        body.light-theme #servicos-detalhados svg circle,
+        body.light-theme #servicos-detalhados svg ellipse,
+        body.light-theme #servicos-detalhados svg rect {
+            stroke: rgba(0, 0, 0, 0.15) !important;
+        }
+
+        body.light-theme #servicos-detalhados svg text {
+            fill: rgba(0, 0, 0, 0.2) !important;
+        }
+
+        body.light-theme .header-scrolled {
+            background: rgba(255, 255, 255, 0.8) !important;
+            border-color: rgba(0, 0, 0, 0.05) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        body.light-theme #mobile-sidebar {
+            background: rgba(255, 255, 255, 0.98);
+            border-left: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-theme #mobile-sidebar nav ul li a {
+            color: #171717;
+        }
+
+        body.light-theme #mobile-sidebar-close {
+            color: #171717;
+        }
+
+        body.light-theme .terminal-body {
+            background-color: #f5f5f5 !important;
+            color: #1a1a1a !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        }
+
+        body.light-theme .terminal-header {
+            background-color: #e5e5e5 !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+        }
+
+        body.light-theme .terminal-cursor {
+            background: rgba(0, 0, 0, 0.8) !important;
+        }
+
+        body.light-theme .text-code-purple {
+            color: #8b1eb9 !important;
+        }
+
+        body.light-theme .text-code-blue {
+            color: #007acc !important;
+        }
+
+        body.light-theme .text-code-yellow {
+            color: #795e26 !important;
+        }
+
+        body.light-theme .text-code-green {
+            color: #008000 !important;
+        }
+
+        body.light-theme .text-code-orange {
+            color: #a31515 !important;
+        }
+
 
         /* Modern Effects */
         .gradient-text {
@@ -577,6 +638,18 @@
             }
         }
 
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Google Review Card Dark Override */
         body:not(.light-theme) .google-review-card {
             background: rgba(23, 23, 23, 0.5) !important;
@@ -647,38 +720,13 @@
             }
         }
 
-        body.light-theme .terminal-body {
-            background-color: #f8f8f8 !important;
-            color: #1a1a1a !important;
+        /* WhatsApp e Botões Flutuantes no Light */
+        body.light-theme .btn-glow {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
 
-        body.light-theme .terminal-header {
-            background-color: #e0e0e0 !important;
-            border-color: rgba(0, 0, 0, 0.1) !important;
-        }
-
-        body.light-theme .text-code-purple {
-            color: #8b1eb9 !important;
-        }
-
-        body.light-theme .text-code-blue {
-            color: #007acc !important;
-        }
-
-        body.light-theme .text-code-yellow {
-            color: #795e26 !important;
-        }
-
-        body.light-theme .text-code-green {
-            color: #008000 !important;
-        }
-
-        body.light-theme .text-code-orange {
-            color: #a31515 !important;
-        }
-
-        body.light-theme .terminal-cursor {
-            background: rgba(0, 0, 0, 0.6) !important;
+        body.light-theme .btn-primary-glow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -820,7 +868,7 @@
                         </h1>
 
                         <p class="text-lg md:text-xl text-dark-200 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
-                            Desenvolvedor Web, Técnico de Informática, Videomaker, Editor
+                            Desenvolvedor Web, Videomaker, Editor
                             Audiovisual, Músico/Cantor e Locutor/Dublador.
                         </p>
 
@@ -854,7 +902,7 @@
                                 </div>
                                 <div>
                                     <p class="text-[10px] text-dark-400 font-bold uppercase tracking-wider">Tech</p>
-                                    <p class="text-sm font-bold text-white">Programming / Editing / Support</p>
+                                    <p class="text-sm font-bold text-white">Programming / Editing</p>
                                 </div>
                             </div>
                         </div>
@@ -1437,7 +1485,7 @@
                             </div>
                         </div>
 
-                        <!-- Suporte Services -->
+                        <!-- Suporte Services (Desativado)
                         <div class="relative z-10">
                             <div class="flex items-center gap-3 mb-8">
                                 <div class="text-3xl text-dark-200">
@@ -1488,6 +1536,7 @@
                                 </div>
                             </div>
                         </div>
+                        -->
                     </div>
                 </div>
             </div>
@@ -2495,8 +2544,7 @@
                                             <p class="text-code-green opacity-70">// Ingresso no serviço público</p>
                                             <p>{</p>
                                             <div class="pl-6 border-l border-white/5 ml-1">
-                                                <p>cargos: [<span class="text-code-orange">"Estagiário de Suporte
-                                                        Técnico"</span>, <span class="text-code-orange">"Estagiário de
+                                                <p>cargos: [<span class="text-code-orange">"Estagiário de
                                                         Desenvolvimento Web"</span>],</p>
                                                 <p>local: <span class="text-code-orange">"Prefeitura de Angra"</span>
                                                 </p>
@@ -2847,7 +2895,7 @@
             "https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e",
             "https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/"
         ],
-        "knowsAbout": ["Música", "Locução", "Dublagem", "Edição de Vídeo", "Desenvolvimento Web", "Suporte Técnico"],
+        "knowsAbout": ["Música", "Locução", "Dublagem", "Edição de Vídeo", "Desenvolvimento Web"],
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Angra dos Reis",
@@ -2866,14 +2914,14 @@
                 header.classList.remove('py-4', 'md:py-6');
                 header.classList.add('py-2');
                 if (container) {
-                    container.classList.add('bg-dark-900/80', 'border-white/20');
+                    container.classList.add('header-scrolled');
                     container.classList.remove('bg-white/5', 'border-white/10');
                 }
             } else {
                 header.classList.add('py-4', 'md:py-6');
                 header.classList.remove('py-2');
                 if (container) {
-                    container.classList.remove('bg-dark-900/80', 'border-white/20');
+                    container.classList.remove('header-scrolled');
                     container.classList.add('bg-white/5', 'border-white/10');
                 }
             }
