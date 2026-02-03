@@ -8,7 +8,7 @@
     <meta name="description"
         content="Soarinho - Artista Tecnológico. Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual e Desenvolvimento Web.">
     <meta name="keywords"
-        content="Soarinho, Artista Tecnológico, Música, Locução, Dublagem, Edição de Vídeo, Desenvolvimento Web, Angra dos Reis">
+        content="Soarinho, Artista Tecnológico, Música, Locução, Dublagem, Edição de Vídeo, Desenvolvimento Web, Suporte Técnico, TI, Angra dos Reis">
     <meta name="author" content="Lucas Soares dos Santos - Soarinho">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://soarinho.com">
@@ -81,7 +81,7 @@
                         'shimmer': 'shimmer 2.5s linear infinite',
                         'gradient': 'gradient 8s ease infinite',
                         'gradient-shift': 'gradient-shift 12s ease infinite',
-                        'ticker': 'ticker 40s linear infinite',
+                        'ticker': 'ticker 15s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -132,6 +132,12 @@
             color: #d1d1d1;
             transition: background-color 0.4s ease, color 0.4s ease;
             overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .animate-ticker {
+                animation-duration: 5s !important;
+            }
         }
 
         /* Header Scrolled Styles */
@@ -277,6 +283,122 @@
             background: #25D366 !important;
             color: #ffffff !important;
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3) !important;
+        }
+
+        /* Overrides de fundos escuros no Light Theme */
+        body.light-theme section,
+        body.light-theme footer,
+        body.light-theme #servicos-detalhados,
+        body.light-theme #portfolio,
+        body.light-theme #about,
+        body.light-theme #depoimentos,
+        body.light-theme #contact,
+        body.light-theme #loja {
+            background-color: #f7f7f7 !important;
+            background-image: none !important;
+        }
+
+        /* Override de containers com gradientes inline */
+        body.light-theme [style*="background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(15, 15, 15, 0.95))"] {
+            background: #ffffff !important;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04) !important;
+            border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* Portfólio e Cartões no Light Theme */
+        body.light-theme .card-effect [class*="bg-gradient-to-br from-"],
+        body.light-theme .card-effect [class*="bg-dark-"] {
+            background: #f0f0f0 !important;
+        }
+
+        body.light-theme .card-effect .border-t {
+            border-color: rgba(0, 0, 0, 0.05) !important;
+        }
+
+        body.light-theme .card-effect i {
+            color: #404040 !important;
+            opacity: 0.8 !important;
+        }
+
+        body.light-theme .card-effect:hover i {
+            color: #000000 !important;
+            opacity: 1 !important;
+        }
+
+        body.light-theme .card-effect p.text-dark-300,
+        body.light-theme .card-effect p.text-dark-400 {
+            color: #525252 !important;
+        }
+
+        /* Modal e Audio Players no Light Theme */
+        body.light-theme .modal-content {
+            background: #ffffff !important;
+            border-color: rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        body.light-theme .modal-close {
+            background: #f0f0f0 !important;
+            color: #0a0a0a !important;
+            border-color: rgba(0, 0, 0, 0.1) !important;
+        }
+
+        body.light-theme .custom-audio-player {
+            background: #f5f5f5 !important;
+            border-color: rgba(0, 0, 0, 0.05) !important;
+        }
+
+        body.light-theme .play-pause-btn {
+            background: #0a0a0a !important;
+            color: #ffffff !important;
+        }
+
+        body.light-theme .progress-bar {
+            background: #0a0a0a !important;
+        }
+
+        body.light-theme .progress-container {
+            background: rgba(0, 0, 0, 0.1) !important;
+        }
+
+        body.light-theme .audio-card {
+            background: #ffffff !important;
+            border-color: rgba(0, 0, 0, 0.08) !important;
+        }
+
+        /* Legendas e Badges */
+        body.light-theme span.bg-dark-700 {
+            background-color: #e5e5e5 !important;
+            color: #404040 !important;
+        }
+
+        body.light-theme .hero-image-wrapper img {
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.1)) !important;
+        }
+
+        body.light-theme .fixed.inset-0.bg-gradient-to-br.from-dark-800 {
+            background: linear-gradient(to bottom right, #f7f7f7, #ffffff) !important;
+        }
+
+        body.light-theme .bg-dark-900\/60,
+        body.light-theme .bg-white\/5,
+        body.light-theme .bg-white\/10 {
+            background-color: rgba(255, 255, 255, 0.7) !important;
+            backdrop-filter: blur(10px) !important;
+            border-color: rgba(0, 0, 0, 0.05) !important;
+        }
+
+        body.light-theme .text-white:not(.btn-primary):not(.btn-primary *) {
+            color: #0a0a0a !important;
+        }
+
+        body.light-theme .bg-white {
+            background-color: #0a0a0a !important;
+            color: #ffffff !important;
+        }
+
+        body.light-theme .bg-white i {
+            color: #ffffff !important;
         }
 
         /* Coringas para o Light Theme */
@@ -728,6 +850,63 @@
         body.light-theme .btn-primary-glow {
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
+
+        /* Demo Button Animation */
+        .btn-demo-animate {
+            position: relative;
+            background: #ffffff;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-demo-animate::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 9999px;
+            animation: btn-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            pointer-events: none;
+        }
+
+        @keyframes btn-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.05, 1.15);
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: scale(1.1, 1.3);
+                opacity: 0;
+            }
+        }
+
+        .btn-demo-animate:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: #ffffff;
+            color: #000000;
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        body.light-theme .btn-demo-animate {
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        body.light-theme .btn-demo-animate::before {
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        body.light-theme .btn-demo-animate:hover {
+            background: #000000;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 
@@ -778,6 +957,9 @@
                         <li><a href="#portfolio"
                                 class="text-sm font-semibold tracking-wide hover:text-white transition-colors">Portfólio</a>
                         </li>
+                        <li><a href="#links"
+                                class="text-sm font-semibold tracking-wide hover:text-white transition-colors">Suporte</a>
+                        </li>
                         <li><a href="#about"
                                 class="text-sm font-semibold tracking-wide hover:text-white transition-colors">Sobre</a>
                         </li>
@@ -825,6 +1007,7 @@
                 <li><a href="#servicos-detalhados"
                         class="text-xl font-bold hover:text-white transition-colors">Serviços</a></li>
                 <li><a href="#portfolio" class="text-xl font-bold hover:text-white transition-colors">Portfólio</a></li>
+                <li><a href="#links" class="text-xl font-bold hover:text-white transition-colors">Suporte</a></li>
                 <li><a href="#about" class="text-xl font-bold hover:text-white transition-colors">Sobre</a></li>
                 <li><a href="#depoimentos" class="text-xl font-bold hover:text-white transition-colors">Depoimentos</a>
                 </li>
@@ -868,8 +1051,8 @@
                         </h1>
 
                         <p class="text-lg md:text-xl text-dark-200 max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
-                            Desenvolvedor Web, Videomaker, Editor
-                            Audiovisual, Músico/Cantor e Locutor/Dublador.
+                            Desenvolvedor Web, Técnico de TI, Videomaker, Editor Audiovisual, Músico/Cantor e
+                            Locutor/Dublador.
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
@@ -1153,10 +1336,16 @@
                                     <h4 class="text-2xl md:text-3xl font-bold text-white">Locução & Dublagem</h4>
                                 </div>
                                 <button type="button" id="open-voice-demos-modal"
-                                    class="btn-primary py-2 px-6 rounded-full font-semibold text-sm md:text-base inline-flex items-center gap-2">
-                                    <i class="fas fa-headphones"></i>
+                                    class="btn-demo-animate py-2.5 px-8 rounded-full font-bold text-sm md:text-lg inline-flex items-center gap-3">
+                                    <i class="fas fa-headphones-alt animate-bounce"></i>
                                     Clique para ouvir Demonstrações
                                 </button>
+                            </div>
+
+                            <!-- Categoria Image -->
+                            <div
+                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
+                                <img src="assets/voz.png" alt="Locução e Dublagem" class="w-full h-full object-cover">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 <div class="card-effect rounded-2xl p-6 neon-border">
@@ -1209,6 +1398,12 @@
                                     <i class="fas fa-music"></i>
                                 </div>
                                 <h4 class="text-2xl md:text-3xl font-bold text-white">Música & Shows</h4>
+                            </div>
+
+                            <!-- Categoria Image -->
+                            <div
+                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
+                                <img src="assets/musica.png" alt="Música e Shows" class="w-full h-full object-cover">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div class="card-effect rounded-2xl p-6 neon-border">
@@ -1392,6 +1587,17 @@
                                 </div>
                                 <h4 class="text-2xl md:text-3xl font-bold text-white">Edição Audiovisual</h4>
                             </div>
+
+                            <!-- Categoria Images (Grid for two images) -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 reveal">
+                                <div class="rounded-2xl overflow-hidden aspect-video border border-white/5 shadow-2xl">
+                                    <img src="assets/videomaking.png" alt="Videomaking"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div class="rounded-2xl overflow-hidden aspect-video border border-white/5 shadow-2xl">
+                                    <img src="assets/edicao.png" alt="Edição" class="w-full h-full object-cover">
+                                </div>
+                            </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 <div class="card-effect rounded-2xl p-6 neon-border">
                                     <div class="text-4xl text-white mb-4">
@@ -1441,6 +1647,12 @@
                                 </div>
                                 <h4 class="text-2xl md:text-3xl font-bold text-white">Desenvolvimento Web</h4>
                             </div>
+
+                            <!-- Categoria Image -->
+                            <div
+                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
+                                <img src="assets/web.png" alt="Desenvolvimento Web" class="w-full h-full object-cover">
+                            </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 <div class="card-effect rounded-2xl p-6 neon-border">
                                     <div class="text-4xl text-white mb-4">
@@ -1485,13 +1697,19 @@
                             </div>
                         </div>
 
-                        <!-- Suporte Services (Desativado)
+                        <!-- Suporte Services -->
                         <div class="relative z-10">
                             <div class="flex items-center gap-3 mb-8">
                                 <div class="text-3xl text-dark-200">
                                     <i class="fas fa-tools"></i>
                                 </div>
                                 <h4 class="text-2xl md:text-3xl font-bold text-white">Suporte Técnico</h4>
+                            </div>
+
+                            <!-- Categoria Image -->
+                            <div
+                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
+                                <img src="assets/thumb.png" alt="Suporte Técnico" class="w-full h-full object-cover">
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                                 <div class="card-effect rounded-2xl p-6 neon-border">
@@ -1536,7 +1754,6 @@
                                 </div>
                             </div>
                         </div>
-                        -->
                     </div>
                 </div>
             </div>
@@ -1669,6 +1886,11 @@
                             class="portfolio-tab-btn px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300"
                             data-tab="musica">
                             <i class="fas fa-music mr-2"></i>Música
+                        </button>
+                        <button
+                            class="portfolio-tab-btn px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300"
+                            data-tab="suporte">
+                            <i class="fas fa-tools mr-2"></i>Suporte
                         </button>
                     </div>
 
@@ -2365,6 +2587,40 @@
 
 
 
+                        <!-- Suporte Tab -->
+                        <div id="tab-suporte" class="portfolio-tab-content">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                                <div class="reveal">
+                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
+                                        <div
+                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-dark-800 to-dark-700 relative flex items-center justify-center border border-white/5 transition-all group-hover/card:border-white/10">
+                                            <i
+                                                class="fas fa-desktop text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
+                                            <div class="absolute top-4 left-4">
+                                                <span
+                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Serviço</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-grow flex flex-col">
+                                            <h4
+                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
+                                                Suporte Técnico Remoto</h4>
+                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Atendimento
+                                                especializado
+                                                para resolução de problemas em diversos sistemas operacionais e
+                                                softwares.</p>
+                                            <div class="mt-auto pt-4 border-t border-white/5">
+                                                <a href="https://wa.me/5524998540552" target="_blank"
+                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
+                                                    Solicitar Suporte <i class="fab fa-whatsapp ml-2"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -2895,7 +3151,7 @@
             "https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e",
             "https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/"
         ],
-        "knowsAbout": ["Música", "Locução", "Dublagem", "Edição de Vídeo", "Desenvolvimento Web"],
+        "knowsAbout": ["Música", "Locução", "Dublagem", "Edição de Vídeo", "Desenvolvimento Web", "Suporte Técnico", "TI"],
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Angra dos Reis",
