@@ -81,7 +81,7 @@
                         'shimmer': 'shimmer 2.5s linear infinite',
                         'gradient': 'gradient 8s ease infinite',
                         'gradient-shift': 'gradient-shift 12s ease infinite',
-                        'ticker': 'ticker 15s linear infinite',
+                        'ticker': 'ticker 50s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -113,8 +113,8 @@
                             '50%': { opacity: '0.8', transform: 'scale(1.05)' },
                         },
                         'ticker': {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(-50%)' },
+                            '0%': { transform: 'translate3d(0, 0, 0)' },
+                            '100%': { transform: 'translate3d(-50%, 0, 0)' },
                         }
                     }
                 }
@@ -907,6 +907,17 @@
             background: #000000;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
+
+        /* Ticker Mobile Speed Adjustment */
+        .ticker-container {
+            animation-duration: 50s !important;
+        }
+
+        @media (max-width: 768px) {
+            .ticker-container {
+                animation-duration: 100s !important;
+            }
+        }
     </style>
 </head>
 
@@ -1109,8 +1120,8 @@
             <!-- Infinite Scrolling Banner -->
             <div
                 class="absolute bottom-0 left-0 w-full overflow-hidden bg-white/5 backdrop-blur-md border-y border-white/5 py-4 z-20">
-                <div class="flex whitespace-nowrap animate-ticker">
-                    <div class="flex items-center gap-8 px-4">
+                <div class="flex w-max animate-ticker will-change-transform whitespace-nowrap ticker-container">
+                    <div class="flex items-center gap-8 px-4 flex-shrink-0">
                         <span
                             class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">HTML5</span>
                         <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
@@ -1166,7 +1177,7 @@
                         <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
                     </div>
                     <!-- Duplicate for infinite effect -->
-                    <div class="flex items-center gap-8 px-4">
+                    <div class="flex items-center gap-8 px-4 flex-shrink-0">
                         <span
                             class="text-xs md:text-2xl font-bold tracking-[0.1em] uppercase text-dark-200">HTML5</span>
                         <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-white/20"></span>
@@ -1319,73 +1330,91 @@
                             </g>
                         </svg>
 
-                        <div class="text-center mb-12 relative z-10">
-                            <h3 class="text-3xl md:text-4xl font-bold text-dark-200 mb-4">Artes</h3>
-                            <p class="text-dark-400 max-w-md mx-auto text-lg">Expressão criativa e performances
-                                artísticas</p>
+                        <div class="text-center mb-16 relative z-10">
+                            <span
+                                class="text-xs uppercase tracking-widest text-dark-400 font-bold mb-2 block">CRIATIVIDADE
+                                & PERFORMANCE</span>
+                            <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">Artes</h3>
+                            <div class="w-20 h-1 bg-gradient-to-r from-dark-400 to-transparent mx-auto rounded-full">
+                            </div>
                         </div>
 
                         <!-- Voz Services -->
-                        <div class="mb-12 relative z-10">
-                            <div
-                                class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
-                                <div class="flex items-center gap-3">
-                                    <div class="text-3xl text-dark-200">
-                                        <i class="fas fa-microphone-alt"></i>
+                        <div class="mb-24 relative z-10">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                                <div class="lg:col-span-7 reveal">
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
+                                            <i class="fas fa-microphone-alt"></i>
+                                        </div>
+                                        <h4 class="text-3xl md:text-4xl font-bold text-white">Locução & Dublagem</h4>
                                     </div>
-                                    <h4 class="text-2xl md:text-3xl font-bold text-white">Locução & Dublagem</h4>
+                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                        Voz versátil e interpretação profissional para dar vida aos seus projetos.
+                                        De comerciais impactantes a dublagens caricatas, entrego a emoção certa para
+                                        cada roteiro.
+                                    </p>
+                                    <button type="button" id="open-voice-demos-modal"
+                                        class="btn-demo-animate py-3 px-8 rounded-full font-bold text-sm md:text-base inline-flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-xl">
+                                        <i class="fas fa-headphones-alt animate-bounce"></i>
+                                        Ouvir Demonstrações de Voz
+                                    </button>
                                 </div>
-                                <button type="button" id="open-voice-demos-modal"
-                                    class="btn-demo-animate py-2.5 px-8 rounded-full font-bold text-sm md:text-lg inline-flex items-center gap-3">
-                                    <i class="fas fa-headphones-alt animate-bounce"></i>
-                                    Clique para ouvir Demonstrações
-                                </button>
-                            </div>
-
-                            <!-- Categoria Image -->
-                            <div
-                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
-                                <img src="assets/voz.png" alt="Locução e Dublagem" class="w-full h-full object-cover">
+                                <div class="lg:col-span-5 reveal">
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute -inset-4 bg-gradient-to-r from-dark-500/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
+                                        </div>
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/voz.png" alt="Locução e Dublagem"
+                                                class="w-full h-auto transition duration-700 group-hover:scale-105">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-theater-masks"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-theater-masks text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Dublagem</h5>
                                     <p class="text-dark-300 text-sm leading-relaxed">
-                                        Dublagem profissional para personagens de animação, games e séries, com
-                                        interpretação fiel e sincronia perfeita.
+                                        Personalidade para personagens de animação, games e séries com sincronia
+                                        técnica.
                                     </p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-tv"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-tv text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Comerciais</h5>
                                     <p class="text-dark-300 text-sm leading-relaxed">
-                                        Locução para rádio, TV e mídias digitais, com tom adequado para cada público e
-                                        objetivo da campanha.
+                                        Locução persuasiva para rádio e TV, focada em conversão e branding.
                                     </p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-building"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-building text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Institucionais</h5>
                                     <p class="text-dark-300 text-sm leading-relaxed">
-                                        Voz para vídeos corporativos, treinamentos e apresentações, transmitindo
-                                        credibilidade e profissionalismo.
+                                        Narrativas corporativas claras e profissionais para treinamentos e vídeos de
+                                        empresa.
                                     </p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-user-tie"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-user-tie text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Personagens</h5>
                                     <p class="text-dark-300 text-sm leading-relaxed">
-                                        Criação de vozes únicas para personagens, com interpretação que dá vida e
-                                        personalidade a cada criação.
+                                        Criação de tipos vocais únicos para dar alma a qualquer criação original.
                                     </p>
                                 </div>
                             </div>
@@ -1393,46 +1422,69 @@
 
                         <!-- Música Services -->
                         <div class="relative z-10">
-                            <div class="flex items-center gap-3 mb-8">
-                                <div class="text-3xl text-dark-200">
-                                    <i class="fas fa-music"></i>
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                                <div class="lg:col-span-5 order-2 lg:order-1 reveal">
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute -inset-4 bg-gradient-to-l from-dark-500/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
+                                        </div>
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/musica.png" alt="Música e Shows"
+                                                class="w-full h-auto transition duration-700 group-hover:scale-105">
+                                        </div>
+                                    </div>
                                 </div>
-                                <h4 class="text-2xl md:text-3xl font-bold text-white">Música & Shows</h4>
-                            </div>
-
-                            <!-- Categoria Image -->
-                            <div
-                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
-                                <img src="assets/musica.png" alt="Música e Shows" class="w-full h-full object-cover">
+                                <div class="lg:col-span-7 order-1 lg:order-2 lg:pl-12 reveal">
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
+                                            <i class="fas fa-music"></i>
+                                        </div>
+                                        <h4 class="text-3xl md:text-4xl font-bold text-white">Música & Shows</h4>
+                                    </div>
+                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                        Performances musicais autênticas para transformar seu evento. Com Violoncelo,
+                                        Voz, Violão ou Trompete,
+                                        crio a atmosfera perfeita para momentos especiais e celebrações inesquecíveis.
+                                    </p>
+                                    <div class="flex flex-wrap gap-4">
+                                        <a href="#contato"
+                                            class="py-3 px-8 rounded-full font-bold text-sm bg-white text-dark-900 transition-all hover:bg-dark-100 shadow-lg">
+                                            Contratar Show
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-guitar"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-guitar text-2xl"></i>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Shows</h5>
+                                    <h5 class="text-xl font-bold text-white mb-3">Shows ao Vivo</h5>
                                     <p class="text-dark-300 text-sm leading-relaxed">
-                                        Apresentações musicais ao vivo para eventos diversos, com repertório variado e
-                                        performance envolvente.
+                                        Repertório variado para confraternizações, festas e eventos culturais.
                                     </p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-heart"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-heart text-2xl"></i>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Casamentos</h5>
+                                    <h5 class="text-xl font-bold text-white mb-3">Cerimônias</h5>
                                     <p class="text-dark-300 text-sm leading-relaxed">
-                                        Música especializada para cerimônias de casamento, criando momentos únicos e
-                                        memoráveis.
+                                        Trilha sonora personalizada para casamentos e momentos de alta emoção.
                                     </p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-microphone"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-microphone text-2xl"></i>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Apresentações Musicais</h5>
+                                    <h5 class="text-xl font-bold text-white mb-3">Corporativo</h5>
                                     <p class="text-dark-300 text-sm leading-relaxed">
-                                        Performances musicais para eventos corporativos, festas e ocasiões especiais.
+                                        Apresentações sob medida para convenções, jantares e eventos empresariais.
                                     </p>
                                 </div>
                             </div>
@@ -1574,183 +1626,290 @@
                             </g>
                         </svg>
 
-                        <div class="text-center mb-12 relative z-10">
-                            <h3 class="text-3xl md:text-4xl font-bold text-dark-200 mb-4">Tecnologia</h3>
-                            <p class="text-dark-400 max-w-md mx-auto text-lg">Inovação e soluções digitais avançadas</p>
-                        </div>
-
-                        <!-- Edição Services -->
-                        <div class="mb-12 relative z-10">
-                            <div class="flex items-center gap-3 mb-8">
-                                <div class="text-3xl text-dark-200">
-                                    <i class="fas fa-video"></i>
-                                </div>
-                                <h4 class="text-2xl md:text-3xl font-bold text-white">Edição Audiovisual</h4>
-                            </div>
-
-                            <!-- Categoria Images (Grid for two images) -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 reveal">
-                                <div class="rounded-2xl overflow-hidden aspect-video border border-white/5 shadow-2xl">
-                                    <img src="assets/videomaking.png" alt="Videomaking"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div class="rounded-2xl overflow-hidden aspect-video border border-white/5 shadow-2xl">
-                                    <img src="assets/edicao.png" alt="Edição" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-film"></i>
-                                    </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Edição de Vídeo</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Corte, transições, efeitos visuais e correção de cor para seus projetos
-                                        audiovisuais.
-                                    </p>
-                                </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-headphones"></i>
-                                    </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Edição de Áudio</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Limpeza, mixagem, masterização e sincronização de áudio para seus projetos.
-                                    </p>
-                                </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-play-circle"></i>
-                                    </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Vinhetas Animadas</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Criação de vinhetas personalizadas para abertura e encerramento de vídeos.
-                                    </p>
-                                </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-paint-brush"></i>
-                                    </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Artes Visuais</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Design de thumbnails, artes para redes sociais e elementos gráficos.
-                                    </p>
-                                </div>
+                        <div class="text-center mb-16 relative z-10">
+                            <span class="text-xs uppercase tracking-widest text-dark-400 font-bold mb-2 block">INOVAÇÃO
+                                & SOLUÇÕES DIGITAIS</span>
+                            <h3 class="text-3xl md:text-5xl font-bold text-white mb-4">Tecnologia</h3>
+                            <div class="w-20 h-1 bg-gradient-to-r from-dark-400 to-transparent mx-auto rounded-full">
                             </div>
                         </div>
 
                         <!-- Web Services -->
-                        <div class="mb-12 relative z-10">
-                            <div class="flex items-center gap-3 mb-8">
-                                <div class="text-3xl text-dark-200">
-                                    <i class="fas fa-code"></i>
+                        <div class="mb-24 relative z-10">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                                <div class="lg:col-span-7 reveal">
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
+                                            <i class="fas fa-code"></i>
+                                        </div>
+                                        <h4 class="text-3xl md:text-4xl font-bold text-white">Desenvolvimento Web</h4>
+                                    </div>
+                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                        Sua presença digital levada a sério. Desenvolvo interfaces modernas,
+                                        rápidas e focadas na experiência do usuário para converter visitantes em
+                                        clientes.
+                                    </p>
                                 </div>
-                                <h4 class="text-2xl md:text-3xl font-bold text-white">Desenvolvimento Web</h4>
-                            </div>
-
-                            <!-- Categoria Image -->
-                            <div
-                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
-                                <img src="assets/web.png" alt="Desenvolvimento Web" class="w-full h-full object-cover">
+                                <div class="lg:col-span-5 reveal">
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute -inset-4 bg-gradient-to-r from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
+                                        </div>
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/web.png" alt="Desenvolvimento Web"
+                                                class="w-full h-auto transition duration-700 group-hover:scale-105">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-globe"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-globe text-2xl"></i>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Sites & Aplicações Web</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Desenvolvimento de sites modernos, blogs e aplicações web responsivas com foco
-                                        na experiência do usuário.
-                                    </p>
+                                    <h5 class="text-xl font-bold text-white mb-3">Sites</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Landing pages e sites
+                                        institucionais modernos e responsivos.</p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-server"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-server text-2xl"></i>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Sistemas Personalizados</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Criação de sistemas sob medida para automatizar processos e otimizar operações
-                                        do seu negócio.
-                                    </p>
+                                    <h5 class="text-xl font-bold text-white mb-3">Sistemas</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Aplicações corporativas sob medida
+                                        para seu negócio.</p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-mobile-alt"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-mobile-alt text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Web Apps</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Desenvolvimento de aplicativos web responsivos que funcionam perfeitamente em
-                                        qualquer dispositivo.
-                                    </p>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Apps que funcionam direto no
+                                        navegador com performance de nativo.</p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-plug"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-plug text-2xl"></i>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Integrações com APIs</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Conexão de sistemas e serviços para criar soluções integradas e eficientes para
-                                        seu negócio.
-                                    </p>
+                                    <h5 class="text-xl font-bold text-white mb-3">APIs</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Integrações inteligentes entre
+                                        diferentes serviços e plataformas.</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Suporte Services -->
-                        <div class="relative z-10">
-                            <div class="flex items-center gap-3 mb-8">
-                                <div class="text-3xl text-dark-200">
-                                    <i class="fas fa-tools"></i>
+                        <div class="mb-24 relative z-10">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                                <div class="lg:col-span-5 order-2 lg:order-1 reveal">
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute -inset-4 bg-gradient-to-l from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
+                                        </div>
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/suporte.png" alt="Suporte Técnico"
+                                                class="w-full h-auto transition duration-700 group-hover:scale-105">
+                                        </div>
+                                    </div>
                                 </div>
-                                <h4 class="text-2xl md:text-3xl font-bold text-white">Suporte Técnico</h4>
-                            </div>
-
-                            <!-- Categoria Image -->
-                            <div
-                                class="mb-8 rounded-2xl overflow-hidden aspect-[21/9] md:aspect-[32/10] border border-white/5 shadow-2xl reveal">
-                                <img src="assets/thumb.png" alt="Suporte Técnico" class="w-full h-full object-cover">
+                                <div class="lg:col-span-7 order-1 lg:order-2 lg:pl-12 reveal">
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
+                                            <i class="fas fa-tools"></i>
+                                        </div>
+                                        <h4 class="text-3xl md:text-4xl font-bold text-white">Suporte Técnico</h4>
+                                    </div>
+                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                        Resolução eficiente de problemas tecnológicos. Do suporte remoto
+                                        à manutenção de performance, garanto que sua tecnologia trabalhe para você, e
+                                        não o contrário.
+                                    </p>
+                                </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-desktop"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-desktop text-2xl"></i>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Suporte Remoto</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Atendimento técnico remoto para resolver problemas de software, configurações e
-                                        muito mais, com abordagem personalizada.
-                                    </p>
+                                    <h5 class="text-xl font-bold text-white mb-3">Remoto</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Atendimento técnico à distância com
+                                        segurança e rapidez.</p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-wrench"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-wrench text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Manutenção</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Manutenção preventiva para evitar problemas futuros e manter seu sistema
-                                        funcionando com máxima performance.
-                                    </p>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Prevenção de falhas e atualização
+                                        de hardware/software.</p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-rocket"></i>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-rocket text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Otimização</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Deixo seu computador mais rápido, eliminando arquivos desnecessários e
-                                        otimizando configurações do sistema.
+                                    <p class="text-dark-300 text-sm leading-relaxed">Aceleração de sistemas e limpeza
+                                        profunda de arquivos.</p>
+                                </div>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-bug text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Diagnóstico</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Identificação e solução de
+                                        problemas críticos e bugs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edição Services -->
+                        <div class="mb-24 relative z-10">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                                <div class="lg:col-span-7 reveal">
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
+                                            <i class="fas fa-film"></i>
+                                        </div>
+                                        <h4 class="text-3xl md:text-4xl font-bold text-white">Edição Audiovisual</h4>
+                                    </div>
+                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                        Onde a mágica acontece. Transformo gravações brutas em peças de arte fluidas e
+                                        envolventes,
+                                        com cortes rítmicos, color grade e design sonoro fascinante.
                                     </p>
                                 </div>
-                                <div class="card-effect rounded-2xl p-6 neon-border">
-                                    <div class="text-4xl text-white mb-4">
-                                        <i class="fas fa-bug"></i>
+                                <div class="lg:col-span-5 reveal">
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute -inset-4 bg-gradient-to-r from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
+                                        </div>
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/edicao.png" alt="Edição Audiovisual"
+                                                class="w-full h-auto transition duration-700 group-hover:scale-105">
+                                        </div>
                                     </div>
-                                    <h5 class="text-xl font-bold text-white mb-3">Resolução de Problemas</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">
-                                        Diagnóstico e solução de problemas específicos que estão afetando seu
-                                        dispositivo.
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-film text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Vídeo</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Montagens, efeitos visuais e
+                                        correção de cor.</p>
+                                </div>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-headphones text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Áudio</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Limpeza, mixagem e masterização de
+                                        som.</p>
+                                </div>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-camera text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Foto/Imagem</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Montagem, correção de cor, edição
+                                        e manipulação.</p>
+                                </div>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-paint-brush text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Design Digital</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Thumbnails e artes para redes
+                                        sociais e plataformas diversas.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Videomaking Services -->
+                        <div class="relative z-10">
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
+                                <div class="lg:col-span-5 order-2 lg:order-1 reveal">
+                                    <div class="relative group">
+                                        <div
+                                            class="absolute -inset-4 bg-gradient-to-l from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
+                                        </div>
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/videomaking.png" alt="Videomaking"
+                                                class="w-full h-auto transition duration-700 group-hover:scale-105">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lg:col-span-7 order-1 lg:order-2 lg:pl-12 reveal">
+                                    <div class="flex items-center gap-4 mb-6">
+                                        <div
+                                            class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
+                                            <i class="fas fa-camera-retro"></i>
+                                        </div>
+                                        <h4 class="text-3xl md:text-4xl font-bold text-white">Videomaking</h4>
+                                    </div>
+                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                        Capturando momentos e contando histórias através de lentes profissionais.
+                                        Produção completa de vídeo, desde a concepção de ideias até a gravação final com
+                                        qualidade cinematográfica.
                                     </p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-video text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Produção</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Captação e direção de vídeos
+                                        profissionais para diversos formatos.</p>
+                                </div>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-users text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Eventos</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Cobertura cinematográfica de
+                                        eventos sociais e corporativos.</p>
+                                </div>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-bullhorn text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Comerciais</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Filmes publicitários e vídeos de
+                                        marketing de alto impacto.</p>
+                                </div>
+                                <div class="card-effect rounded-2xl p-6 neon-border group">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-dark-800 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-mobile-alt text-2xl"></i>
+                                    </div>
+                                    <h5 class="text-xl font-bold text-white mb-3">Social Media</h5>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Vídeos dinâmicos e verticais para
+                                        redes sociais.</p>
                                 </div>
                             </div>
                         </div>
