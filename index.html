@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soarinho - Artista Tecnológico | Unindo Arte e Tecnologia</title>
     <meta name="description"
-        content="Soarinho - Artista Tecnológico. Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Música, Locução, Edição Audiovisual e Desenvolvimento Web.">
+        content="Soarinho - Artista Tecnológico. Unindo Arte e Tecnologia para Criar Experiências que Conectam e Encantam. Desenvolvimento Web, Suporte Técnico, Videomaking, Edição Audiovisual, Música, Locução e Dublagem.">
     <meta name="keywords"
-        content="Soarinho, Artista Tecnológico, Música, Locução, Dublagem, Edição de Vídeo, Desenvolvimento Web, Suporte Técnico, TI, Angra dos Reis">
+        content="Soarinho, Artista Tecnológico, Música, Locução, Dublagem, Edição de Vídeo, Desenvolvimento Web, Suporte Técnico, TI, Angra dos Reis, Lucas Soares dos Santos, osoarinho, multifacetado">
     <meta name="author" content="Lucas Soares dos Santos - Soarinho">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://soarinho.com">
@@ -126,12 +126,16 @@
             scroll-behavior: smooth;
         }
 
+        html,
         body {
             font-family: 'Exo 2', sans-serif;
             background-color: #050505;
             color: #d1d1d1;
             transition: background-color 0.4s ease, color 0.4s ease;
             overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100%;
         }
 
         @media (max-width: 768px) {
@@ -377,13 +381,22 @@
         }
 
         body.light-theme .custom-audio-player {
-            background: #f8f8f8 !important;
-            border-color: rgba(0, 0, 0, 0.03) !important;
+            background: #ffffff !important;
+            border-color: rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03) !important;
         }
 
         body.light-theme .play-pause-btn {
-            background: #000000 !important;
-            color: #ffffff !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        body.light-theme .play-pause-btn:hover {
+            background: #f8f8f8 !important;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
         }
 
         body.light-theme .progress-bar {
@@ -391,7 +404,7 @@
         }
 
         body.light-theme .progress-container {
-            background: rgba(0, 0, 0, 0.1) !important;
+            background: #eeeeee !important;
         }
 
         body.light-theme .player-time {
@@ -679,6 +692,7 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
+            visibility: hidden;
             pointer-events: none;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 1.5rem;
@@ -686,6 +700,7 @@
 
         .modal-overlay.active {
             opacity: 1;
+            visibility: visible;
             pointer-events: auto;
         }
 
@@ -724,10 +739,23 @@
             align-items: center;
             justify-content: center;
             color: white;
-            z-index: 10;
+            z-index: 50;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            .modal-content {
+                padding: 3rem 1.5rem 2rem 1.5rem !important;
+            }
         }
 
         .modal-close:hover {
@@ -1021,7 +1049,7 @@
     </style>
 </head>
 
-<body class="bg-dark-900 text-dark-100 font-exo overflow-x-hidden">
+<body class="bg-dark-950 text-dark-100 font-exo overflow-x-hidden m-0 p-0">
     <!-- WhatsApp Float Button -->
     <div class="whatsapp-float">
         <a href="https://wa.me/5524998540552" target="_blank" class="whatsapp-button animate-glow">
@@ -1056,7 +1084,7 @@
                 class="flex justify-between items-center bg-white/5 backdrop-blur-xl border border-white/10 p-3 md:p-4 rounded-full shadow-2xl">
                 <a href="#hero" class="flex items-center group ml-2">
                     <img src="https://soarinho.com/identity/marca-soarinho.png" alt="Logo Soarinho"
-                        class="h-10 md:h-14 w-auto transition-transform duration-500 group-hover:scale-110">
+                        class="h-16 md:h-16 w-auto transition-transform duration-500 group-hover:scale-110">
                 </a>
 
                 <!-- Desktop Nav -->
@@ -1196,7 +1224,8 @@
                                 </div>
                                 <div>
                                     <p class="text-[10px] text-dark-400 font-bold uppercase tracking-wider">Tech</p>
-                                    <p class="text-sm font-bold text-white">Programming / Editing</p>
+                                    <p class="text-sm font-bold text-white">Programming / Support / Videomaking /
+                                        Editing</p>
                                 </div>
                             </div>
                         </div>
@@ -1209,7 +1238,7 @@
                                     <i class="fas fa-microphone"></i>
                                 </div>
                                 <div>
-                                    <p class="text-[10px] text-dark-400 font-bold uppercase tracking-wider">Arte</p>
+                                    <p class="text-[10px] text-dark-400 font-bold uppercase tracking-wider">Arts</p>
                                     <p class="text-sm font-bold text-white">Music / Voice / Shows</p>
                                 </div>
                             </div>
@@ -2235,11 +2264,7 @@
                             data-tab="musica">
                             <i class="fas fa-music mr-2"></i>Música
                         </button>
-                        <button
-                            class="portfolio-tab-btn px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300"
-                            data-tab="suporte">
-                            <i class="fas fa-tools mr-2"></i>Suporte
-                        </button>
+
                     </div>
 
                     <!-- Tab Content -->
@@ -2934,41 +2959,6 @@
 
 
 
-
-                        <!-- Suporte Tab -->
-                        <div id="tab-suporte" class="portfolio-tab-content">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                                <div class="reveal">
-                                    <div class="card-effect rounded-2xl p-6 md:p-8 h-full flex flex-col group/card">
-                                        <div
-                                            class="aspect-video rounded-xl overflow-hidden mb-6 bg-gradient-to-br from-dark-800 to-dark-700 relative flex items-center justify-center border border-white/5 transition-all group-hover/card:border-white/10">
-                                            <i
-                                                class="fas fa-desktop text-5xl text-white/10 group-hover/card:text-white/20 transition-all duration-500 group-hover/card:scale-110"></i>
-                                            <div class="absolute top-4 left-4">
-                                                <span
-                                                    class="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-[9px] uppercase tracking-widest font-bold border border-blue-400/30 backdrop-blur-md">Serviço</span>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow flex flex-col">
-                                            <h4
-                                                class="text-xl font-bold text-white mb-3 group-hover/card:text-blue-400 transition-colors">
-                                                Suporte Técnico Remoto</h4>
-                                            <p class="text-dark-300 text-sm mb-4 leading-relaxed">Atendimento
-                                                especializado
-                                                para resolução de problemas em diversos sistemas operacionais e
-                                                softwares.</p>
-                                            <div class="mt-auto pt-4 border-t border-white/5">
-                                                <a href="https://wa.me/5524998540552" target="_blank"
-                                                    class="w-full btn-primary py-3 px-6 rounded-xl font-semibold text-sm inline-flex items-center justify-center transition-all hover:gap-3">
-                                                    Solicitar Suporte <i class="fab fa-whatsapp ml-2"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -3406,15 +3396,26 @@
                             </div>
                         </a>
 
-                        <a href="https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/" target="_blank"
-                            class="group reveal">
+                        <a href="https://www.linkedin.com/in/soarinho" target="_blank" class="group reveal">
                             <div
                                 class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
                                 <div
                                     class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
                                     <i class="fab fa-linkedin"></i>
                                 </div>
-                                <div class="text-white font-medium text-base md:text-lg">LinkedIn</div>
+                                <div class="text-white font-medium text-basce md:text-lg">LinkedIn</div>
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/osoarinho" target="_blank"
+                            class="group reveal col-span-2 md:col-span-3">
+                            <div
+                                class="card-effect rounded-xl p-6 md:p-8 neon-border hover:scale-105 transition-transform duration-300 text-center">
+                                <div
+                                    class="text-4xl md:text-5xl text-dark-200 mb-3 group-hover:text-white transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="text-white font-medium text-base md:text-lg">GitHub</div>
                             </div>
                         </a>
                     </div>
@@ -3499,6 +3500,117 @@
         </div>
     </footer>
 
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <!-- Back to Top Button -->
+        <button id="backToTop" class="floating-btn back-to-top" aria-label="Voltar ao topo">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
+
+    <style>
+        .floating-buttons {
+            position: fixed;
+            bottom: 7rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 9999;
+        }
+
+        .floating-btn {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .back-to-top {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .back-to-top:active {
+            transform: translateY(-1px) scale(0.95);
+        }
+
+        /* Responsivo para mobile */
+        @media (max-width: 768px) {
+            .floating-buttons {
+                bottom: 6rem;
+                right: 2rem;
+            }
+
+            .floating-btn {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Tema claro */
+        body.light-theme .back-to-top {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05));
+            color: #000000;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        body.light-theme .back-to-top:hover {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.15));
+            border-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+
+    <script>
+        // Back to Top functionality
+        const backToTopBtn = document.getElementById('backToTop');
+
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when clicked
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -3513,7 +3625,8 @@
             "https://instagram.com/osoarinho",
             "https://www.youtube.com/@osoarinho",
             "https://open.spotify.com/intl-pt/artist/5f2rUX3TWTtIjOiUuscI6e",
-            "https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/"
+            "https://www.linkedin.com/in/lucas-soares-dos-santos-42925919b/",
+            "https://github.com/osoarinho"
         ],
         "knowsAbout": ["Música", "Locução", "Dublagem", "Edição de Vídeo", "Desenvolvimento Web", "Suporte Técnico", "TI"],
         "address": {
