@@ -331,39 +331,89 @@
         }
 
         /* Modal e Audio Players no Light Theme */
+        body.light-theme .modal-overlay {
+            background: rgba(255, 255, 255, 0.7) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+        }
+
         body.light-theme .modal-content {
             background: #ffffff !important;
             border-color: rgba(0, 0, 0, 0.1) !important;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2) !important;
+            box-shadow: 0 50px 120px rgba(0, 0, 0, 0.15) !important;
         }
 
         body.light-theme .modal-close {
-            background: #f0f0f0 !important;
-            color: #0a0a0a !important;
-            border-color: rgba(0, 0, 0, 0.1) !important;
+            background: #000000 !important;
+            color: #ffffff !important;
+            border: none !important;
         }
 
-        body.light-theme .custom-audio-player {
-            background: #f5f5f5 !important;
+        body.light-theme .modal-close:hover {
+            background: #333333 !important;
+            transform: rotate(90deg) scale(1.1) !important;
+        }
+
+        body.light-theme .audio-card {
+            background: #fdfdfd !important;
+            border-color: rgba(0, 0, 0, 0.06) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02) !important;
+        }
+
+        body.light-theme .audio-card:hover {
+            background: #ffffff !important;
+            border-color: rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08) !important;
+            transform: translateY(-5px) !important;
+        }
+
+        body.light-theme .audio-card .bg-white\/5 {
+            background: #f0f0f0 !important;
             border-color: rgba(0, 0, 0, 0.05) !important;
         }
 
+        body.light-theme .audio-card i {
+            color: #000000 !important;
+        }
+
+        body.light-theme .custom-audio-player {
+            background: #f8f8f8 !important;
+            border-color: rgba(0, 0, 0, 0.03) !important;
+        }
+
         body.light-theme .play-pause-btn {
-            background: #0a0a0a !important;
+            background: #000000 !important;
             color: #ffffff !important;
         }
 
         body.light-theme .progress-bar {
-            background: #0a0a0a !important;
+            background: #000000 !important;
         }
 
         body.light-theme .progress-container {
             background: rgba(0, 0, 0, 0.1) !important;
         }
 
-        body.light-theme .audio-card {
-            background: #ffffff !important;
-            border-color: rgba(0, 0, 0, 0.08) !important;
+        body.light-theme .player-time {
+            color: #666666 !important;
+        }
+
+        body.light-theme .current-time {
+            color: #000000 !important;
+        }
+
+        body.light-theme .modal-content h2,
+        body.light-theme .modal-content h3 {
+            color: #000000 !important;
+        }
+
+        body.light-theme .modal-content p {
+            color: #444444 !important;
+        }
+
+        body.light-theme .modal-content .bg-gradient-to-r.from-transparent.via-white {
+            background: linear-gradient(to right, transparent, #000000, transparent) !important;
+            opacity: 0.1 !important;
         }
 
         /* Legendas e Badges */
@@ -690,7 +740,16 @@
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 1.25rem;
-            padding: 1.25rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .play-pause-btn {
@@ -705,6 +764,7 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .play-pause-btn:hover {
@@ -712,8 +772,40 @@
             box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
         }
 
+        .player-info {
+            flex-grow: 1;
+        }
+
+        .player-time {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .current-time {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .progress-container {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
         .progress-bar {
+            height: 100%;
             background: #ffffff;
+            width: 0%;
+            border-radius: 3px;
+            transition: width 0.1s linear;
         }
 
         /* Portfolio Tabs */
@@ -764,12 +856,20 @@
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, opacity;
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .reveal {
+                transform: translateY(20px);
+                transition-duration: 0.5s;
+            }
         }
 
         /* Google Review Card Dark Override */
@@ -1341,8 +1441,10 @@
 
                         <!-- Voz Services -->
                         <div class="mb-24 relative z-10">
-                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
-                                <div class="lg:col-span-7 reveal">
+                            <!-- Locução & Dublagem -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-center mb-12">
+                                <!-- Coluna de Texto (Título e Descrição) -->
+                                <div class="lg:col-span-7 flex flex-col justify-center order-1 lg:order-1">
                                     <div class="flex items-center gap-4 mb-6">
                                         <div
                                             class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
@@ -1350,18 +1452,31 @@
                                         </div>
                                         <h4 class="text-3xl md:text-4xl font-bold text-white">Locução & Dublagem</h4>
                                     </div>
-                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
-                                        Voz versátil e interpretação profissional para dar vida aos seus projetos.
-                                        De comerciais impactantes a dublagens caricatas, entrego a emoção certa para
-                                        cada roteiro.
-                                    </p>
-                                    <button type="button" id="open-voice-demos-modal"
-                                        class="btn-demo-animate py-3 px-8 rounded-full font-bold text-sm md:text-base inline-flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-xl">
-                                        <i class="fas fa-headphones-alt animate-bounce"></i>
-                                        Ouvir Demonstrações de Voz
-                                    </button>
+
+                                    <!-- Imagem apenas para Mobile -->
+                                    <div class="lg:hidden reveal order-2 my-6">
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/voz.png" alt="Locução e Dublagem" class="w-full h-auto">
+                                        </div>
+                                    </div>
+
+                                    <div class="reveal order-3 lg:order-2">
+                                        <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                            Voz versátil e interpretação profissional para dar vida aos seus projetos.
+                                            De comerciais impactantes a dublagens caricatas, entrego a emoção certa para
+                                            cada roteiro.
+                                        </p>
+                                        <button type="button" id="open-voice-demos-modal"
+                                            class="btn-demo-animate py-3 px-8 rounded-full font-bold text-sm md:text-base inline-flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-xl">
+                                            <i class="fas fa-headphones-alt animate-bounce"></i>
+                                            Ouvir Demonstrações de Voz
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="lg:col-span-5 reveal">
+
+                                <!-- Coluna de Imagem Desktop -->
+                                <div class="hidden lg:block lg:col-span-5 reveal order-2 lg:order-2">
                                     <div class="relative group">
                                         <div
                                             class="absolute -inset-4 bg-gradient-to-r from-dark-500/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
@@ -1422,8 +1537,10 @@
 
                         <!-- Música Services -->
                         <div class="relative z-10">
-                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
-                                <div class="lg:col-span-5 order-2 lg:order-1 reveal">
+                            <!-- Música & Shows -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-center mb-12">
+                                <!-- Coluna de Imagem Desktop -->
+                                <div class="hidden lg:block lg:col-span-5 reveal order-2 lg:order-1">
                                     <div class="relative group">
                                         <div
                                             class="absolute -inset-4 bg-gradient-to-l from-dark-500/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
@@ -1435,7 +1552,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="lg:col-span-7 order-1 lg:order-2 lg:pl-12 reveal">
+
+                                <!-- Coluna de Texto (Título e Descrição) -->
+                                <div class="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2 lg:pl-12">
                                     <div class="flex items-center gap-4 mb-6">
                                         <div
                                             class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
@@ -1443,16 +1562,23 @@
                                         </div>
                                         <h4 class="text-3xl md:text-4xl font-bold text-white">Música & Shows</h4>
                                     </div>
-                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
-                                        Performances musicais autênticas para transformar seu evento. Com Violoncelo,
-                                        Voz, Violão ou Trompete,
-                                        crio a atmosfera perfeita para momentos especiais e celebrações inesquecíveis.
-                                    </p>
-                                    <div class="flex flex-wrap gap-4">
-                                        <a href="#contato"
-                                            class="py-3 px-8 rounded-full font-bold text-sm bg-white text-dark-900 transition-all hover:bg-dark-100 shadow-lg">
-                                            Contratar Show
-                                        </a>
+
+                                    <!-- Imagem apenas para Mobile -->
+                                    <div class="lg:hidden reveal order-2 my-6">
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/musica.png" alt="Música e Shows" class="w-full h-auto">
+                                        </div>
+                                    </div>
+
+                                    <div class="reveal order-3 lg:order-2">
+                                        <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
+                                            Performances musicais autênticas para transformar seu evento. Com
+                                            Violoncelo,
+                                            Voz, Violão ou Trompete,
+                                            crio a atmosfera perfeita para momentos especiais e celebrações
+                                            inesquecíveis.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -1636,8 +1762,10 @@
 
                         <!-- Web Services -->
                         <div class="mb-24 relative z-10">
-                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
-                                <div class="lg:col-span-7 reveal">
+                            <!-- Desenvolvimento Web -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-center mb-12">
+                                <!-- Coluna de Texto (Título e Descrição) -->
+                                <div class="lg:col-span-7 flex flex-col justify-center order-1 lg:order-1">
                                     <div class="flex items-center gap-4 mb-6">
                                         <div
                                             class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
@@ -1645,13 +1773,26 @@
                                         </div>
                                         <h4 class="text-3xl md:text-4xl font-bold text-white">Desenvolvimento Web</h4>
                                     </div>
-                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
-                                        Sua presença digital levada a sério. Desenvolvo interfaces modernas,
-                                        rápidas e focadas na experiência do usuário para converter visitantes em
-                                        clientes.
-                                    </p>
+
+                                    <!-- Imagem apenas para Mobile -->
+                                    <div class="lg:hidden reveal order-2 my-6">
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/web.png" alt="Desenvolvimento Web" class="w-full h-auto">
+                                        </div>
+                                    </div>
+
+                                    <div class="reveal order-3 lg:order-2">
+                                        <p class="text-dark-300 text-lg leading-relaxed max-w-2xl">
+                                            Sua presença digital levada a sério. Desenvolvo interfaces modernas,
+                                            rápidas e focadas na experiência do usuário para converter visitantes em
+                                            clientes.
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="lg:col-span-5 reveal">
+
+                                <!-- Coluna de Imagem Desktop -->
+                                <div class="hidden lg:block lg:col-span-5 reveal order-2 lg:order-2">
                                     <div class="relative group">
                                         <div
                                             class="absolute -inset-4 bg-gradient-to-r from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
@@ -1706,8 +1847,10 @@
 
                         <!-- Suporte Services -->
                         <div class="mb-24 relative z-10">
-                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
-                                <div class="lg:col-span-5 order-2 lg:order-1 reveal">
+                            <!-- Suporte Técnico -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-center mb-12">
+                                <!-- Coluna de Imagem Desktop -->
+                                <div class="hidden lg:block lg:col-span-5 reveal order-2 lg:order-1">
                                     <div class="relative group">
                                         <div
                                             class="absolute -inset-4 bg-gradient-to-l from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
@@ -1719,7 +1862,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="lg:col-span-7 order-1 lg:order-2 lg:pl-12 reveal">
+
+                                <!-- Coluna de Texto (Título e Descrição) -->
+                                <div class="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2 lg:pl-12">
                                     <div class="flex items-center gap-4 mb-6">
                                         <div
                                             class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
@@ -1727,11 +1872,23 @@
                                         </div>
                                         <h4 class="text-3xl md:text-4xl font-bold text-white">Suporte Técnico</h4>
                                     </div>
-                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
-                                        Resolução eficiente de problemas tecnológicos. Do suporte remoto
-                                        à manutenção de performance, garanto que sua tecnologia trabalhe para você, e
-                                        não o contrário.
-                                    </p>
+
+                                    <!-- Imagem apenas para Mobile -->
+                                    <div class="lg:hidden reveal order-2 my-6">
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/suporte.png" alt="Suporte Técnico" class="w-full h-auto">
+                                        </div>
+                                    </div>
+
+                                    <div class="reveal order-3 lg:order-2">
+                                        <p class="text-dark-300 text-lg leading-relaxed max-w-2xl">
+                                            Resolução eficiente de problemas tecnológicos. Do suporte remoto
+                                            à manutenção de performance, garanto que sua tecnologia trabalhe para você,
+                                            e
+                                            não o contrário.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1776,8 +1933,10 @@
 
                         <!-- Edição Services -->
                         <div class="mb-24 relative z-10">
-                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
-                                <div class="lg:col-span-7 reveal">
+                            <!-- Edição Audiovisual -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-center mb-12">
+                                <!-- Coluna de Texto (Título e Descrição) -->
+                                <div class="lg:col-span-7 flex flex-col justify-center order-1 lg:order-1">
                                     <div class="flex items-center gap-4 mb-6">
                                         <div
                                             class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
@@ -1785,13 +1944,27 @@
                                         </div>
                                         <h4 class="text-3xl md:text-4xl font-bold text-white">Edição Audiovisual</h4>
                                     </div>
-                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
-                                        Onde a mágica acontece. Transformo gravações brutas em peças de arte fluidas e
-                                        envolventes,
-                                        com cortes rítmicos, color grade e design sonoro fascinante.
-                                    </p>
+
+                                    <!-- Imagem apenas para Mobile -->
+                                    <div class="lg:hidden reveal order-2 my-6">
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/edicao.png" alt="Edição Audiovisual" class="w-full h-auto">
+                                        </div>
+                                    </div>
+
+                                    <div class="reveal order-3 lg:order-2">
+                                        <p class="text-dark-300 text-lg leading-relaxed max-w-2xl">
+                                            Onde a mágica acontece. Transformo gravações brutas em peças de arte fluidas
+                                            e
+                                            envolventes,
+                                            com cortes rítmicos, color grade e design sonoro fascinante.
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="lg:col-span-5 reveal">
+
+                                <!-- Coluna de Imagem Desktop -->
+                                <div class="hidden lg:block lg:col-span-5 reveal order-2 lg:order-2">
                                     <div class="relative group">
                                         <div
                                             class="absolute -inset-4 bg-gradient-to-r from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
@@ -1846,8 +2019,10 @@
 
                         <!-- Videomaking Services -->
                         <div class="relative z-10">
-                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-12">
-                                <div class="lg:col-span-5 order-2 lg:order-1 reveal">
+                            <!-- Videomaking -->
+                            <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-center mb-12">
+                                <!-- Coluna de Imagem Desktop -->
+                                <div class="hidden lg:block lg:col-span-5 reveal order-2 lg:order-1">
                                     <div class="relative group">
                                         <div
                                             class="absolute -inset-4 bg-gradient-to-l from-dark-400/20 to-transparent rounded-3xl blur-2xl opacity-50 group-hover:opacity-100 transition duration-1000">
@@ -1859,7 +2034,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="lg:col-span-7 order-1 lg:order-2 lg:pl-12 reveal">
+
+                                <!-- Coluna de Texto (Título e Descrição) -->
+                                <div class="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2 lg:pl-12">
                                     <div class="flex items-center gap-4 mb-6">
                                         <div
                                             class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-2xl text-dark-200 border border-white/10">
@@ -1867,11 +2044,23 @@
                                         </div>
                                         <h4 class="text-3xl md:text-4xl font-bold text-white">Videomaking</h4>
                                     </div>
-                                    <p class="text-dark-300 text-lg mb-8 leading-relaxed max-w-2xl">
-                                        Capturando momentos e contando histórias através de lentes profissionais.
-                                        Produção completa de vídeo, desde a concepção de ideias até a gravação final com
-                                        qualidade cinematográfica.
-                                    </p>
+
+                                    <!-- Imagem apenas para Mobile -->
+                                    <div class="lg:hidden reveal order-2 my-6">
+                                        <div
+                                            class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                                            <img src="assets/videomaking.png" alt="Videomaking" class="w-full h-auto">
+                                        </div>
+                                    </div>
+
+                                    <div class="reveal order-3 lg:order-2">
+                                        <p class="text-dark-300 text-lg leading-relaxed max-w-2xl">
+                                            Capturando momentos e contando histórias.
+                                            Produção completa de vídeo, desde a concepção de ideias até a gravação final
+                                            com
+                                            aspecto cinematográfico.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1890,7 +2079,7 @@
                                         <i class="fas fa-users text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Eventos</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">Cobertura cinematográfica de
+                                    <p class="text-dark-300 text-sm leading-relaxed">Cobertura de
                                         eventos sociais e corporativos.</p>
                                 </div>
                                 <div class="card-effect rounded-2xl p-6 neon-border group">
@@ -1899,8 +2088,8 @@
                                         <i class="fas fa-bullhorn text-2xl"></i>
                                     </div>
                                     <h5 class="text-xl font-bold text-white mb-3">Comerciais</h5>
-                                    <p class="text-dark-300 text-sm leading-relaxed">Filmes publicitários e vídeos de
-                                        marketing de alto impacto.</p>
+                                    <p class="text-dark-300 text-sm leading-relaxed">Vídeos publicitários e de
+                                        marketing.</p>
                                 </div>
                                 <div class="card-effect rounded-2xl p-6 neon-border group">
                                     <div
@@ -2834,7 +3023,7 @@
                                         encantam e resolvem.
                                     </p>
                                     <p class="text-dark-200 leading-relaxed text-base md:text-lg">
-                                        Sou Cantor, Músico, Compositor e Produtor Musical, apaixonado por transformar
+                                        Sou Músico Instrumentista e Cantor, apaixonado por transformar
                                         momentos em memórias através da música, em cerimônias, eventos e apresentações
                                         especiais. Minhas canções transitam entre o amor e a fé, com mensagens que
                                         tocam. Em 2022, lancei meu primeiro single, <strong class="text-white">"Diamante
@@ -2862,8 +3051,8 @@
                             </div>
                             <p class="text-dark-200 leading-relaxed text-sm md:text-base">
                                 Também atuo como Locutor e Dublador, dando voz com versatilidade a campanhas, vídeos,
-                                marcas e personagens. No audiovisual, sou Editor de Vídeo, Áudio, Imagens e Artes
-                                Visuais, criando conteúdos que comunicam, impactam e geram valor.
+                                marcas e personagens. No audiovisual, sou Videomaker e Editor, criando conteúdos que
+                                comunicam, impactam e geram valor.
                             </p>
                         </div>
 
@@ -2880,7 +3069,8 @@
                                 </div>
                             </div>
                             <p class="text-dark-200 leading-relaxed text-sm md:text-base">
-                                Na área da tecnologia, sou Analista de Sistemas e Desenvolvedor Web, criando sites,
+                                Na área da tecnologia, sou Analista de Sistemas que atua como Desenvolvedor Web, criando
+                                sites,
                                 sistemas e soluções digitais para pessoas, negócios e empresas se posicionarem online.
                                 Amo estilo e comunicação visual. Tudo que envolve expressão, arte, criatividade e
                                 tecnologia faz parte da minha essência.
@@ -2943,7 +3133,9 @@
                                             <div class="pl-6 border-l border-white/5 ml-1">
                                                 <p>cargo: <span class="text-code-orange">"Monitor de Alunos"</span>,</p>
                                                 <p>especialidade: <span class="text-code-orange">"Educação e
-                                                        Tecnologia"</span></p>
+                                                        Tecnologia"</span>,</p>
+                                                <p>local: <span class="text-code-orange">"Escola de Cursos
+                                                        Profissionalizantes"</span>
                                             </div>
                                             <p>},</p>
                                             <p>{</p>
@@ -2951,7 +3143,9 @@
                                                 <p>cargo: <span class="text-code-orange">"Instrutor de
                                                         Informática"</span>,</p>
                                                 <p>especialidade: <span class="text-code-orange">"Montagem e
-                                                        Manutenção"</span></p>
+                                                        Manutenção"</span>,</p>
+                                                <p>local: <span class="text-code-orange">"Escola de Cursos
+                                                        Profissionalizantes"</span>
                                             </div>
                                             <p>},</p>
                                         </div>
@@ -2961,20 +3155,31 @@
                                             <div class="pl-6 border-l border-white/5 ml-1">
                                                 <p>cargos: [<span class="text-code-orange">"Estagiário de
                                                         Desenvolvimento Web"</span>],</p>
-                                                <p>local: <span class="text-code-orange">"Prefeitura de Angra"</span>
+                                                <p>local: <span class="text-code-orange">"Prefeitura Municipal de Angra
+                                                        dos Reis"</span>
+                                                </p>
+                                            </div>
+                                            <p>},</p>
+                                            <p>{</p>
+                                            <div class="pl-6 border-l border-white/5 ml-1">
+                                                <p>cargos: [<span class="text-code-orange">"Coordenador Técnico de
+                                                        Desenvolvimento e Programação de T.I."</span>],</p>
+                                                <p>local: <span class="text-code-orange">"Prefeitura Municipal de Angra
+                                                        dos Reis"</span>
                                                 </p>
                                             </div>
                                             <p>},</p>
                                         </div>
                                         <div class="group">
-                                            <p class="text-code-green opacity-70">// Coordenação, Desenvolvimento e
+                                            <p class="text-code-green opacity-70">// Inovação, Governança Digital,
+                                                Desenvolvimento e
                                                 Impacto</p>
                                             <p>{</p>
                                             <div class="pl-6 border-l border-white/5 ml-1">
-                                                <p>cargo: <span class="text-code-orange">"Coordenador de Desenvolvimento
-                                                        e
-                                                        Programação"</span>,</p>
-                                                <p>missão: <span class="text-code-orange">"Soluções para milhares de
+                                                <p>cargo: <span class="text-code-orange">"Assessor de Inovação
+                                                        Tecnológica"</span>,</p>
+                                                <p>missão: <span class="text-code-orange">"Soluções tecnológicas para
+                                                        milhares de
                                                         cidadãos"</span>,</p>
                                                 <p>status: <span class="text-code-orange">"Active"</span></p>
                                             </div>
@@ -3396,19 +3601,31 @@
 
         // Scroll reveal animation
         const reveals = document.querySelectorAll('.reveal');
+
+        // Função para ativar o reveal
+        const activateReveal = (el) => {
+            el.classList.add('active');
+        };
+
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    activateReveal(entry.target);
+                    revealObserver.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px 80px 0px' // Aumentado para disparar ainda mais cedo
         });
 
         reveals.forEach(reveal => {
-            revealObserver.observe(reveal);
+            // Se estiver no hero, revela quase imediatamente ou após um pequeno delay fixo
+            if (reveal.closest('#hero')) {
+                setTimeout(() => activateReveal(reveal), 100);
+            } else {
+                revealObserver.observe(reveal);
+            }
         });
 
         // Parallax Effect for Images
@@ -3800,24 +4017,24 @@
             <button class="modal-close" id="close-voice-demos-modal" aria-label="Fechar modal">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="text-center mb-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Demonstrações de Voz</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto"></div>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Demonstrações de Voz</h2>
+                <div
+                    class="w-32 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto rounded-full opacity-30">
+                </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <div class="reveal">
                     <div class="card-effect audio-card rounded-2xl p-6 md:p-8 border border-white/10 h-full">
-                        <div class="flex items-start gap-4 mb-4">
+                        <div class="flex items-center gap-5 mb-6">
                             <div
-                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl">
+                                class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white text-2xl border border-white/10 flex-shrink-0">
                                 <i class="fas fa-theater-masks"></i>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Personagens - Animação, Live
-                                    Action, Games, Audiolivros, etc.</h3>
-                                <p class="text-dark-300 mb-2 text-sm md:text-base">Dublagens expressivas com
-                                    interpretação e emoção.</p>
+                                <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Personagens</h3>
+                                <p class="text-dark-400 text-sm mt-1">Animação, Games, Audiolivros e Dublagem</p>
                             </div>
                         </div>
                         <div class="custom-audio-player" data-audio-src="https://soarinho.com/recordings/dubbing.m4a">
@@ -3844,15 +4061,14 @@
                 </div>
                 <div class="reveal">
                     <div class="card-effect audio-card rounded-2xl p-6 md:p-8 border border-white/10 h-full">
-                        <div class="flex items-start gap-4 mb-4">
+                        <div class="flex items-center gap-5 mb-6">
                             <div
-                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl">
+                                class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white text-2xl border border-white/10 flex-shrink-0">
                                 <i class="fas fa-bolt"></i>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Comercial - Energia</h3>
-                                <p class="text-dark-300 mb-2 text-sm md:text-base">Locuções para campanhas de energia e
-                                    utilidades.</p>
+                                <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Comercial</h3>
+                                <p class="text-dark-400 text-sm mt-1">Locuções para Campanhas de Energia</p>
                             </div>
                         </div>
                         <div class="custom-audio-player" data-audio-src="https://soarinho.com/recordings/energy.m4a">
@@ -3880,16 +4096,14 @@
 
                 <div class="reveal">
                     <div class="card-effect audio-card rounded-2xl p-6 md:p-8 border border-white/10 h-full">
-                        <div class="flex items-start gap-4 mb-4">
+                        <div class="flex items-center gap-5 mb-6">
                             <div
-                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl">
+                                class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white text-2xl border border-white/10 flex-shrink-0">
                                 <i class="fas fa-building"></i>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Institucional - Tecnologia
-                                </h3>
-                                <p class="text-dark-300 mb-2 text-sm md:text-base">Voz corporativa para vídeos
-                                    institucionais de tecnologia.</p>
+                                <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Institucional</h3>
+                                <p class="text-dark-400 text-sm mt-1">Voz Corporativa para Tecnologia</p>
                             </div>
                         </div>
                         <div class="custom-audio-player"
@@ -3918,15 +4132,14 @@
 
                 <div class="reveal">
                     <div class="card-effect audio-card rounded-2xl p-6 md:p-8 border border-white/10 h-full">
-                        <div class="flex items-start gap-4 mb-4">
+                        <div class="flex items-center gap-5 mb-6">
                             <div
-                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl">
+                                class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center text-white text-2xl border border-white/10 flex-shrink-0">
                                 <i class="fas fa-leaf"></i>
                             </div>
                             <div class="flex-1">
-                                <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Documentário - Natureza</h3>
-                                <p class="text-dark-300 mb-2 text-sm md:text-base">Narrações para vida selvagem e
-                                    natureza.</p>
+                                <h3 class="text-xl md:text-2xl font-bold text-white leading-tight">Documentário</h3>
+                                <p class="text-dark-400 text-sm mt-1">Narrativas de Natureza e Vida Selvagem</p>
                             </div>
                         </div>
                         <div class="custom-audio-player"
