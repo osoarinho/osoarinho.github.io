@@ -1125,7 +1125,7 @@
                 class="flex justify-between items-center bg-white/5 backdrop-blur-xl border border-white/10 p-3 md:p-4 rounded-full shadow-2xl">
                 <a href="#hero" class="flex items-center group ml-2">
                     <img src="https://soarinho.com/identity/marca-soarinho.png" alt="Logo Soarinho"
-                        class="h-16 md:h-16 w-auto transition-transform duration-500 group-hover:scale-110">
+                        class="h-10 md:h-16 w-auto transition-transform duration-500 group-hover:scale-110">
                 </a>
 
                 <!-- Desktop Nav -->
@@ -1152,15 +1152,14 @@
                     </ul>
                 </nav>
 
-                <div class="flex items-center gap-4 mr-2">
-                    <a href="#loja"
-                        class="hidden md:flex text-sm font-semibold tracking-wide hover:text-white transition-colors items-center gap-2 mr-2">
-                        <i class="fas fa-shopping-bag text-lg"></i> Loja
-                    </a>
+                <div class="flex items-center gap-2 md:gap-4 mr-2">
                     <a href="https://wa.me/5524998540552" target="_blank"
                         class="hidden sm:flex btn-primary py-2.5 px-6 rounded-full text-sm font-bold shadow-lg shadow-white/5">
                         <i class="fab fa-whatsapp mr-2 text-base"></i> Conversar
                     </a>
+                    <button onclick="location.href='#loja'" class="theme-toggle-btn !flex flex-shrink-0" title="Loja">
+                        <i class="fas fa-shopping-bag"></i>
+                    </button>
                     <button id="theme-toggle" class="theme-toggle-btn" title="Alternar Tema">
                         <i id="theme-icon" class="fas fa-moon"></i>
                     </button>
