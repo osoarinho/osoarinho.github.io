@@ -1158,6 +1158,25 @@
                     <button id="theme-toggle" class="theme-toggle-btn flex flex-shrink-0" title="Alternar Tema">
                         <i id="theme-icon" class="fas fa-moon"></i>
                     </button>
+                    <div class="relative flex items-center lang-dropdown-container">
+                        <button id="lang-toggle-btn" class="theme-toggle-btn flex flex-shrink-0" title="Idioma">
+                            <i class="fas fa-globe"></i>
+                        </button>
+                        <div id="lang-menu" class="absolute right-0 top-full mt-2 hidden flex-col bg-dark-900 border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-[150] min-w-[170px] light-theme-fix py-1.5">
+                            <button class="lang-option px-5 py-3 hover:bg-white/10 text-sm md:text-base text-left transition-colors whitespace-nowrap text-white font-semibold flex items-center gap-3 w-full" data-lang="pt">
+                                <img src="https://flagcdn.com/w20/br.png" srcset="https://flagcdn.com/w40/br.png 2x" width="20" class="rounded-[2px] shadow-sm" alt="Brasil"> Português
+                            </button>
+                            <button class="lang-option px-5 py-3 hover:bg-white/10 text-sm md:text-base text-left transition-colors whitespace-nowrap text-white font-semibold flex items-center gap-3 w-full" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" srcset="https://flagcdn.com/w40/us.png 2x" width="20" class="rounded-[2px] shadow-sm" alt="USA"> English
+                            </button>
+                            <button class="lang-option px-5 py-3 hover:bg-white/10 text-sm md:text-base text-left transition-colors whitespace-nowrap text-white font-semibold flex items-center gap-3 w-full" data-lang="es">
+                                <img src="https://flagcdn.com/w20/es.png" srcset="https://flagcdn.com/w40/es.png 2x" width="20" class="rounded-[2px] shadow-sm" alt="Spain"> Español
+                            </button>
+                            <button class="lang-option px-5 py-3 hover:bg-white/10 text-sm md:text-base text-left transition-colors whitespace-nowrap text-white font-semibold flex items-center gap-3 w-full" data-lang="ja">
+                                <img src="https://flagcdn.com/w20/jp.png" srcset="https://flagcdn.com/w40/jp.png 2x" width="20" class="rounded-[2px] shadow-sm" alt="Japan"> 日本語
+                            </button>
+                        </div>
+                    </div>
                     <button id="mobile-menu-btn" class="theme-toggle-btn flex flex-shrink-0 lg:hidden" title="Menu">
                         <i class="fas fa-bars"></i>
                     </button>
@@ -4478,6 +4497,83 @@
             </div>
         </div>
     </div>
+
+    <!-- Hidden native Google Translate element -->
+    <div id="google_translate_element" style="display:none;"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'pt',
+                includedLanguages: 'pt,en,es,ja',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const langToggleBtn = document.getElementById('lang-toggle-btn');
+        const langMenu = document.getElementById('lang-menu');
+        const langOptions = document.querySelectorAll('.lang-option');
+
+        if(langToggleBtn && langMenu) {
+            langToggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                langMenu.classList.toggle('hidden');
+                langMenu.classList.toggle('flex');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!langToggleBtn.contains(e.target) && !langMenu.contains(e.target)) {
+                    langMenu.classList.add('hidden');
+                    langMenu.classList.remove('flex');
+                }
+            });
+        }
+
+        langOptions.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedLang = btn.getAttribute('data-lang');
+                
+                let selectElem = document.querySelector('.goog-te-combo');
+                if (selectElem) {
+                    selectElem.value = selectedLang;
+                    selectElem.dispatchEvent(new Event('change'));
+                } else {
+                    let iframe = document.querySelector('iframe.goog-te-banner-frame');
+                    if(iframe) {
+                        let innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                        let btn = innerDoc.getElementById('restore');
+                        if(btn) btn.click();
+                    } else {
+                        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                        location.reload();
+                    }
+                }
+                langMenu.classList.add('hidden');
+                langMenu.classList.remove('flex');
+            });
+        });
+    });
+    </script>
+    <style>
+    /* Completely hide all Google Translate default widgets & bars */
+    iframe.goog-te-banner-frame { display: none !important; }
+    .goog-te-banner-frame { display: none !important; }
+    .goog-te-gadget-icon { display: none !important; }
+    .goog-tooltip { display: none !important; }
+    .goog-tooltip:hover { display: none !important; }
+    .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+    .skiptranslate.goog-te-gadget { color: transparent !important; }
+    .VIpgJd-ZVi9od-aZ2wEe-wOHMyf { display: none !important; }
+    
+    /* Prevent the top spacing issue caused by Google */
+    html, body { top: 0 !important; margin-top: 0 !important; }
+    </style>
 </body>
 
 </html>
