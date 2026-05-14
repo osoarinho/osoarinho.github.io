@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currículo | Soarinho - Lucas Soares dos Santos</title>
+    <title>Currículo Dev | Soarinho - Lucas Soares dos Santos</title>
     <meta name="description"
         content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://soarinho.com/curriculo/">
-    <meta property="og:title" content="Currículo | Soarinho - Lucas Soares dos Santos">
-    <meta property="og:description" content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
+    <meta property="og:title" content="Currículo Dev | Soarinho - Lucas Soares dos Santos">
+    <meta property="og:description"
+        content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
     <meta property="og:image" content="https://soarinho.com/assets/thumb.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://soarinho.com/curriculo/">
-    <meta property="twitter:title" content="Currículo | Soarinho - Lucas Soares dos Santos">
-    <meta property="twitter:description" content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
+    <meta property="twitter:title" content="Currículo Dev | Soarinho - Lucas Soares dos Santos">
+    <meta property="twitter:description"
+        content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
     <meta property="twitter:image" content="https://soarinho.com/assets/thumb.png">
 
     <link rel="icon" type="image/png" href="https://soarinho.com/identity/marca-soarinho.png">
@@ -78,9 +80,17 @@
         }
 
         @keyframes gradient-move {
-            0% { background-position: 50% 0%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 100%; }
+            0% {
+                background-position: 50% 0%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 100%;
+            }
         }
 
         .card-effect {
@@ -126,19 +136,44 @@
         }
 
         @keyframes float-shape-1 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(5vw, 10vh) scale(1.2); }
-            66% { transform: translate(-5vw, 5vh) scale(0.9); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(5vw, 10vh) scale(1.2);
+            }
+
+            66% {
+                transform: translate(-5vw, 5vh) scale(0.9);
+            }
         }
 
         @keyframes float-shape-2 {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(-5vw, -10vh) scale(1.1); }
-            66% { transform: translate(5vw, -5vh) scale(0.8); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(-5vw, -10vh) scale(1.1);
+            }
+
+            66% {
+                transform: translate(5vw, -5vh) scale(0.8);
+            }
         }
 
-        .shape-1 { animation: float-shape-1 25s ease-in-out infinite; }
-        .shape-2 { animation: float-shape-2 30s ease-in-out infinite; }
+        .shape-1 {
+            animation: float-shape-1 25s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            animation: float-shape-2 30s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -148,10 +183,12 @@
     <canvas id="binaryCanvas" class="fixed inset-0 w-full h-full z-[-1] opacity-15 pointer-events-none"></canvas>
 
     <!-- Controls -->
-    <div class="fixed top-6 right-6 z-50 flex items-center card-effect rounded-full shadow-lg border border-dark-700 p-1 md:p-0">
-        
+    <div
+        class="fixed top-6 right-6 z-50 flex items-center card-effect rounded-full shadow-lg border border-dark-700 p-1 md:p-0">
+
         <!-- Menu Container (Left side) -->
-        <div id="controls-menu" class="flex items-center overflow-hidden transition-all duration-300 max-w-0 md:max-w-[300px] opacity-0 md:opacity-100">
+        <div id="controls-menu"
+            class="flex items-center overflow-hidden transition-all duration-300 max-w-0 md:max-w-[300px] opacity-0 md:opacity-100">
             <div class="flex items-center gap-3 px-3 py-1 md:px-4 md:py-2 w-max">
                 <a href="../index.html"
                     class="text-dark-300 hover:text-white transition flex items-center gap-2 text-sm font-medium"
@@ -167,7 +204,8 @@
         </div>
 
         <!-- Mobile Toggle Button (Right side) -->
-        <button onclick="toggleControls()" id="controls-toggle" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-dark-300 hover:text-white hover:bg-white/5 transition z-10 shrink-0">
+        <button onclick="toggleControls()" id="controls-toggle"
+            class="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-dark-300 hover:text-white hover:bg-white/5 transition z-10 shrink-0">
             <i class="fas fa-bars" id="controls-icon"></i>
         </button>
 
@@ -201,20 +239,28 @@
                     </p>
 
                     <div class="mt-6 flex flex-col gap-3">
-                        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-dark-900/50 border border-dark-800 w-fit">
+                        <div
+                            class="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-dark-900/50 border border-dark-800 w-fit">
                             <i class="fas fa-laptop-code text-brand-cyan text-lg"></i>
                             <div class="text-left">
-                                <p data-lang="pt" class="text-[10px] text-dark-400 font-bold uppercase tracking-widest">Experiência Dev</p>
-                                <p data-lang="en" class="hidden text-[10px] text-dark-400 font-bold uppercase tracking-widest">Dev Experience</p>
-                                <p class="text-sm font-tech font-bold text-white">5 <span data-lang="pt">Anos</span><span data-lang="en" class="hidden">Years</span></p>
+                                <p data-lang="pt" class="text-[10px] text-dark-400 font-bold uppercase tracking-widest">
+                                    Experiência Dev</p>
+                                <p data-lang="en"
+                                    class="hidden text-[10px] text-dark-400 font-bold uppercase tracking-widest">Dev
+                                    Experience</p>
+                                <p class="text-sm font-tech font-bold text-white">5 <span
+                                        data-lang="pt">Anos</span><span data-lang="en" class="hidden">Years</span></p>
                             </div>
                         </div>
-                        
-                        <a href="https://github.com/osoarinho" target="_blank" class="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-brand-cyan/50 hover:bg-dark-800 transition group w-fit">
+
+                        <a href="https://github.com/osoarinho" target="_blank"
+                            class="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-brand-cyan/50 hover:bg-dark-800 transition group w-fit">
                             <i class="fab fa-github text-brand-cyan text-lg group-hover:text-white transition"></i>
                             <div class="text-left">
                                 <p class="text-[10px] text-dark-400 font-bold uppercase tracking-widest">GitHub</p>
-                                <p class="text-sm font-tech font-bold text-white group-hover:text-brand-cyan transition">/osoarinho</p>
+                                <p
+                                    class="text-sm font-tech font-bold text-white group-hover:text-brand-cyan transition">
+                                    /osoarinho</p>
                             </div>
                         </a>
                     </div>
@@ -902,9 +948,9 @@
         function toggleControls() {
             const menu = document.getElementById('controls-menu');
             const icon = document.getElementById('controls-icon');
-            
+
             isControlsOpen = !isControlsOpen;
-            
+
             if (isControlsOpen) {
                 menu.classList.remove('max-w-0', 'opacity-0');
                 menu.classList.add('max-w-[300px]', 'opacity-100');
@@ -926,7 +972,7 @@
     <script>
         const canvas = document.getElementById('binaryCanvas');
         const ctx = canvas.getContext('2d');
-        
+
         let width, height, columns;
         const fontSize = 16;
         let drops = [];
@@ -953,30 +999,30 @@
             ctx.clearRect(0, 0, width, height);
             ctx.font = 'bold ' + fontSize + 'px "JetBrains Mono", monospace';
             ctx.textAlign = 'center';
-            
+
             for (let i = 0; i < columns; i++) {
                 let drop = drops[i];
                 drop.y += drop.speed;
                 let headY = Math.floor(drop.y);
-                
+
                 for (let j = 0; j < drop.length; j++) {
                     let charY = headY - j;
-                    
+
                     if (charY * fontSize > -fontSize && charY * fontSize < height + fontSize) {
                         // Random binary character
                         let char = chars.charAt(Math.floor(Math.random() * chars.length));
                         let alpha = 1 - (j / drop.length);
-                        
+
                         if (j === 0) {
                             ctx.fillStyle = `rgba(255, 255, 255, 1)`;
                         } else {
                             ctx.fillStyle = `rgba(255, 255, 255, ${alpha * 0.4})`; // Muted tail
                         }
-                        
-                        ctx.fillText(char, i * fontSize + (fontSize/2), charY * fontSize);
+
+                        ctx.fillText(char, i * fontSize + (fontSize / 2), charY * fontSize);
                     }
                 }
-                
+
                 if ((headY - drop.length) * fontSize > height && Math.random() > 0.98) {
                     drop.y = Math.random() * -20;
                     drop.speed = 0.15 + Math.random() * 0.3;
