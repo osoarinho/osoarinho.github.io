@@ -7,7 +7,24 @@
     <title>Currículo | Soarinho - Lucas Soares dos Santos</title>
     <meta name="description"
         content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soarinho.com/curriculo/">
+    <meta property="og:title" content="Currículo | Soarinho - Lucas Soares dos Santos">
+    <meta property="og:description" content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
+    <meta property="og:image" content="https://soarinho.com/assets/thumb.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://soarinho.com/curriculo/">
+    <meta property="twitter:title" content="Currículo | Soarinho - Lucas Soares dos Santos">
+    <meta property="twitter:description" content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
+    <meta property="twitter:image" content="https://soarinho.com/assets/thumb.png">
+
     <link rel="icon" type="image/png" href="https://soarinho.com/identity/marca-soarinho.png">
+    <link rel="apple-touch-icon" href="https://soarinho.com/identity/marca-soarinho.png">
+    <link rel="shortcut icon" type="image/png" href="https://soarinho.com/identity/marca-soarinho.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -131,18 +148,29 @@
     <canvas id="binaryCanvas" class="fixed inset-0 w-full h-full z-[-1] opacity-15 pointer-events-none"></canvas>
 
     <!-- Controls -->
-    <div
-        class="fixed top-6 right-6 z-50 flex items-center gap-3 card-effect px-4 py-2 rounded-full shadow-lg border border-dark-700">
-        <a href="../index.html"
-            class="text-dark-300 hover:text-white transition flex items-center gap-2 text-sm font-medium mr-2"
-            title="Voltar ao site">
-            <i class="fas fa-home"></i>
-        </a>
-        <div class="w-[1px] h-5 bg-dark-700 mx-1"></div>
-        <button onclick="setLang('pt')" id="btn-pt"
-            class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">PT</button>
-        <button onclick="setLang('en')" id="btn-en"
-            class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">EN</button>
+    <div class="fixed top-6 right-6 z-50 flex items-center card-effect rounded-full shadow-lg border border-dark-700 p-1 md:p-0">
+        
+        <!-- Menu Container (Left side) -->
+        <div id="controls-menu" class="flex items-center overflow-hidden transition-all duration-300 max-w-0 md:max-w-[300px] opacity-0 md:opacity-100">
+            <div class="flex items-center gap-3 px-3 py-1 md:px-4 md:py-2 w-max">
+                <a href="../index.html"
+                    class="text-dark-300 hover:text-white transition flex items-center gap-2 text-sm font-medium"
+                    title="Voltar ao site">
+                    <i class="fas fa-home"></i>
+                </a>
+                <div class="w-[1px] h-5 bg-dark-700 mx-1"></div>
+                <button onclick="setLang('pt')" id="btn-pt"
+                    class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">PT</button>
+                <button onclick="setLang('en')" id="btn-en"
+                    class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">EN</button>
+            </div>
+        </div>
+
+        <!-- Mobile Toggle Button (Right side) -->
+        <button onclick="toggleControls()" id="controls-toggle" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full text-dark-300 hover:text-white hover:bg-white/5 transition z-10 shrink-0">
+            <i class="fas fa-bars" id="controls-icon"></i>
+        </button>
+
     </div>
 
     <!-- Main Container -->
@@ -867,6 +895,26 @@
                 ptElements.forEach(el => el.classList.add('hidden'));
                 enElements.forEach(el => el.classList.remove('hidden'));
                 document.title = "Resume | Soarinho - Lucas Soares dos Santos";
+            }
+        }
+
+        let isControlsOpen = false;
+        function toggleControls() {
+            const menu = document.getElementById('controls-menu');
+            const icon = document.getElementById('controls-icon');
+            
+            isControlsOpen = !isControlsOpen;
+            
+            if (isControlsOpen) {
+                menu.classList.remove('max-w-0', 'opacity-0');
+                menu.classList.add('max-w-[300px]', 'opacity-100');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                menu.classList.add('max-w-0', 'opacity-0');
+                menu.classList.remove('max-w-[300px]', 'opacity-100');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
         }
 
