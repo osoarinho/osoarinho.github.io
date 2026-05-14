@@ -319,6 +319,7 @@
         body.light-theme #servicos-detalhados,
         body.light-theme #portfolio,
         body.light-theme #about,
+        body.light-theme #curriculo,
         body.light-theme #depoimentos,
         body.light-theme #contact,
         body.light-theme #loja {
@@ -1214,6 +1215,9 @@
                             </li>
                             <li><a href="#about"
                                     class="text-sm font-semibold tracking-wide hover:text-white transition-colors">Sobre</a>
+                            </li>
+                            <li><a href="#curriculo"
+                                    class="text-sm font-semibold tracking-wide hover:text-white transition-colors">Currículo</a>
                             </li>
                             <li><a href="#depoimentos"
                                     class="text-sm font-semibold tracking-wide hover:text-white transition-colors">Depoimentos</a>
@@ -3638,6 +3642,41 @@
                 </div>
             </section>
 
+            <!-- Currículo Section -->
+            <section id="curriculo" class="py-20 md:py-32 bg-dark-900 relative border-t border-white/5">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16 reveal">
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Currículo</h2>
+                        <p class="text-dark-300 text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+                            Acesse minha trajetória profissional e resultados ou baixe as versões resumidas em PDF.
+                        </p>
+                        <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto mb-10">
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row justify-center gap-6 items-center">
+                            <a href="curriculo/index.html"
+                                class="btn-primary px-8 py-4 rounded-full text-lg font-bold group flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                                <i class="fas fa-id-card text-xl"></i> Currículo Online
+                                <i class="fas fa-arrow-right ml-1 transition-transform group-hover:translate-x-1"></i>
+                            </a>
+
+                            <div class="flex gap-4">
+                                <a href="curriculo/pt.pdf" target="_blank"
+                                    class="px-6 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all font-semibold flex items-center gap-2"
+                                    title="Baixar PDF em Português">
+                                    <i class="fas fa-file-pdf text-white/70"></i> PDF (PT)
+                                </a>
+                                <a href="curriculo/en.pdf" target="_blank"
+                                    class="px-6 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all font-semibold flex items-center gap-2"
+                                    title="Baixar PDF em Inglês">
+                                    <i class="fas fa-file-pdf text-white/70"></i> PDF (EN)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Depoimentos Section -->
             <section id="depoimentos" class="py-20 md:py-32 bg-dark-800 relative">
                 <div class="container mx-auto px-4">
@@ -4970,6 +5009,7 @@
                 </li>
                 <li><a href="#links" class="text-xl font-bold hover:text-white transition-colors">Suporte</a></li>
                 <li><a href="#about" class="text-xl font-bold hover:text-white transition-colors">Sobre</a></li>
+                <li><a href="#curriculo" class="text-xl font-bold hover:text-white transition-colors">Currículo</a></li>
                 <li><a href="#depoimentos" class="text-xl font-bold hover:text-white transition-colors">Depoimentos</a>
                 </li>
                 <li><a href="#contact" class="text-xl font-bold hover:text-white transition-colors">Contato</a></li>

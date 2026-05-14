@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo | Soarinho - Lucas Soares dos Santos</title>
+    <meta name="description"
+        content="Currículo de Lucas Soares dos Santos - Desenvolvedor Web Full-Stack e Assessor de Inovação Tecnológica.">
+    <link rel="icon" type="image/png" href="https://soarinho.com/identity/marca-soarinho.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'exo': ['Exo 2', 'sans-serif'],
+                        'tech': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            50: '#fcfcfc',
+                            100: '#f0f0f0',
+                            200: '#d1d1d1',
+                            300: '#a3a3a3',
+                            400: '#737373',
+                            500: '#525252',
+                            600: '#404040',
+                            700: '#262626',
+                            800: '#171717',
+                            900: '#0a0a0a',
+                            950: '#050505',
+                        },
+                        brand: {
+                            cyan: '#ffffff', // Tailwind cyan-400
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: #050505;
+            color: #d1d1d1;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 0%, #111 0%, #050505 100%);
+        }
+
+        .card-effect {
+            background: rgba(17, 17, 17, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #a3a3a3 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #050505;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #404040;
+        }
+
+        /* Floating background elements */
+        .bg-shape {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen relative flex justify-center py-10 px-4 sm:px-8">
+
+    <!-- Decorative Shapes -->
+    <div class="bg-shape bg-white w-96 h-96 top-0 left-0"></div>
+    <div class="bg-shape bg-white w-[500px] h-[500px] bottom-0 right-0"></div>
+
+    <!-- Controls -->
+    <div
+        class="fixed top-6 right-6 z-50 flex items-center gap-3 card-effect px-4 py-2 rounded-full shadow-lg border border-dark-700">
+        <a href="../index.html"
+            class="text-dark-300 hover:text-white transition flex items-center gap-2 text-sm font-medium mr-2"
+            title="Voltar ao site">
+            <i class="fas fa-home"></i>
+        </a>
+        <div class="w-[1px] h-5 bg-dark-700 mx-1"></div>
+        <button onclick="setLang('pt')" id="btn-pt"
+            class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">PT</button>
+        <button onclick="setLang('en')" id="btn-en"
+            class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">EN</button>
+    </div>
+
+    <!-- Main Container -->
+    <div
+        class="w-full max-w-6xl card-effect rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border border-dark-800">
+        <div class="grid lg:grid-cols-[340px_1fr]">
+
+            <!-- SIDEBAR -->
+            <aside class="bg-gradient-to-b from-[#111111] to-[#0A0A0A] border-r border-dark-800 p-8 lg:p-10">
+                <div class="mb-10 text-center lg:text-left">
+                    <div
+                        class="w-32 h-32 mx-auto lg:mx-0 rounded-3xl bg-dark-900 border border-brand-cyan/20 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.1)] mb-6 overflow-hidden">
+                        <img src="https://soarinho.com/portraits/main.png" alt="Lucas Soares"
+                            class="w-full h-full object-cover grayscale">
+                    </div>
+                    <h1 class="text-3xl font-bold tracking-tight leading-tight text-white">
+                        Lucas Soares
+                        <span class="block text-brand-cyan mt-1">dos Santos</span>
+                    </h1>
+
+                    <p data-lang="pt" class="mt-4 text-dark-300 text-sm leading-relaxed">
+                        Desenvolvedor Web Full-Stack focado em Front-End, transformação digital e soluções tecnológicas
+                        para gestão pública e privada.
+                    </p>
+                    <p data-lang="en" class="hidden mt-4 text-dark-300 text-sm leading-relaxed">
+                        Full-Stack Web Developer focusing on Front-End, digital transformation, and technological
+                        solutions for public and private management.
+                    </p>
+
+                    <div class="mt-6 flex flex-col gap-3">
+                        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-dark-900/50 border border-dark-800 w-fit">
+                            <i class="fas fa-laptop-code text-brand-cyan text-lg"></i>
+                            <div class="text-left">
+                                <p data-lang="pt" class="text-[10px] text-dark-400 font-bold uppercase tracking-widest">Experiência Dev</p>
+                                <p data-lang="en" class="hidden text-[10px] text-dark-400 font-bold uppercase tracking-widest">Dev Experience</p>
+                                <p class="text-sm font-tech font-bold text-white">5 <span data-lang="pt">Anos</span><span data-lang="en" class="hidden">Years</span></p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://github.com/osoarinho" target="_blank" class="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-dark-900/50 border border-dark-800 hover:border-brand-cyan/50 hover:bg-dark-800 transition group w-fit">
+                            <i class="fab fa-github text-brand-cyan text-lg group-hover:text-white transition"></i>
+                            <div class="text-left">
+                                <p class="text-[10px] text-dark-400 font-bold uppercase tracking-widest">GitHub</p>
+                                <p class="text-sm font-tech font-bold text-white group-hover:text-brand-cyan transition">/osoarinho</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-10 text-sm">
+                    <!-- Contact -->
+                    <section>
+                        <h2 data-lang="pt"
+                            class="text-brand-cyan uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Contato</h2>
+                        <h2 data-lang="en"
+                            class="hidden text-brand-cyan uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Contact
+                        </h2>
+
+                        <div class="space-y-3 text-dark-200 font-tech text-xs">
+                            <p class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-dark-400 w-4"></i>
+                                Angra dos Reis • RJ</p>
+                            <p class="flex items-center gap-3"><i class="fas fa-phone text-dark-400 w-4"></i> +55 24
+                                99854-0552</p>
+                            <p class="flex items-center gap-3"><i class="fas fa-envelope text-dark-400 w-4"></i>
+                                soarinho@icloud.com</p>
+                            <p class="flex items-center gap-3"><i class="fas fa-globe text-dark-400 w-4"></i> <a
+                                    href="https://soarinho.com"
+                                    class="hover:text-brand-cyan transition">soarinho.com</a></p>
+                            <p class="flex items-center gap-3"><i class="fab fa-linkedin text-dark-400 w-4"></i> <a
+                                    href="https://linkedin.com/in/soarinho"
+                                    class="hover:text-brand-cyan transition">in/soarinho</a></p>
+                        </div>
+                    </section>
+
+                    <!-- Soft Skills -->
+                    <section>
+                        <h2 data-lang="pt"
+                            class="text-brand-cyan uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Soft Skills
+                        </h2>
+                        <h2 data-lang="en"
+                            class="hidden text-brand-cyan uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Soft
+                            Skills</h2>
+
+                        <ul data-lang="pt" class="space-y-2 text-dark-200">
+                            <li>• Resolução de problemas</li>
+                            <li>• Análise crítica</li>
+                            <li>• Planejamento e Organização</li>
+                            <li>• Liderança</li>
+                            <li>• Tomada de decisão</li>
+                            <li>• Adaptabilidade</li>
+                            <li>• Comunicação objetiva</li>
+                            <li>• Visão analítica e Proatividade</li>
+                        </ul>
+                        <ul data-lang="en" class="hidden space-y-2 text-dark-200">
+                            <li>• Problem-solving</li>
+                            <li>• Critical analysis</li>
+                            <li>• Planning & Organization</li>
+                            <li>• Leadership</li>
+                            <li>• Decision-making</li>
+                            <li>• Adaptability</li>
+                            <li>• Objective communication</li>
+                            <li>• Analytical thinking & Proactivity</li>
+                        </ul>
+                    </section>
+
+                    <!-- Languages -->
+                    <section>
+                        <h2 data-lang="pt"
+                            class="text-brand-cyan uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Idiomas</h2>
+                        <h2 data-lang="en"
+                            class="hidden text-brand-cyan uppercase tracking-[0.2em] text-xs mb-4 font-semibold">
+                            Languages</h2>
+
+                        <p data-lang="pt" class="text-dark-200">Inglês • Intermediário (B1)</p>
+                        <p data-lang="en" class="hidden text-dark-200">English • Intermediate (B1)</p>
+                        <p data-lang="pt" class="text-dark-200 mt-1">Português • Nativo</p>
+                        <p data-lang="en" class="hidden text-dark-200 mt-1">Portuguese • Native</p>
+                    </section>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT -->
+            <main class="p-8 lg:p-12">
+
+                <!-- Summary -->
+                <section class="mb-14">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-[1px] bg-brand-cyan"></div>
+                        <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                            Resumo Profissional</h2>
+                        <h2 data-lang="en"
+                            class="hidden uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">Professional
+                            Summary</h2>
+                    </div>
+
+                    <p data-lang="pt" class="text-dark-200 leading-relaxed text-[15px] font-light">
+                        Desenvolvedor Web Full-Stack, especialista em Desenvolvimento Front-End, com experiência em
+                        transformação digital, governança de TI, modernização de processos e apoio estratégico à gestão
+                        pública na Prefeitura de Angra dos Reis. Capaz de analisar cenários, propor soluções
+                        tecnológicas, coordenar projetos de software, integrando sistemas, aplicações e plataformas
+                        digitais.
+                    </p>
+                    <p data-lang="en" class="hidden text-dark-200 leading-relaxed text-[15px] font-light">
+                        Full-Stack Web Developer, specializing in Front-End Development, with experience in digital
+                        transformation, IT governance, process modernization, and strategic support for public
+                        management at the Angra dos Reis City Hall. Capable of analyzing scenarios, proposing
+                        technological solutions, coordinating software projects, and integrating systems, applications,
+                        and digital platforms.
+                    </p>
+                </section>
+
+                <!-- Resultados e Impacto -->
+                <section class="mb-14">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-[1px] bg-brand-cyan"></div>
+                        <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                            Resultados & Impacto Gerado</h2>
+                        <h2 data-lang="en"
+                            class="hidden uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">Results &
+                            Generated Impact</h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Impact 1 (New 0 - Versioning) -->
+                        <div
+                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 md:p-8 hover:border-brand-cyan/30 transition shadow-inner relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                                <i class="fas fa-code-branch text-6xl text-brand-cyan"></i>
+                            </div>
+                            <h3 data-lang="pt" class="text-white text-lg font-bold mb-2">Modernização de Código e
+                                Versionamento</h3>
+                            <h3 data-lang="en" class="hidden text-white text-lg font-bold mb-2">Code Modernization &
+                                Version Control</h3>
+                            <p data-lang="pt" class="text-dark-300 leading-relaxed mb-4">
+                                Fui o principal agente de implementação da cultura de programação versionada na
+                                Prefeitura de Angra (migrando de fluxos locais sem controle para repositórios
+                                estruturados). Fui uma peça-chave na adoção do padrão MVC utilizando Laravel PHP,
+                                atuando ativamente na substituição de diversos sites e microsserviços legados em .ASP
+                                por soluções robustas, modernas e escaláveis.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 leading-relaxed mb-4">
+                                I was the main agent in implementing a versioned programming culture at Angra City Hall
+                                (migrating from local, uncontrolled workflows to structured repositories). I was a key
+                                player in adopting the MVC pattern using Laravel PHP, actively replacing various legacy
+                                .ASP websites and microservices with robust, modern, and scalable solutions.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Versionamento
+                                    (Git)</span>
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Refatoração
+                                    de Legado</span>
+                            </div>
+                        </div>
+
+                        <!-- Impact 2 (User's modified point 1) -->
+                        <div
+                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 md:p-8 hover:border-brand-cyan/30 transition shadow-inner relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                                <i class="fas fa-server text-6xl text-brand-cyan"></i>
+                            </div>
+                            <h3 data-lang="pt" class="text-white text-lg font-bold mb-2">Automação e Eficiência
+                                Operacional</h3>
+                            <h3 data-lang="en" class="hidden text-white text-lg font-bold mb-2">Automation & Operational
+                                Efficiency (Public Sector)</h3>
+                            <p data-lang="pt" class="text-dark-300 leading-relaxed mb-4">
+                                Coordenei a migração de processos legados para plataformas digitais escaláveis na
+                                Prefeitura de Angra. A implementação de sistemas MVC (Laravel) integrados cortou
+                                gargalos burocráticos, otimizou o tempo de resposta de procedimentos morosos e garantiu
+                                maior transparência e agilidade no atendimento à população.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 leading-relaxed mb-4">
+                                I coordinated the migration of legacy processes to scalable digital platforms at Angra
+                                City Hall. The implementation of integrated MVC systems (Laravel) cut bureaucratic
+                                bottlenecks, optimized response times between departments, and ensured greater
+                                transparency and speed in direct citizen services.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Redução
+                                    de Custos / Tempo</span>
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Governança
+                                    Digital</span>
+                            </div>
+                        </div>
+
+                        <!-- Impact 3 (New point 2 - Conta Angra) -->
+                        <div
+                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 md:p-8 hover:border-brand-cyan/30 transition shadow-inner relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                                <i class="fas fa-id-card text-6xl text-brand-cyan"></i>
+                            </div>
+                            <h3 data-lang="pt" class="text-white text-lg font-bold mb-2">Conta Angra e Integração GOV.BR
+                            </h3>
+                            <h3 data-lang="en" class="hidden text-white text-lg font-bold mb-2">Conta Angra & GOV.BR
+                                Integrations</h3>
+                            <p data-lang="pt" class="text-dark-300 leading-relaxed mb-4">
+                                Participei diretamente da coordenação técnica do time durante a criação do "Conta Angra"
+                                no município. Atuei na complexa integração de Single Sign-On (SSO) com a plataforma
+                                GOV.BR para o fluxo de login, além de atuar no desenvolvimento de múltiplos módulos
+                                personalizados para atender demandas vitais de diversas secretarias da prefeitura.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 leading-relaxed mb-4">
+                                I participated directly in the technical coordination of the team during the creation of
+                                "Conta Angra" in the municipality. I was responsible for the complex Single Sign-On
+                                (SSO) integration with the GOV.BR platform for the login flow, as well as developing
+                                multiple custom modules to meet the vital demands of various city hall departments.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Integração
+                                    SSO (GOV.BR)</span>
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Coordenação
+                                    Técnica</span>
+                            </div>
+                        </div>
+
+                        <!-- Impact 4 (New point 3 - Front-end Collaboration) -->
+                        <div
+                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 md:p-8 hover:border-brand-cyan/30 transition shadow-inner relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                                <i class="fas fa-layer-group text-6xl text-brand-cyan"></i>
+                            </div>
+                            <h3 data-lang="pt" class="text-white text-lg font-bold mb-2">Engenharia Front-End e
+                                Colaboração UX/UI</h3>
+                            <h3 data-lang="en" class="hidden text-white text-lg font-bold mb-2">Front-End Engineering &
+                                UX/UI Collaboration</h3>
+                            <p data-lang="pt" class="text-dark-300 leading-relaxed mb-4">
+                                Atuei como programador front-end da maioria dos novos sites e sistemas institucionais do
+                                município. Atuo de forma integrada em colaboração com a equipe de desenvolvimento e o
+                                UX/UI Designer, assegurando que os protótipos se transformem em interfaces responsivas,
+                                acessíveis e focadas em entregar a melhor experiência ao usuário final.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 leading-relaxed mb-4">
+                                I worked as the front-end programmer for most of the municipality's new websites and
+                                institutional systems. I work seamlessly in collaboration with the development team and
+                                the UX/UI Designer, ensuring that prototypes are transformed into responsive, accessible
+                                interfaces focused on delivering the best end-user experience.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Front-End
+                                    Avançado</span>
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Tradução
+                                    UI/UX -> Código</span>
+                            </div>
+                        </div>
+
+                        <!-- Impact 5 -->
+                        <div
+                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 md:p-8 hover:border-brand-cyan/30 transition shadow-inner relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                                <i class="fas fa-briefcase text-6xl text-brand-cyan"></i>
+                            </div>
+                            <h3 data-lang="pt" class="text-white text-lg font-bold mb-2">Soluções Comerciais e
+                                Plataformas para o Setor Privado</h3>
+                            <h3 data-lang="en" class="hidden text-white text-lg font-bold mb-2">Commercial Solutions &
+                                Platforms for Private Sector</h3>
+                            <p data-lang="pt" class="text-dark-300 leading-relaxed mb-4">
+                                Desenvolvimento de ecossistemas web para empresas privadas e empreendedores, incluindo
+                                landing pages de alta conversão, painéis administrativos e sistemas de gestão de
+                                conteúdo (CMS) sob medida. O principal benefício entregue a esses clientes é a
+                                eliminação de dependência de softwares genéricos de terceiros, garantindo redução de
+                                custos operacionais, aumento direto na captação e retenção de leads, além de
+                                proporcionar autonomia corporativa total sobre os processos do negócio.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 leading-relaxed mb-4">
+                                Development of web ecosystems for private companies and entrepreneurs, including
+                                high-conversion landing pages, administrative panels, and custom content management
+                                systems (CMS). The main benefit delivered to these clients is the elimination of
+                                dependence on generic third-party software, ensuring reduced operational costs, a direct
+                                increase in lead generation and retention, and providing total corporate autonomy over
+                                business processes.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Autonomia
+                                    para Empreendedores</span>
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Conversão
+                                    de Leads e Vendas</span>
+                            </div>
+                        </div>
+
+                        <!-- Impact 6 -->
+                        <div
+                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 md:p-8 hover:border-brand-cyan/30 transition shadow-inner relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition">
+                                <i class="fas fa-glass-cheers text-6xl text-brand-cyan"></i>
+                            </div>
+                            <h3 data-lang="pt" class="text-white text-lg font-bold mb-2">Produtos Digitais Próprios e
+                                SaaS</h3>
+                            <h3 data-lang="en" class="hidden text-white text-lg font-bold mb-2">Proprietary Digital
+                                Products & SaaS</h3>
+                            <p data-lang="pt" class="text-dark-300 leading-relaxed mb-4">
+                                Idealização e desenvolvimento end-to-end de produtos digitais próprios e
+                                comercializáveis (como Praticalista e Convitonline). Essas plataformas foram criadas
+                                para facilitar a vida de organizadores de eventos, noivos e debutantes. O processo
+                                engloba desde a engenharia de software até a visão estratégica de negócios, entregando
+                                ferramentas escaláveis que monetizam e resolvem dores reais do mercado de eventos.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 leading-relaxed mb-4">
+                                Ideation and end-to-end development of proprietary and marketable digital products (such
+                                as Praticalista and Convitonline). These platforms were created to make life easier for
+                                event organizers, engaged couples, and debutantes. The process encompasses everything
+                                from software engineering to strategic business vision, delivering scalable tools that
+                                monetize and solve real pain points in the events market.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Visão
+                                    de Produto / SaaS</span>
+                                <span
+                                    class="px-3 py-1 bg-brand-cyan/10 text-brand-cyan rounded-full text-xs font-bold border border-brand-cyan/20">Empreendedorismo
+                                    Digital</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Experience -->
+                <section class="mb-14">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-[1px] bg-brand-cyan"></div>
+                        <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                            Experiência Profissional</h2>
+                        <h2 data-lang="en"
+                            class="hidden uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">Professional
+                            Experience</h2>
+                    </div>
+
+                    <div class="space-y-10 border-l border-dark-800 pl-8 ml-2">
+
+                        <!-- Exp 1 -->
+                        <div class="relative group">
+                            <div
+                                class="absolute -left-[39px] top-1 w-4 h-4 rounded-full bg-dark-900 border-2 border-brand-cyan group-hover:bg-brand-cyan transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                            </div>
+
+                            <div class="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 data-lang="pt" class="text-lg font-bold text-white">Assessor de Inovação
+                                        Tecnológica</h3>
+                                    <h3 data-lang="en" class="hidden text-lg font-bold text-white">Technological
+                                        Innovation Advisor</h3>
+                                    <p class="text-brand-cyan text-sm font-medium mt-1">Prefeitura de Angra dos Reis</p>
+                                </div>
+                                <span data-lang="pt"
+                                    class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">02/2026
+                                    — Atual</span>
+                                <span data-lang="en"
+                                    class="hidden text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">02/2026
+                                    — Present</span>
+                            </div>
+
+                            <ul data-lang="pt" class="space-y-2 text-dark-300 text-sm leading-relaxed">
+                                <li><span class="text-brand-cyan mr-2">▹</span>Atuo prestando suporte estratégico e
+                                    consultivo à Secretaria de Modernização e Gestão de Pessoal, através da
+                                    Superintendência de Transformação Digital.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Analiso o ambiente externo e prospecto
+                                    soluções e tendências tecnológicas alinhadas à gestão pública.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Proponho e apoio a implementação de
+                                    metodologias, sistemas, aplicações e plataformas digitais.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Coordeno ações integradas de governança
+                                    digital, promovendo a modernização dos processos.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Realizo documentação técnica, relatórios
+                                    e propostas de soluções, subsidiando a gestão de serviços tecnológicos.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Presto apoio técnico e de desenvolvimento
+                                    de software.</li>
+                            </ul>
+                            <ul data-lang="en" class="hidden space-y-2 text-dark-300 text-sm leading-relaxed">
+                                <li><span class="text-brand-cyan mr-2">▹</span>I provide strategic and advisory support
+                                    to the Secretariat for Modernization and Personnel Management.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I analyze the external environment and
+                                    prospect technological solutions and trends aligned with public management.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I propose and support the implementation
+                                    of methodologies, systems, applications, and digital platforms.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I coordinate integrated digital
+                                    governance actions, promoting the modernization of processes.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I prepare technical documentation,
+                                    reports, and proposed solutions, supporting the management of technological
+                                    services.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I provide technical and software
+                                    development support.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Exp 2 -->
+                        <div class="relative group">
+                            <div
+                                class="absolute -left-[39px] top-1 w-4 h-4 rounded-full bg-dark-900 border-2 border-brand-cyan group-hover:bg-brand-cyan transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                            </div>
+
+                            <div class="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 data-lang="pt" class="text-lg font-bold text-white">Coordenador Técnico de
+                                        Desenvolvimento</h3>
+                                    <h3 data-lang="en" class="hidden text-lg font-bold text-white">Technical Coordinator
+                                        for Development</h3>
+                                    <p class="text-brand-cyan text-sm font-medium mt-1">Prefeitura de Angra dos Reis</p>
+                                </div>
+                                <span
+                                    class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">05/2022
+                                    — 02/2026</span>
+                            </div>
+
+                            <ul data-lang="pt" class="space-y-2 text-dark-300 text-sm leading-relaxed">
+                                <li><span class="text-brand-cyan mr-2">▹</span>Traduzi designs em código limpo e
+                                    funcional e criei layouts do zero, com foco em UI intuitiva e excelente UX.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Desenvolvi interfaces responsivas usando
+                                    HTML, CSS, Bootstrap e JavaScript.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Segui padrões arquitetônicos como MVC
+                                    usando Laravel PHP para integrações eficientes entre APIs e arquitetura escalável.
+                                </li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Fiscalizei contratos de TI.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Planejei, coordenei e dei suporte a
+                                    projetos de desenvolvimento, cumprindo prazos e requisitos.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Liderei atividades de equipe e
+                                    implementei soluções para agilizar fluxos de trabalho.</li>
+                            </ul>
+                            <ul data-lang="en" class="hidden space-y-2 text-dark-300 text-sm leading-relaxed">
+                                <li><span class="text-brand-cyan mr-2">▹</span>I translated designs into clean,
+                                    functional code and created layouts from scratch, focusing on intuitive UI and
+                                    excellent UX.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I developed responsive interfaces using
+                                    HTML, CSS, Bootstrap, and JavaScript.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I followed architectural patterns such as
+                                    MVC using Laravel PHP for efficient API integrations and scalable architecture.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I oversaw IT contracts.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I planned, coordinated, and supported
+                                    development projects, meeting deadlines and requirements.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I led team activities and implemented
+                                    solutions to streamline workflows.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Exp 3 -->
+                        <div class="relative group">
+                            <div
+                                class="absolute -left-[39px] top-1 w-4 h-4 rounded-full bg-dark-900 border-2 border-brand-cyan group-hover:bg-brand-cyan transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                            </div>
+
+                            <div class="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 data-lang="pt" class="text-lg font-bold text-white">Estagiário em Tecnologia da
+                                        Informação</h3>
+                                    <h3 data-lang="en" class="hidden text-lg font-bold text-white">Information
+                                        Technology Intern</h3>
+                                    <p class="text-brand-cyan text-sm font-medium mt-1">Prefeitura de Angra dos Reis</p>
+                                </div>
+                                <span
+                                    class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">04/2021
+                                    — 05/2022</span>
+                            </div>
+
+                            <ul data-lang="pt" class="space-y-2 text-dark-300 text-sm leading-relaxed">
+                                <li><span class="text-brand-cyan mr-2">▹</span>Resolvi problemas e realizei manutenção
+                                    de hardware no departamento de Suporte Técnico.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Desenvolvi soluções front-end usando
+                                    HTML, CSS e Bootstrap para sistemas web.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>Auxiliei em integrações back-end e
+                                    processos do lado do servidor.</li>
+                            </ul>
+                            <ul data-lang="en" class="hidden space-y-2 text-dark-300 text-sm leading-relaxed">
+                                <li><span class="text-brand-cyan mr-2">▹</span>I resolved problems and performed
+                                    hardware maintenance in the Technical Support department.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I developed front-end solutions using
+                                    HTML, CSS, and Bootstrap for web systems.</li>
+                                <li><span class="text-brand-cyan mr-2">▹</span>I assisted with back-end integrations and
+                                    server-side processes.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Hard Skills -->
+                <section class="mb-14">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-[1px] bg-brand-cyan"></div>
+                        <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">Hard
+                            Skills</h2>
+                        <h2 data-lang="en"
+                            class="hidden uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">Hard Skills
+                        </h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div
+                            class="bg-dark-900/50 border border-dark-800 rounded-xl p-5 hover:border-dark-600 transition">
+                            <h3 data-lang="pt" class="text-white font-bold mb-3">Tecnologias Web</h3>
+                            <h3 data-lang="en" class="hidden text-white font-bold mb-3">Web Technologies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">HTML5</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">CSS3</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Tailwind
+                                    CSS</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Sass</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">JavaScript
+                                    ES6</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">PHP</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Laravel</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">MySQL</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">REST
+                                    APIs</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">WordPress</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-dark-900/50 border border-dark-800 rounded-xl p-5 hover:border-dark-600 transition">
+                            <h3 data-lang="pt" class="text-white font-bold mb-3">Arquitetura & Infra</h3>
+                            <h3 data-lang="en" class="hidden text-white font-bold mb-3">Architecture & Infra</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">MVC</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">UI/UX</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Linux</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Apache</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Git
+                                    / GitHub</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Deploy</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-dark-900/50 border border-dark-800 rounded-xl p-5 hover:border-dark-600 transition md:col-span-2">
+                            <h3 data-lang="pt" class="text-white font-bold mb-3">Gestão, IA & Ferramentas</h3>
+                            <h3 data-lang="en" class="hidden text-white font-bold mb-3">Management, AI & Tools</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">VS
+                                    Code</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Cursor
+                                    AI</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Google
+                                    Antigravity</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Claude</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Google
+                                    A.I. Studio</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Transformação
+                                    Digital</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Engenharia
+                                    de Prompt</span>
+                                <span
+                                    class="px-2 py-1 rounded bg-dark-800 text-dark-200 text-xs font-tech border border-dark-700 hover:border-brand-cyan/50 hover:text-white transition">Automação
+                                    de Processos</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Education & Certs -->
+                <section class="grid lg:grid-cols-2 gap-10">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-[1px] bg-brand-cyan"></div>
+                            <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                                Formação</h2>
+                            <h2 data-lang="en"
+                                class="hidden uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                                Education</h2>
+                        </div>
+
+                        <div
+                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 hover:border-brand-cyan/30 transition shadow-inner">
+                            <h3 data-lang="pt" class="font-bold text-white mb-2 text-lg">Bacharelado em Sistemas de
+                                Informação</h3>
+                            <h3 data-lang="en" class="hidden font-bold text-white mb-2 text-lg">Bachelor's Degree in
+                                Information Systems</h3>
+
+                            <p class="text-brand-cyan text-sm font-medium mb-3">UNESA • Angra dos Reis/RJ</p>
+                            <p data-lang="pt" class="text-dark-400 text-sm leading-relaxed">
+                                Conclusão prevista para o segundo semestre de 2026.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-400 text-sm leading-relaxed">
+                                Expected graduation: Second semester of 2026.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-[1px] bg-brand-cyan"></div>
+                            <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                                Certificações</h2>
+                            <h2 data-lang="en"
+                                class="hidden uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                                Certifications</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <h3 data-lang="pt" class="font-bold text-white mb-1">Rocketseat Intermediário</h3>
+                                <h3 data-lang="en" class="hidden font-bold text-white mb-1">Rocketseat Intermediate</h3>
+                                <p data-lang="pt" class="text-dark-400 text-sm leading-relaxed">
+                                    ReactJS, TypeScript, SQL avançado, JavaScript assíncrono, APIs e animações CSS.
+                                </p>
+                                <p data-lang="en" class="hidden text-dark-400 text-sm leading-relaxed">
+                                    ReactJS, TypeScript, advanced SQL, async JS, APIs, and CSS animations.
+                                </p>
+                            </div>
+
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <h3 data-lang="pt" class="font-bold text-white mb-1">Rocketseat Básico e Iniciante</h3>
+                                <h3 data-lang="en" class="hidden font-bold text-white mb-1">Rocketseat Basic and
+                                    Beginner</h3>
+                                <p data-lang="pt" class="text-dark-400 text-sm leading-relaxed">
+                                    HTML, CSS, JavaScript, NodeJS, SQL, POO, lógica de programação e Git.
+                                </p>
+                                <p data-lang="en" class="hidden text-dark-400 text-sm leading-relaxed">
+                                    HTML, CSS, JavaScript, NodeJS, SQL, OOP, programming logic, and Git.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            const btnPt = document.getElementById('btn-pt');
+            const btnEn = document.getElementById('btn-en');
+
+            // Common styles for active vs inactive
+            const activeClasses = ['bg-brand-cyan', 'text-dark-900', 'border-brand-cyan'];
+            const inactiveClasses = ['bg-dark-800', 'text-dark-300', 'border-dark-700', 'border', 'hover:bg-dark-700'];
+
+            if (lang === 'pt') {
+                btnPt.classList.add(...activeClasses);
+                btnPt.classList.remove(...inactiveClasses);
+
+                btnEn.classList.add(...inactiveClasses);
+                btnEn.classList.remove(...activeClasses);
+            } else {
+                btnEn.classList.add(...activeClasses);
+                btnEn.classList.remove(...inactiveClasses);
+
+                btnPt.classList.add(...inactiveClasses);
+                btnPt.classList.remove(...activeClasses);
+            }
+
+            // Toggle content
+            const ptElements = document.querySelectorAll('[data-lang="pt"]');
+            const enElements = document.querySelectorAll('[data-lang="en"]');
+
+            if (lang === 'pt') {
+                ptElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                document.title = "Currículo | Soarinho - Lucas Soares dos Santos";
+            } else {
+                ptElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                document.title = "Resume | Soarinho - Lucas Soares dos Santos";
+            }
+        }
+
+        // Init default language styles
+        setLang('pt');
+    </script>
+</body>
+
+</html>
