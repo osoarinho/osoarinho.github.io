@@ -174,6 +174,276 @@
         .shape-2 {
             animation: float-shape-2 30s ease-in-out infinite;
         }
+        /* Screen/Print helpers */
+        @media screen {
+            .print-only {
+                display: none !important;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
+            body {
+                background: white !important;
+                background-image: none !important;
+                color: #111111 !important;
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+                font-size: 10px !important;
+                line-height: 1.35 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .screen-only {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+            .hidden {
+                display: none !important;
+            }
+            a {
+                text-decoration: none !important;
+                color: #111111 !important;
+            }
+
+            /* Custom print-only styles to avoid Tailwind compilation dependency */
+            .print-cv-container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                color: #111111 !important;
+            }
+            .print-page {
+                box-sizing: border-box !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                padding: 1.2cm !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                position: relative !important;
+                background: white !important;
+                overflow: hidden !important;
+            }
+            .print-page:last-child {
+                page-break-after: avoid !important;
+            }
+            .print-header {
+                text-align: center;
+                margin-bottom: 6px;
+            }
+            .print-header h1 {
+                font-size: 18px !important;
+                font-weight: bold !important;
+                letter-spacing: 2px !important;
+                margin: 0 0 3px 0 !important;
+                text-transform: uppercase !important;
+                color: #000000 !important;
+            }
+            .print-header p {
+                font-size: 9px !important;
+                margin: 1px 0 !important;
+                color: #333333 !important;
+            }
+            .print-header a {
+                color: #333333 !important;
+                text-decoration: underline !important;
+            }
+            .print-divider {
+                border: 0 !important;
+                border-top: 1px solid #111111 !important;
+                margin: 6px 0 !important;
+                height: 0 !important;
+            }
+            .print-section-title {
+                font-size: 10.5px !important;
+                font-weight: bold !important;
+                text-decoration: underline !important;
+                margin: 6px 0 3px 0 !important;
+                color: #000000 !important;
+                page-break-after: avoid !important;
+            }
+            .print-summary {
+                font-size: 8.5px !important;
+                line-height: 1.3 !important;
+                text-align: justify !important;
+                margin: 0 0 4px 0 !important;
+            }
+            
+            /* Two column layouts for print */
+            .print-two-col {
+                display: flex !important;
+                justify-content: space-between !important;
+                margin-bottom: 4px !important;
+                page-break-inside: avoid !important;
+            }
+            .print-col-left {
+                width: 65% !important;
+                padding-right: 12px !important;
+            }
+            .print-col-right {
+                width: 32% !important;
+                border-left: 1px solid #bbbbbb !important;
+                padding-left: 12px !important;
+            }
+            
+            /* Skills layout */
+            .print-skills-list {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-skills-list li {
+                font-size: 8px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 3px !important;
+            }
+            .print-skills-list li strong {
+                text-decoration: underline !important;
+                font-weight: bold !important;
+            }
+            
+            .print-soft-skills-list {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-soft-skills-list li {
+                font-size: 8px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 2px !important;
+            }
+            
+            /* Experience layout */
+            .print-job-block {
+                margin-bottom: 6px !important;
+                page-break-inside: avoid !important;
+            }
+            .print-job-header {
+                display: flex !important;
+                justify-content: space-between !important;
+                font-weight: bold !important;
+                font-size: 9px !important;
+                margin-bottom: 1px !important;
+            }
+            .print-job-subheader {
+                font-size: 8px !important;
+                color: #333333 !important;
+                margin-bottom: 2px !important;
+                font-weight: bold !important;
+            }
+            .print-job-bullets {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-job-bullets li {
+                font-size: 8px !important;
+                line-height: 1.25 !important;
+                margin-bottom: 1.5px !important;
+                padding-left: 8px !important;
+                position: relative !important;
+                text-align: justify !important;
+            }
+            .print-job-bullets li::before {
+                content: "•" !important;
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+            }
+            
+            /* Bottom Section Layout */
+            .print-bottom-grid {
+                display: flex !important;
+                justify-content: space-between !important;
+                margin-top: 4px !important;
+                page-break-inside: avoid !important;
+            }
+            .print-bottom-left {
+                width: 48% !important;
+                padding-right: 10px !important;
+            }
+            .print-bottom-right {
+                width: 48% !important;
+                border-left: 1px solid #bbbbbb !important;
+                padding-left: 12px !important;
+            }
+            
+            .print-edu-item {
+                margin-bottom: 4px !important;
+            }
+            .print-edu-header {
+                display: flex !important;
+                justify-content: space-between !important;
+                font-weight: bold !important;
+                font-size: 8.5px !important;
+            }
+            .print-edu-title {
+                font-size: 7.5px !important;
+                font-style: italic !important;
+                color: #333333 !important;
+                margin: 1px 0 !important;
+            }
+            .print-edu-desc {
+                font-size: 7.5px !important;
+                line-height: 1.2 !important;
+                color: #444444 !important;
+                text-align: justify !important;
+            }
+            
+            .print-lang-item {
+                font-size: 8px !important;
+                margin-bottom: 1px !important;
+            }
+            
+            .print-cert-list, .print-course-list {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .print-cert-list li {
+                font-size: 7.5px !important;
+                line-height: 1.2 !important;
+                margin-bottom: 3px !important;
+            }
+            .print-cert-id {
+                font-family: monospace !important;
+                font-size: 7px !important;
+                color: #555555 !important;
+                display: block !important;
+            }
+            
+            .print-course-list li {
+                font-size: 7.5px !important;
+                line-height: 1.2 !important;
+                margin-bottom: 3px !important;
+            }
+            .print-course-desc {
+                font-size: 7px !important;
+                color: #444444 !important;
+                display: block !important;
+                text-align: justify !important;
+            }
+            
+            /* Results section styling */
+            .print-results-grid {
+                display: grid !important;
+                grid-template-columns: 1fr 1fr !important;
+                gap: 4px 10px !important;
+                margin-bottom: 4px !important;
+            }
+            .print-results-item {
+                font-size: 8px !important;
+                line-height: 1.25 !important;
+                text-align: justify !important;
+            }
+            .print-results-item strong {
+                font-weight: bold !important;
+            }
+        }
     </style>
 </head>
 
@@ -184,11 +454,11 @@
 
     <!-- Controls -->
     <div
-        class="fixed top-6 right-6 z-50 flex items-center card-effect rounded-full shadow-lg border border-dark-700 p-1 md:p-0">
+        class="screen-only fixed top-6 right-6 z-50 flex items-center card-effect rounded-full shadow-lg border border-dark-700 p-1 md:p-0">
 
         <!-- Menu Container (Left side) -->
         <div id="controls-menu"
-            class="flex items-center overflow-hidden transition-all duration-300 max-w-0 md:max-w-[300px] opacity-0 md:opacity-100">
+            class="flex items-center overflow-hidden transition-all duration-300 max-w-0 md:max-w-[400px] opacity-0 md:opacity-100">
             <div class="flex items-center gap-3 px-3 py-1 md:px-4 md:py-2 w-max">
                 <a href="../index.html"
                     class="text-dark-300 hover:text-white transition flex items-center gap-2 text-sm font-medium"
@@ -200,6 +470,13 @@
                     class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">PT</button>
                 <button onclick="setLang('en')" id="btn-en"
                     class="lang-btn px-3 py-1 rounded-full text-xs font-bold tracking-wider transition">EN</button>
+                <div class="w-[1px] h-5 bg-dark-700 mx-1"></div>
+                <a id="btn-pdf" href="javascript:window.print()"
+                    class="text-dark-300 hover:text-white transition flex items-center gap-1.5 text-xs font-bold tracking-wider bg-dark-800 hover:bg-dark-700 px-3 py-1.5 rounded-full border border-dark-700"
+                    title="Baixar PDF">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>PDF</span>
+                </a>
             </div>
         </div>
 
@@ -213,7 +490,7 @@
 
     <!-- Main Container -->
     <div
-        class="w-full max-w-6xl card-effect rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border border-dark-800">
+        class="screen-only w-full max-w-6xl card-effect rounded-[2rem] overflow-hidden shadow-2xl relative z-10 border border-dark-800">
         <div class="grid lg:grid-cols-[340px_1fr]">
 
             <!-- SIDEBAR -->
@@ -734,6 +1011,188 @@
                             </ul>
                         </div>
 
+                        <!-- Exp 4: Soarinho · Freelance -->
+                        <div class="relative group">
+                            <div
+                                class="absolute -left-[39px] top-1 w-4 h-4 rounded-full bg-dark-900 border-2 border-brand-cyan group-hover:bg-brand-cyan transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                            </div>
+
+                            <div class="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 data-lang="pt" class="text-lg font-bold text-white">Desenvolvedor Web, Artista Tecnológico & Locutor</h3>
+                                    <h3 data-lang="en" class="hidden text-lg font-bold text-white">Web Developer, Tech Artist & Announcer</h3>
+                                    <p class="text-brand-cyan text-sm font-medium mt-1">Soarinho · Freelance</p>
+                                </div>
+                                <span data-lang="pt"
+                                    class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">01/2025 — Atual</span>
+                                <span data-lang="en"
+                                    class="hidden text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">01/2025 — Present</span>
+                            </div>
+
+                            <p data-lang="pt" class="text-dark-300 text-sm leading-relaxed mb-3">
+                                Sob o pseudônimo "Soarinho" (@osoarinho), atuo como Artista Tecnológico, apaixonado por transformar emoções em experiências. Como cantor e violoncelista, levo romance e elegância para eventos e plataformas digitais. Em locução e dublagem, minha voz dá vida a campanhas, vídeos e personagens com profissionalismo e versatilidade. Na produção audiovisual, edito vídeos, áudios, imagens e artes visuais. Na tecnologia, atuo como analista de sistemas e desenvolvedor web, criando soluções digitais sob medida para pessoas e empresas.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 text-sm leading-relaxed mb-3">
+                                Under the pseudonym "Soarinho" (@osoarinho), I am a Technology Artist, passionate about transforming emotions into experiences. As a singer and cellist, I bring romance and elegance to events and digital platforms. In voice-over and dubbing, my voice brings campaigns, videos, and characters to life with professionalism and versatility. In audiovisual production, I edit videos, audios, images, and visual arts, creating impactful content. In technology, I work as a systems analyst and web developer, creating digital solutions to drive digital transformation in people's lives and businesses.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Música</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Music</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Dublagem / Locução</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Voice Acting / Announcing</span>
+                                
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Web Development</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Edição Audiovisual</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Audiovisual Editing</span>
+                            </div>
+                        </div>
+
+                        <!-- Exp 5: Prepara Cursos - Instrutor -->
+                        <div class="relative group">
+                            <div
+                                class="absolute -left-[39px] top-1 w-4 h-4 rounded-full bg-dark-900 border-2 border-brand-cyan group-hover:bg-brand-cyan transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                            </div>
+
+                            <div class="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 data-lang="pt" class="text-lg font-bold text-white">Instrutor de Montagem e Manutenção de Computadores</h3>
+                                    <h3 data-lang="en" class="hidden text-lg font-bold text-white">Computer Assembly and Maintenance Instructor</h3>
+                                    <p class="text-brand-cyan text-sm font-medium mt-1">Prepara Cursos Profissionalizantes</p>
+                                </div>
+                                <span data-lang="pt"
+                                    class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">02/2021 — 03/2021</span>
+                                <span data-lang="en"
+                                    class="hidden text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">02/2021 — 03/2021</span>
+                            </div>
+
+                            <p data-lang="pt" class="text-dark-300 text-sm leading-relaxed mb-3">
+                                Ministrei aulas práticas de montagem e manutenção de computadores, onde os alunos aprenderam por meio de apresentações de slides, demonstrações e práticas em laboratório.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 text-sm leading-relaxed mb-3">
+                                I taught practical classes on computer assembly and maintenance, where students learned through slide presentations, demonstrations and laboratory practices.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Montagem</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Assembly</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Manutenção</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Maintenance</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Configuração</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Configuration</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Prevenção de Problemas</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Problem Prevention</span>
+                            </div>
+                        </div>
+
+                        <!-- Exp 6: Prepara Cursos - Monitor -->
+                        <div class="relative group">
+                            <div
+                                class="absolute -left-[39px] top-1 w-4 h-4 rounded-full bg-dark-900 border-2 border-brand-cyan group-hover:bg-brand-cyan transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                            </div>
+
+                            <div class="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 data-lang="pt" class="text-lg font-bold text-white">Monitor de Alunos</h3>
+                                    <h3 data-lang="en" class="hidden text-lg font-bold text-white">Student Monitor</h3>
+                                    <p class="text-brand-cyan text-sm font-medium mt-1">Prepara Cursos Profissionalizantes</p>
+                                </div>
+                                <span data-lang="pt"
+                                    class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">12/2020 — 03/2021</span>
+                                <span data-lang="en"
+                                    class="hidden text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">12/2020 — 03/2021</span>
+                            </div>
+
+                            <p data-lang="pt" class="text-dark-300 text-sm leading-relaxed mb-2">
+                                Monitorei alunos em uma instituição de ensino profissionalizante, com foco nos cursos de Informática e Tecnologia da Informação.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 text-sm leading-relaxed mb-2">
+                                I monitored students at a vocational training institution, with a focus on Computer Science and Information Technology courses.
+                            </p>
+
+                            <ul data-lang="pt" class="space-y-1 text-dark-400 text-xs mb-3">
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Acompanhar os alunos na sala de aula e garantir o engajamento.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Monitorar o desempenho e progresso dos estudantes.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Oferecer suporte e esclarecer dúvidas teóricas e práticas.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Aplicar atividades complementares e avaliações.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Supervisionar testes e manter a organização dos computadores do laboratório.</li>
+                            </ul>
+                            <ul data-lang="en" class="hidden space-y-1 text-dark-400 text-xs mb-3">
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Monitor students in the classroom and ensure engagement.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Monitor student performance and progress.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Provide guidance and clarification on course content, including practical explanations.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Assign and evaluate supplementary activities.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Supervise students during assessments and keep the lab environment organized.</li>
+                            </ul>
+                            
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Computador</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Computer</span>
+                                
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Office</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Programação</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Programming</span>
+                            </div>
+                        </div>
+
+                        <!-- Exp 7: Angralitoral Passeios -->
+                        <div class="relative group">
+                            <div
+                                class="absolute -left-[39px] top-1 w-4 h-4 rounded-full bg-dark-900 border-2 border-brand-cyan group-hover:bg-brand-cyan transition-colors shadow-[0_0_10px_rgba(255,255,255,0.5)]">
+                            </div>
+
+                            <div class="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-2 mb-3">
+                                <div>
+                                    <h3 data-lang="pt" class="text-lg font-bold text-white">Assistente de Vendas</h3>
+                                    <h3 data-lang="en" class="hidden text-lg font-bold text-white">Sales Assistant</h3>
+                                    <p class="text-brand-cyan text-sm font-medium mt-1">Angralitoral Passeios</p>
+                                </div>
+                                <span data-lang="pt"
+                                    class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">09/2020 — 12/2020</span>
+                                <span data-lang="en"
+                                    class="hidden text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-3 py-1 rounded border border-dark-800 mt-2 lg:mt-0">09/2020 — 12/2020</span>
+                            </div>
+
+                            <p data-lang="pt" class="text-dark-300 text-sm leading-relaxed mb-2">
+                                Prestei assessoria de vendas para uma agência de turismo em Angra dos Reis.
+                            </p>
+                            <p data-lang="en" class="hidden text-dark-300 text-sm leading-relaxed mb-2">
+                                I provided sales assistance to a travel agency in Angra dos Reis.
+                            </p>
+
+                            <ul data-lang="pt" class="space-y-1 text-dark-400 text-xs mb-3">
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Captação de clientes e gestão de relacionamento.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Atendimento e suporte ao cliente.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Reserva de passeios de barco (lanchas, escunas e outras embarcações).</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Coordenação com operadores turísticos, armadores e empresas parceiras.</li>
+                            </ul>
+                            <ul data-lang="en" class="hidden space-y-1 text-dark-400 text-xs mb-3">
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Customer acquisition and relationship management.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Customer service and support.</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Booking boat trips (speedboats, schooners and other vessels).</li>
+                                <li><span class="text-brand-cyan mr-1.5">▹</span>Coordination with tour operators, shipowners and partner companies.</li>
+                            </ul>
+                            
+                            <div class="flex flex-wrap gap-1.5 pt-1">
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Atendimento ao Cliente</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Customer Service</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Negociação</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Negotiation</span>
+                                
+                                <span class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Telemarketing</span>
+                                
+                                <span data-lang="pt" class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Comunicação</span>
+                                <span data-lang="en" class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Communication</span>
+                            </div>
+                        </div>
+
                     </div>
                 </section>
 
@@ -846,25 +1305,100 @@
                                 Education</h2>
                         </div>
 
-                        <div
-                            class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 hover:border-brand-cyan/30 transition shadow-inner">
-                            <h3 data-lang="pt" class="font-bold text-white mb-2 text-lg">Bacharelado em Sistemas de
-                                Informação</h3>
-                            <h3 data-lang="en" class="hidden font-bold text-white mb-2 text-lg">Bachelor's Degree in
-                                Information Systems</h3>
+                        <div class="space-y-4">
+                            <!-- Estácio -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white text-lg">Estácio</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Bacharelado em
+                                            Sistemas de Informação, Tecnologia da Informação</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Bachelor of
+                                            Science in Information Systems, Information Technology</p>
+                                    </div>
+                                    <span
+                                        class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2.5 py-1 rounded border border-dark-800 w-fit shrink-0 mt-2 sm:mt-0">2020
+                                        — 2026</span>
+                                </div>
+                                <p data-lang="pt" class="text-dark-300 text-xs mt-3 leading-relaxed">
+                                    O curso de Sistemas de Informação foca em tecnologia e gestão para melhorar a
+                                    eficiência e a tomada de decisão nas organizações. Abrange gestão de TI,
+                                    gerenciamento de dados, arquitetura de redes e engenharia de software, com forte
+                                    ênfase em processos organizacionais, planejamento e suporte à decisão.
+                                </p>
+                                <p data-lang="en" class="hidden text-dark-300 text-xs mt-3 leading-relaxed">
+                                    The Information Systems degree focuses on technology and management to improve
+                                    efficiency and decision-making in organizations. It covers IT management, data
+                                    management, network architecture, and software engineering, with a strong emphasis
+                                    on organizational processes, planning, and decision support.
+                                </p>
+                            </div>
 
-                            <p class="text-brand-cyan text-sm font-medium mb-3">UNESA • Angra dos Reis/RJ</p>
-                            <p data-lang="pt" class="text-dark-400 text-sm leading-relaxed">
-                                Conclusão prevista para o segundo semestre de 2026.
-                            </p>
-                            <p data-lang="en" class="hidden text-dark-400 text-sm leading-relaxed">
-                                Expected graduation: Second semester of 2026.
-                            </p>
+                            <!-- Técnico em Administração -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-6 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 data-lang="pt" class="font-bold text-white text-lg">Curso Técnico em
+                                            Administração</h3>
+                                        <h3 data-lang="en" class="hidden font-bold text-white text-lg">Technical Course
+                                            in Administration</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Integrado ao
+                                            Ensino Médio, Administração e Negócios</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Integrated
+                                            with High School, Administration and Business</p>
+                                    </div>
+                                    <span
+                                        class="text-xs text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2.5 py-1 rounded border border-dark-800 w-fit shrink-0 mt-2 sm:mt-0">2017
+                                        — 2019</span>
+                                </div>
+                                <div class="text-xs mt-3 space-y-2">
+                                    <p data-lang="pt" class="text-dark-300">
+                                        <span class="font-semibold text-white">Atividades e grupos:</span>
+                                        Empreendedorismo; Estudos Orientados; Projeto de Intervenção e Pesquisa; Projeto
+                                        de Vida e Mundo do Trabalho.
+                                    </p>
+                                    <p data-lang="en" class="hidden text-dark-300">
+                                        <span class="font-semibold text-white">Activities and societies:</span>
+                                        Entrepreneurship; Guided Studies; Intervention and Research Project; Life and
+                                        World of Work Project.
+                                    </p>
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Planejamento
+                                            Estratégico</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Strategic
+                                            Planning</span>
+
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Trabalho
+                                            em Equipe</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Teamwork</span>
+
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Administração</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Administration</span>
+
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Negócios</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Business</span>
+
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Gestão</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Management</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <div class="flex items-center gap-4 mb-6">
+                        <!-- Certificações Section -->
+                        <div class="flex items-center gap-4 mb-6 mt-10">
                             <div class="w-12 h-[1px] bg-brand-cyan"></div>
                             <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
                                 Certificações</h2>
@@ -874,29 +1408,526 @@
                         </div>
 
                         <div class="space-y-4">
+                            <!-- Estácio: Programming for Mobile Devices -->
                             <div
                                 class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
-                                <h3 data-lang="pt" class="font-bold text-white mb-1">Rocketseat Intermediário</h3>
-                                <h3 data-lang="en" class="hidden font-bold text-white mb-1">Rocketseat Intermediate</h3>
-                                <p data-lang="pt" class="text-dark-400 text-sm leading-relaxed">
-                                    ReactJS, TypeScript, SQL avançado, JavaScript assíncrono, APIs e animações CSS.
-                                </p>
-                                <p data-lang="en" class="hidden text-dark-400 text-sm leading-relaxed">
-                                    ReactJS, TypeScript, advanced SQL, async JS, APIs, and CSS animations.
-                                </p>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white text-base">Estácio</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Programação para
+                                            Dispositivos Móveis</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Programming
+                                            for Mobile Devices</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Dez
+                                        2023</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Dec
+                                        2023</span>
+                                </div>
+                                <div class="text-xs mt-3 space-y-2">
+                                    <p class="text-dark-400 font-tech text-[10px]">
+                                        <span data-lang="pt">ID da Credencial:</span><span data-lang="en"
+                                            class="hidden">Credential ID:</span> <span
+                                            class="text-dark-300">1c9b9972bdd04e85e5a9ec4</span>
+                                    </p>
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Desenvolvimento
+                                            de Aplicativos Móveis</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Mobile
+                                            Application Development</span>
+                                    </div>
+                                </div>
                             </div>
 
+                            <!-- Estácio: Scalable Algorithm Programming -->
                             <div
                                 class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
-                                <h3 data-lang="pt" class="font-bold text-white mb-1">Rocketseat Básico e Iniciante</h3>
-                                <h3 data-lang="en" class="hidden font-bold text-white mb-1">Rocketseat Basic and
-                                    Beginner</h3>
-                                <p data-lang="pt" class="text-dark-400 text-sm leading-relaxed">
-                                    HTML, CSS, JavaScript, NodeJS, SQL, POO, lógica de programação e Git.
-                                </p>
-                                <p data-lang="en" class="hidden text-dark-400 text-sm leading-relaxed">
-                                    HTML, CSS, JavaScript, NodeJS, SQL, OOP, programming logic, and Git.
-                                </p>
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white text-base">Estácio</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Programação de
+                                            Algoritmos Escaláveis</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Scalable
+                                            Algorithm Programming</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Dez
+                                        2023</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Dec
+                                        2023</span>
+                                </div>
+                                <div class="text-xs mt-3 space-y-2">
+                                    <p class="text-dark-400 font-tech text-[10px]">
+                                        <span data-lang="pt">ID da Credencial:</span><span data-lang="en"
+                                            class="hidden">Credential ID:</span> <span
+                                            class="text-dark-300">425e3dc23d6c714eaa65a2e</span>
+                                    </p>
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Algoritmos</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Algorithms</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Estácio: Internet Programming -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white text-base">Estácio</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Programação para
+                                            Internet</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Internet
+                                            Programming</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Dez
+                                        2023</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Dec
+                                        2023</span>
+                                </div>
+                                <div class="text-xs mt-3 space-y-2">
+                                    <p class="text-dark-400 font-tech text-[10px]">
+                                        <span data-lang="pt">ID da Credencial:</span><span data-lang="en"
+                                            class="hidden">Credential ID:</span> <span
+                                            class="text-dark-300">16e120899270146e373d161</span>
+                                    </p>
+                                    <div class="flex flex-wrap gap-1.5 pt-1">
+                                        <span data-lang="pt"
+                                            class="px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Desenvolvimento
+                                            Web</span>
+                                        <span data-lang="en"
+                                            class="hidden px-2 py-0.5 rounded bg-dark-800 text-dark-300 text-[10px] font-tech border border-dark-700">Web
+                                            Development</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-[1px] bg-brand-cyan"></div>
+                            <h2 data-lang="pt" class="uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                                Cursos</h2>
+                            <h2 data-lang="en"
+                                class="hidden uppercase tracking-[0.2em] text-brand-cyan text-sm font-semibold">
+                                Courses</h2>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Rocketseat: Specialize -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white">Rocketseat</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Curso Aberto -
+                                            "Especializar" (Intermediário), Desenvolvimento Web</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Open Course
+                                            - "Specialize" (Intermediate), Web Development</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Maio
+                                        2022</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">May
+                                        2022</span>
+                                </div>
+                                <div data-lang="pt" class="text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">Neste curso, adquiri experiência prática
+                                        com os principais conceitos do desenvolvimento web:</p>
+                                    <ul class="space-y-1.5 text-dark-400">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>JavaScript Assíncrono,
+                                                Promises e async/await.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Trabalho com APIs
+                                                (criando APIs do zero e consumindo existentes usando Fetch e
+                                                Axios).</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Fundamentos de ReactJS
+                                                e TypeScript para melhor desenvolvimento orientado a objetos e
+                                                tipagem.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Técnicas avançadas de
+                                                SQL, incluindo JOIN e manipulação de tabelas.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Criação de animações e
+                                                transições CSS.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Uso do GitHub para
+                                                colaboração em equipe.</span></li>
+                                    </ul>
+                                </div>
+                                <div data-lang="en" class="hidden text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">In this course, I gained hands-on
+                                        experience with the main concepts of web development:</p>
+                                    <ul class="space-y-1.5 text-dark-400">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Asynchronous
+                                                JavaScript, Promises, and async/await.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Working with APIs
+                                                (creating APIs from scratch and consuming existing ones using Fetch and
+                                                Axios).</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Fundamentals of
+                                                ReactJS and TypeScript for better object-oriented development and
+                                                typing.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Advanced SQL
+                                                techniques, including JOIN and table manipulation.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Creating CSS
+                                                animations and transitions.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Using GitHub for team
+                                                collaboration.</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Rocketseat: Fundamentals -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white">Rocketseat</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Curso Aberto -
+                                            "Fundamentar" (Básico), Desenvolvimento Web</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Open Course
+                                            - "Fundamentals" (Basic), Web Development</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Maio
+                                        2022</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">May
+                                        2022</span>
+                                </div>
+                                <div data-lang="pt" class="text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">Neste curso, aprofundei meus conhecimentos
+                                        nos principais conceitos de desenvolvimento e enfrentei desafios práticos:</p>
+                                    <ul class="space-y-1.5 text-dark-400">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Configuração do
+                                                Ambiente de Desenvolvimento.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>HTML5, CSS3 e
+                                                JavaScript.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>NodeJS e NodeJS +
+                                                EJS.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>SQL e Estruturas de
+                                                Dados (arrays, matrizes, pilhas, filas).</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Conceitos de
+                                                Programação Orientada a Objetos (POO): classes, encapsulamento, herança,
+                                                polimorfismo e abstração.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Programação
+                                                Funcional.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Git e GitHub para
+                                                controle de versão.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Protocolos
+                                                HTTP.</span></li>
+                                    </ul>
+                                </div>
+                                <div data-lang="en" class="hidden text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">In this course, I deepened my knowledge of
+                                        the main development concepts and faced practical challenges:</p>
+                                    <ul class="space-y-1.5 text-dark-400">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Setting up the
+                                                Development Environment.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>HTML5, CSS3 and
+                                                JavaScript.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>NodeJS and NodeJS +
+                                                EJS.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>SQL and Data
+                                                Structures (arrays, matrices, stacks, queues).</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Object-Oriented
+                                                Programming (OOP) concepts such as classes, encapsulation, inheritance,
+                                                polymorphism and abstraction.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Functional
+                                                Programming.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Git and GitHub for
+                                                version control.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>HTTP protocols.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Rocketseat: Connect -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white">Rocketseat</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Curso Aberto -
+                                            "Conectar" (Iniciante), Desenvolvimento Web</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Open Course
+                                            - "Connect" (Beginner), Web Development</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Maio
+                                        2022 — Jun 2022</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">May
+                                        2022 — Jun 2022</span>
+                                </div>
+                                <div data-lang="pt" class="text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">Neste curso, revisei conceitos
+                                        fundamentais, incluindo:</p>
+                                    <ul class="space-y-1.5 text-dark-400 mb-3">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Básicos de
+                                                Programação.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Computador, Software e
+                                                Hardware.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Internet, Roteadores e
+                                                Servidores.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Sistemas
+                                                Operacionais.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Linguagens de
+                                                Programação.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Tipos de Aplicações
+                                                Web.</span></li>
+                                    </ul>
+                                    <p class="text-dark-400 leading-relaxed">
+                                        Este curso forneceu uma base sólida em programação e tecnologia, cobrindo o
+                                        básico de hardware vs. software, infraestrutura da Internet, pensamento
+                                        computacional e diferentes tipos de aplicações web.
+                                    </p>
+                                </div>
+                                <div data-lang="en" class="hidden text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">In this course, I reviewed fundamental
+                                        concepts, including:</p>
+                                    <ul class="space-y-1.5 text-dark-400 mb-3">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Programming
+                                                Basics.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Computer, Software,
+                                                and Hardware.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Internet, Routers, and
+                                                Servers.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Operating
+                                                Systems.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Programming
+                                                Languages.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Types of Web
+                                                Applications.</span></li>
+                                    </ul>
+                                    <p class="text-dark-400 leading-relaxed">
+                                        This course provided a solid foundation in programming and technology, covering
+                                        the basics of hardware vs. software, Internet infrastructure, computational
+                                        thinking, and different types of web applications.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Cisco: Cybersecurity Essentials -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white">Cisco Networking Academy</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Curso Aberto -
+                                            "Cybersecurity Essentials" (Intermediário), Segurança Cibernética</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Open Course
+                                            - "Cybersecurity Essentials" (Intermediate), Cybersecurity</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Out 2021</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Oct 2021</span>
+                                </div>
+                                <div data-lang="pt" class="text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">Com este curso, estou preparado para:</p>
+                                    <ul class="space-y-1.5 text-dark-400">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Descrever táticas,
+                                                técnicas e procedimentos usados por cibercriminosos.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Compreender os
+                                                princípios de confidencialidade, integridade e disponibilidade e sua
+                                                relação com os estados dos dados e contramedidas de segurança
+                                                digital.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Explicar o propósito
+                                                das leis de segurança cibernética.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Descrever tecnologias,
+                                                produtos e procedimentos usados para proteger a confidencialidade,
+                                                garantir a integridade e fornecer alta disponibilidade.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Explicar como
+                                                profissionais de segurança cibernética usam tecnologias, processos e
+                                                procedimentos para defender componentes de rede.</span></li>
+                                    </ul>
+                                </div>
+                                <div data-lang="en" class="hidden text-dark-300 text-xs mt-3">
+                                    <p class="font-semibold text-white mb-2">Through this course, I am prepared to:</p>
+                                    <ul class="space-y-1.5 text-dark-400">
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Describe tactics,
+                                                techniques, and procedures used by cybercriminals.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Understand the
+                                                principles of confidentiality, integrity, and availability and their
+                                                relationship to data states and digital security countermeasures.</span>
+                                        </li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Explain the purpose of
+                                                cybersecurity laws.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Describe technologies,
+                                                products, and procedures used to protect confidentiality, ensure
+                                                integrity, and provide high availability.</span></li>
+                                        <li class="flex items-start gap-2"><span
+                                                class="text-brand-cyan select-none">▹</span><span>Explain how
+                                                cybersecurity professionals use technologies, processes, and procedures
+                                                to defend network components.</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Fundação Bradesco: Administrating Databases -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white">Fundação Bradesco</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Curso Aberto -
+                                            "Administrando Banco de Dados" (Avançado), Banco de Dados</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Open Course
+                                            - "Administrating Databases" (Advanced), Database</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Ago 2020</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Aug 2020</span>
+                                </div>
+                                <div data-lang="pt" class="text-dark-300 text-xs mt-3 leading-relaxed text-dark-400">
+                                    Neste curso, vi uma introdução sobre como administrar um banco de dados e, desta
+                                    forma, poder gerenciar de forma eficaz as atividades inerentes a esta função. Além
+                                    disso, aprendi sobre os conceitos que fazem parte do dia a dia de um administrador
+                                    de banco de dados, modelos de dados, SQL, esquemas, instâncias, tabelas e todo o
+                                    fascinante universo que envolve bancos de dados! Compreendi as diferenças entre os
+                                    diversos profissionais que atuam em atividades relacionadas à gestão de banco de
+                                    dados, bem como quais tipos são mais utilizados e indicados para empresas de
+                                    qualquer porte.
+                                </div>
+                                <div data-lang="en"
+                                    class="hidden text-dark-300 text-xs mt-3 leading-relaxed text-dark-400">
+                                    In this course, I saw an introduction to how to administer a database and, in this
+                                    way, be able to effectively manage the activities inherent to this role. In
+                                    addition, I learned about the concepts that are part of the day-to-day life of a
+                                    database administrator, data models, SQL, schemas, instances, tables and the entire
+                                    fascinating universe that involves databases! I understood the differences between
+                                    the various professionals who work in activities related to database management, as
+                                    well as which types are most commonly used and suitable for companies of any size.
+                                </div>
+                            </div>
+
+                            <!-- Fundação Bradesco: Implementing a Database -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white">Fundação Bradesco</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Curso Aberto -
+                                            "Implementando Banco de Dados" (Intermediário), Banco de Dados</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Open Course
+                                            - "Implementing a Database" (Intermediate), Database</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Jul 2020</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Jul 2020</span>
+                                </div>
+                                <div data-lang="pt" class="text-dark-300 text-xs mt-3 leading-relaxed text-dark-400">
+                                    Neste curso, vi uma introdução à implementação de banco de dados, compreendendo suas
+                                    particularidades, como a utilização do SQL Server. Aprendi algumas terminologias
+                                    aplicadas na implementação de um banco de dados e o passo a passo necessário para
+                                    sua implementação, de forma a colocar em prática esse conjunto indexado de
+                                    informações. Os tópicos abordados neste curso vão desde noções sobre técnicas de
+                                    modelagem de dados (com destaque para bancos de dados relacionais) até aspectos
+                                    conceituais, lógicos e físicos de um banco de dados.
+                                </div>
+                                <div data-lang="en"
+                                    class="hidden text-dark-300 text-xs mt-3 leading-relaxed text-dark-400">
+                                    In this course, I saw an introduction to database implementation, understanding its
+                                    particularities, such as the use of SQL Server. I learned some terminology that is
+                                    applied in the implementation of a database and the necessary step-by-step process
+                                    for its implementation, so that I can put this indexed set of information into
+                                    practice. The topics covered in this course range from notions of data modeling
+                                    techniques (with emphasis on relational databases) to conceptual, logical and
+                                    physical aspects of a database.
+                                </div>
+                            </div>
+
+                            <!-- Fundação Bradesco: Data Modeling -->
+                            <div
+                                class="bg-dark-900/40 border border-dark-800 rounded-2xl p-5 hover:border-brand-cyan/30 transition shadow-inner">
+                                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                                    <div>
+                                        <h3 class="font-bold text-white">Fundação Bradesco</h3>
+                                        <p data-lang="pt" class="text-brand-cyan text-xs font-medium">Curso Aberto -
+                                            "Modelagem de Dados" (Iniciante), Banco de Dados</p>
+                                        <p data-lang="en" class="hidden text-brand-cyan text-xs font-medium">Open Course
+                                            - "Data Modeling" (Beginner), Database</p>
+                                    </div>
+                                    <span data-lang="pt"
+                                        class="text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Jun
+                                        2020 — Jul 2020</span>
+                                    <span data-lang="en"
+                                        class="hidden text-[10px] text-dark-400 font-tech font-bold uppercase tracking-wider bg-dark-900 px-2 py-0.5 rounded border border-dark-800 w-fit shrink-0 mt-1 sm:mt-0">Jun
+                                        2020 — Jul 2020</span>
+                                </div>
+                                <div data-lang="pt" class="text-dark-300 text-xs mt-3 leading-relaxed text-dark-400">
+                                    Este curso abordou em detalhes como realizar a modelagem de dados e quais técnicas
+                                    estão envolvidas, incluindo uma introdução a bancos de dados e tópicos como teoria
+                                    relacional, normalização, autorrelacionamento, cardinalidade, minimundo, abstração,
+                                    entre outros conceitos.
+                                </div>
+                                <div data-lang="en"
+                                    class="hidden text-dark-300 text-xs mt-3 leading-relaxed text-dark-400">
+                                    This course covered in more detail how to perform data modeling and which techniques
+                                    are involved, including an introduction to databases and some topics, such as
+                                    relational theory, normalization, self-relationship, cardinality, mini-world,
+                                    abstraction, among other concepts.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -905,6 +1936,438 @@
             </main>
         </div>
     </div>
+
+    <!-- PRINT ONLY VERSION -->
+    <div class="print-only print-cv-container">
+        <!-- PAGE 1 -->
+        <div class="print-page">
+            <!-- Header -->
+            <div class="print-header">
+                <h1>Lucas Soares dos Santos</h1>
+                <p>
+                    Angra dos Reis, Rio de Janeiro, Brazil &bull; +55 24 99854-0552 &bull; soarinho@icloud.com
+                </p>
+                <p>
+                    LinkedIn: <a href="https://linkedin.com/in/soarinho" target="_blank">www.linkedin.com/in/soarinho</a> &bull; Portfolio: <a href="https://soarinho.com" target="_blank">https://soarinho.com</a>
+                </p>
+            </div>
+
+            <hr class="print-divider" />
+
+            <!-- Resumo Profissional -->
+            <div>
+                <h2 data-lang="pt" class="print-section-title">Resumo Profissional:</h2>
+                <h2 data-lang="en" class="print-section-title hidden">Professional Summary:</h2>
+                <p data-lang="pt" class="print-summary">
+                    Desenvolvedor Web Full-Stack, especialista em Desenvolvimento Front-End, com experiência em transformação digital, governança de TI, modernização de processos e apoio estratégico à gestão pública na Prefeitura de Angra dos Reis. Capaz de analisar cenários, propor soluções tecnológicas, coordenar projetos de software, integrando sistemas, aplicações e plataformas digitais.
+                </p>
+                <p data-lang="en" class="print-summary hidden">
+                    Full-Stack Web Developer, specializing in Front-End Development, with experience in digital transformation, IT governance, process modernization, and strategic support for public management at the Angra dos Reis City Hall. Capable of analyzing scenarios, proposing technological solutions, coordinating software projects, and integrating systems, applications, and digital platforms.
+                </p>
+            </div>
+
+            <hr class="print-divider" />
+
+            <!-- Resultados & Impacto Gerado -->
+            <div>
+                <h2 data-lang="pt" class="print-section-title">Resultados & Impacto Gerado:</h2>
+                <h2 data-lang="en" class="print-section-title hidden">Results & Generated Impact:</h2>
+                <div class="print-results-grid">
+                    <!-- Row 1 -->
+                    <div data-lang="pt" class="print-results-item">
+                        <strong>&bull; Modernização de Código:</strong> Implementação de versionamento (Git) e padrão MVC (Laravel PHP) na Prefeitura de Angra, substituindo sistemas legados .ASP por soluções modernas.
+                    </div>
+                    <div data-lang="en" class="print-results-item hidden">
+                        <strong>&bull; Code Modernization:</strong> Implemented version control (Git) and MVC pattern (Laravel PHP) at Angra City Hall, replacing legacy .ASP systems with modern solutions.
+                    </div>
+                    
+                    <div data-lang="pt" class="print-results-item">
+                        <strong>&bull; Automação Pública:</strong> Migração de processos físicos para plataformas digitais integradas, otimizando o tempo de resposta de procedimentos internos e serviços públicos.
+                    </div>
+                    <div data-lang="en" class="print-results-item hidden">
+                        <strong>&bull; Public Automation:</strong> Migrated physical processes to integrated digital platforms, optimizing response times for internal procedures and public services.
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div data-lang="pt" class="print-results-item">
+                        <strong>&bull; Conta Angra & GOV.BR:</strong> Coordenação técnica na criação do portal de login único municipal e integração com o Single Sign-On (SSO) nacional do GOV.BR.
+                    </div>
+                    <div data-lang="en" class="print-results-item hidden">
+                        <strong>&bull; Conta Angra & GOV.BR:</strong> Technical coordination for the creation of the municipal single login portal and integration with national GOV.BR SSO.
+                    </div>
+
+                    <div data-lang="pt" class="print-results-item">
+                        <strong>&bull; Engenharia Front-End:</strong> Desenvolvimento de interfaces responsivas e acessíveis em estreita colaboração com designers UX/UI para múltiplos portais municipais.
+                    </div>
+                    <div data-lang="en" class="print-results-item hidden">
+                        <strong>&bull; Front-End Engineering:</strong> Developed responsive and accessible interfaces in close collaboration with UX/UI designers for multiple municipal portals.
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div data-lang="pt" class="print-results-item">
+                        <strong>&bull; Setor Privado & CMS:</strong> Criação de landing pages de alta conversão e painéis administrativos sob medida para empresas privadas, gerando leads e reduzindo custos.
+                    </div>
+                    <div data-lang="en" class="print-results-item hidden">
+                        <strong>&bull; Private Sector & CMS:</strong> Built high-conversion landing pages and custom admin panels for private companies, driving leads and cutting costs.
+                    </div>
+
+                    <div data-lang="pt" class="print-results-item">
+                        <strong>&bull; Produtos SaaS:</strong> Desenvolvimento ponta a ponta de plataformas de eventos proprietárias (como Praticalista e Convitonline) resolvendo dores reais de mercado.
+                    </div>
+                    <div data-lang="en" class="print-results-item hidden">
+                        <strong>&bull; SaaS Products:</strong> End-to-end development of proprietary event platforms (such as Praticalista and Convitonline) solving real market pain points.
+                    </div>
+                </div>
+            </div>
+
+            <hr class="print-divider" />
+
+            <!-- Habilidades (Two columns) -->
+            <div class="print-two-col">
+                <!-- Left Col: Technical Skills -->
+                <div class="print-col-left">
+                    <h2 data-lang="pt" class="print-section-title" style="margin-top: 0 !important;">Habilidades Técnicas:</h2>
+                    <h2 data-lang="en" class="print-section-title hidden" style="margin-top: 0 !important;">Technical Skills:</h2>
+                    <ul class="print-skills-list">
+                        <li data-lang="pt">
+                            <strong>Tecnologias Web:</strong> HTML5, CSS3, Bootstrap, Sass, Tailwind CSS, WordPress, Elementor, JavaScript ES6, jQuery, PHP, Laravel, MariaDB/MySQL, APIs REST, JSON e AJAX.
+                        </li>
+                        <li data-lang="en" class="hidden">
+                            <strong>Web Technologies:</strong> HTML5, CSS3, Bootstrap, Sass, Tailwind CSS, WordPress, Elementor, JavaScript ES6, jQuery, PHP, Laravel, MariaDB/MySQL, REST APIs, JSON and AJAX.
+                        </li>
+                        <li data-lang="pt">
+                            <strong>Arquitetura e Desenvolvimento:</strong> MVC, modelagem de banco de dados, integração entre sistemas, desenvolvimento responsivo, UI/UX e documentação técnica.
+                        </li>
+                        <li data-lang="en" class="hidden">
+                            <strong>Architecture & Development:</strong> MVC, database modeling, system integration, responsive design, UI/UX, and technical documentation.
+                        </li>
+                        <li data-lang="pt">
+                            <strong>Infraestrutura:</strong> Linux, Apache, hospedagem, deploy e gerenciamento de ambientes, Git e GitHub.
+                        </li>
+                        <li data-lang="en" class="hidden">
+                            <strong>Infrastructure:</strong> Linux, Apache, hosting, deployment and environment management, Git and GitHub.
+                        </li>
+                        <li data-lang="pt">
+                            <strong>Ferramentas e IA:</strong> VS Code, Cursor AI, Google Antigravity, Claude, Laragon, Base44, Google A.I. Studio, Engenharia de Prompt, Automação de Processos.
+                        </li>
+                        <li data-lang="en" class="hidden">
+                            <strong>Tools & AI:</strong> VS Code, Cursor AI, Google Antigravity, Claude, Laragon, Base44, Google A.I. Studio, Prompt Engineering, Process Automation.
+                        </li>
+                        <li data-lang="pt">
+                            <strong>Gestão e Governança:</strong> Transformação digital, gestão de projetos e levantamento de requisitos.
+                        </li>
+                        <li data-lang="en" class="hidden">
+                            <strong>Management & Governance:</strong> Digital transformation, project management, and requirements gathering.
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Right Col: Soft Skills -->
+                <div class="print-col-right">
+                    <h2 data-lang="pt" class="print-section-title" style="margin-top: 0 !important;">Habilidades Interpessoais:</h2>
+                    <h2 data-lang="en" class="print-section-title hidden" style="margin-top: 0 !important;">Soft Skills:</h2>
+                    <ul data-lang="pt" class="print-soft-skills-list">
+                        <li>Resolução de problemas</li>
+                        <li>Análise crítica</li>
+                        <li>Planejamento</li>
+                        <li>Organização</li>
+                        <li>Liderança</li>
+                        <li>Tomada de decisão</li>
+                        <li>Autonomia</li>
+                        <li>Adaptabilidade</li>
+                        <li>Aprendizado rápido</li>
+                        <li>Gestão de demandas</li>
+                        <li>Comunicação objetiva</li>
+                        <li>Visão analítica</li>
+                        <li>Proatividade</li>
+                    </ul>
+                    <ul data-lang="en" class="print-soft-skills-list hidden">
+                        <li>Problem-solving</li>
+                        <li>Critical analysis</li>
+                        <li>Planning</li>
+                        <li>Organization</li>
+                        <li>Leadership</li>
+                        <li>Decision-making</li>
+                        <li>Autonomy</li>
+                        <li>Adaptability</li>
+                        <li>Fast learner</li>
+                        <li>Demand management</li>
+                        <li>Objective communication</li>
+                        <li>Analytical thinking</li>
+                        <li>Proactivity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="print-divider" />
+
+            <!-- Histórico profissional -->
+            <div>
+                <h2 data-lang="pt" class="print-section-title">Histórico profissional em TI:</h2>
+                <h2 data-lang="en" class="print-section-title hidden">Professional Experience in IT:</h2>
+                
+                <!-- Job 1 -->
+                <div class="print-job-block">
+                    <div class="print-job-header">
+                        <span data-lang="pt">Assessor de Inovação Tecnológica</span>
+                        <span data-lang="en" class="hidden">Technological Innovation Advisor</span>
+                        <span data-lang="pt">02/2026 — Atual</span>
+                        <span data-lang="en" class="hidden">02/2026 — Present</span>
+                    </div>
+                    <div class="print-job-subheader">Prefeitura de Angra dos Reis</div>
+                    <ul data-lang="pt" class="print-job-bullets">
+                        <li>Atuo prestando suporte estratégico e consultivo à Secretaria de Modernização e Gestão de Pessoal, por meio da Superintendência de Transformação Digital.</li>
+                        <li>Analiso o ambiente externo e prospecto soluções e tendências tecnológicas alinhadas à gestão pública.</li>
+                        <li>Proponho e apoio a implementação de metodologias, sistemas, aplicações e plataformas digitais.</li>
+                        <li>Coordeno ações integradas de governança digital, promovendo a modernização dos processos.</li>
+                        <li>Realizo documentação técnica, relatórios e propostas de soluções, subsidiando a gestão de serviços tecnológicos.</li>
+                        <li>Presto apoio técnico e de desenvolvimento de software.</li>
+                    </ul>
+                    <ul data-lang="en" class="print-job-bullets hidden">
+                        <li>Provide strategic and advisory support to the Secretariat for Modernization and Personnel Management through the Digital Transformation Superintendency.</li>
+                        <li>Analyze the external environment and prospect technological solutions and trends aligned with public management.</li>
+                        <li>Propose and support the implementation of methodologies, systems, applications, and digital platforms.</li>
+                        <li>Coordinate integrated digital governance actions, promoting the modernization of processes.</li>
+                        <li>Prepare technical documentation, reports, and proposed solutions, supporting the management of technological services.</li>
+                        <li>Provide technical and software development support.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="print-job-block">
+                    <div class="print-job-header">
+                        <span data-lang="pt">Coordenador Técnico de Desenvolvimento</span>
+                        <span data-lang="en" class="hidden">Technical Coordinator for Development</span>
+                        <span>05/2022 — 02/2026</span>
+                    </div>
+                    <div class="print-job-subheader">Prefeitura de Angra dos Reis</div>
+                    <ul data-lang="pt" class="print-job-bullets">
+                        <li>Traduzi designs em código limpo e funcional e criei layouts do zero, com foco em UI intuitiva e excelente UX.</li>
+                        <li>Desenvolvi interfaces responsivas usando HTML, CSS, Bootstrap e JavaScript.</li>
+                        <li>Segui padrões arquitetônicos como MVC usando Laravel PHP para integrações eficientes entre APIs e arquitetura escalável.</li>
+                        <li>Fiscalizei contratos de TI.</li>
+                        <li>Planejei, coordenei e dei suporte a projetos de desenvolvimento, cumprindo prazos e requisitos.</li>
+                        <li>Liderei atividades de equipe e implementei soluções para agilizar fluxos de trabalho.</li>
+                    </ul>
+                    <ul data-lang="en" class="print-job-bullets hidden">
+                        <li>Translated designs into clean, functional code and created layouts from scratch, focusing on intuitive UI and excellent UX.</li>
+                        <li>Developed responsive interfaces using HTML, CSS, Bootstrap, and JavaScript.</li>
+                        <li>Followed architectural patterns such as MVC using Laravel PHP for efficient API integrations and scalable architecture.</li>
+                        <li>Supervised IT contracts.</li>
+                        <li>Planned, coordinated, and supported development projects, meeting deadlines and requirements.</li>
+                        <li>Led team activities and implemented solutions to streamline workflows.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="print-job-block">
+                    <div class="print-job-header">
+                        <span data-lang="pt">Estagiário em Tecnologia da Informação</span>
+                        <span data-lang="en" class="hidden">Information Technology Intern</span>
+                        <span>04/2021 — 05/2022</span>
+                    </div>
+                    <div class="print-job-subheader">Prefeitura de Angra dos Reis</div>
+                    <ul data-lang="pt" class="print-job-bullets">
+                        <li>Resolvi problemas e realizei manutenção de hardware no departamento de Suporte Técnico.</li>
+                        <li>Desenvolvi soluções front-end usando HTML, CSS e Bootstrap para sistemas web.</li>
+                        <li>Auxiliei em integrações back-end e processos do lado do servidor.</li>
+                    </ul>
+                    <ul data-lang="en" class="print-job-bullets hidden">
+                        <li>Resolved problems and performed hardware maintenance in the Technical Support department.</li>
+                        <li>Developed front-end solutions using HTML, CSS, and Bootstrap for web systems.</li>
+                        <li>Assisted with back-end integrations and server-side processes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- Closes experiences div of Page 1 -->
+    </div> <!-- Closes print-page div of Page 1 -->
+
+    <!-- PAGE 2 -->
+    <div class="print-page">
+        <!-- Histórico profissional (Continuação) -->
+        <div>
+            <h2 data-lang="pt" class="print-section-title" style="margin-top: 0 !important;">Histórico profissional em TI (Continuação):</h2>
+            <h2 data-lang="en" class="print-section-title hidden" style="margin-top: 0 !important;">Professional Experience in IT (Continued):</h2>
+
+            <!-- Job 4 -->
+            <div class="print-job-block">
+                <div class="print-job-header">
+                    <span data-lang="pt">Desenvolvedor Web, Artista Tecnológico & Locutor</span>
+                    <span data-lang="en" class="hidden">Web Developer, Tech Artist & Announcer</span>
+                    <span data-lang="pt">01/2025 — Atual</span>
+                    <span data-lang="en" class="hidden">01/2025 — Present</span>
+                </div>
+                <div data-lang="pt" class="print-job-subheader">Soarinho &bull; Freelance (Brasil &bull; Híbrido)</div>
+                <div data-lang="en" class="print-job-subheader hidden">Soarinho &bull; Freelance (Brazil &bull; Hybrid)</div>
+                <ul data-lang="pt" class="print-job-bullets">
+                    <li>Sob o pseudônimo "Soarinho" (@osoarinho), atuo unindo arte e tecnologia. Atuo como cantor, violoncelista, dublador, locutor profissional, editor audiovisual e analista/desenvolvedor de sistemas web.</li>
+                </ul>
+                <ul data-lang="en" class="print-job-bullets hidden">
+                    <li>Under the pseudonym "Soarinho" (@osoarinho), I work as a technology artist combining art and technology. I work as a singer, cellist, voice actor, video/audio editor, and web developer.</li>
+                </ul>
+            </div>
+
+            <!-- Job 5 -->
+            <div class="print-job-block">
+                <div class="print-job-header">
+                    <span data-lang="pt">Instrutor de Montagem e Manutenção de Computadores</span>
+                    <span data-lang="en" class="hidden">Computer Assembly and Maintenance Instructor</span>
+                    <span>02/2021 — 03/2021</span>
+                </div>
+                <div class="print-job-subheader">Prepara Cursos Profissionalizantes (Angra dos Reis - RJ)</div>
+                <ul data-lang="pt" class="print-job-bullets">
+                    <li>Ministrei aulas práticas de montagem, manutenção, configuração e prevenção de problemas em computadores.</li>
+                </ul>
+                <ul data-lang="en" class="print-job-bullets hidden">
+                    <li>Taught practical classes on computer assembly, maintenance, configuration, and problem prevention.</li>
+                </ul>
+            </div>
+
+            <!-- Job 6 -->
+            <div class="print-job-block">
+                <div class="print-job-header">
+                    <span data-lang="pt">Monitor de Alunos</span>
+                    <span data-lang="en" class="hidden">Student Monitor</span>
+                    <span>12/2020 — 03/2021</span>
+                </div>
+                <div class="print-job-subheader">Prepara Cursos Profissionalizantes (Angra dos Reis - RJ)</div>
+                <ul data-lang="pt" class="print-job-bullets">
+                    <li>Monitorar alunos em sala de aula, acompanhar progresso e garantir engajamento nos cursos de TI e informática.</li>
+                    <li>Oferecer suporte teórico/prático em laboratório, supervisionar avaliações e organizar equipamentos.</li>
+                </ul>
+                <ul data-lang="en" class="print-job-bullets hidden">
+                    <li>Monitored students in the classroom, tracked progress, and ensured engagement in IT and CS courses.</li>
+                    <li>Provided theoretical/practical support in the lab, supervised tests, and organized equipment.</li>
+                </ul>
+            </div>
+
+            <!-- Job 7 -->
+            <div class="print-job-block">
+                <div class="print-job-header">
+                    <span data-lang="pt">Assistente de Vendas</span>
+                    <span data-lang="en" class="hidden">Sales Assistant</span>
+                    <span>09/2020 — 12/2020</span>
+                </div>
+                <div class="print-job-subheader">Angralitoral Passeios (Angra dos Reis - RJ)</div>
+                <ul data-lang="pt" class="print-job-bullets">
+                    <li>Atendimento e captação de clientes, suporte nas negociações e telemarketing para agência de turismo.</li>
+                    <li>Reserva de passeios de barco e coordenação de serviços de turismo com parceiros e operadores.</li>
+                </ul>
+                <ul data-lang="en" class="print-job-bullets hidden">
+                    <li>Customer acquisition, client relationship management, negotiation support, and telemarketing.</li>
+                    <li>Booked boat trips and coordinated with tour operators, partners, and boat owners.</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="print-divider" />
+
+        <!-- Bottom grid: Education vs Certs & Courses -->
+        <div class="print-bottom-grid">
+            <!-- Left Col: Education & Languages -->
+            <div class="print-bottom-left">
+                <!-- Education -->
+                <h2 data-lang="pt" class="print-section-title" style="margin-top: 0 !important;">Educação:</h2>
+                <h2 data-lang="en" class="print-section-title hidden" style="margin-top: 0 !important;">Education:</h2>
+                
+                <div class="print-edu-item">
+                    <div class="print-edu-header">
+                        <span>Estácio</span>
+                        <span>2020 — 2026</span>
+                    </div>
+                    <p data-lang="pt" class="print-edu-title">Bacharelado em Sistemas de Informação, TI</p>
+                    <p data-lang="en" class="print-edu-title hidden">Bachelor of Science in Information Systems, IT</p>
+                    <p data-lang="pt" class="print-edu-desc">
+                        O curso foca em tecnologia e gestão para melhorar a eficiência e tomada de decisão nas organizações, abrangendo arquitetura de redes, dados, engenharia de software e processos.
+                    </p>
+                    <p data-lang="en" class="print-edu-desc hidden">
+                        Focuses on technology and management to improve efficiency and decision-making in organizations, covering IT management, database, network architecture, and software engineering.
+                    </p>
+                </div>
+
+                <div class="print-edu-item">
+                    <div class="print-edu-header">
+                        <span data-lang="pt">Curso Técnico em Administração</span>
+                        <span data-lang="en" class="hidden">Technical Course in Administration</span>
+                        <span>2017 — 2019</span>
+                    </div>
+                    <p data-lang="pt" class="print-edu-title">Integrado ao Ensino Médio, Administração e Negócios</p>
+                    <p data-lang="en" class="print-edu-title hidden">Integrated with High School, Administration and Business</p>
+                </div>
+
+                <!-- Languages -->
+                <h2 data-lang="pt" class="print-section-title" style="margin-top: 6px !important;">Idiomas:</h2>
+                <h2 data-lang="en" class="print-section-title hidden" style="margin-top: 6px !important;">Languages:</h2>
+                <div data-lang="pt" class="print-lang-item">Inglês (Intermediário - B1)</div>
+                <div data-lang="en" class="print-lang-item hidden">English (Intermediate - B1)</div>
+                <div data-lang="pt" class="print-lang-item">Português (Nativo)</div>
+                <div data-lang="en" class="print-lang-item hidden">Portuguese (Native)</div>
+            </div>
+
+            <!-- Right Col: Certifications & Relevant Courses -->
+            <div class="print-bottom-right">
+                <!-- Certifications -->
+                <h2 data-lang="pt" class="print-section-title" style="margin-top: 0 !important;">Certificações:</h2>
+                <h2 data-lang="en" class="print-section-title hidden" style="margin-top: 0 !important;">Certifications:</h2>
+                <ul class="print-cert-list">
+                    <li>
+                        <strong>Estácio</strong> - <span data-lang="pt">Programação para Dispositivos Móveis</span><span data-lang="en" class="hidden">Programming for Mobile Devices</span> (Dez 2023)
+                        <span class="print-cert-id">ID: 1c9b9972bdd04e85e5a9ec4</span>
+                    </li>
+                    <li>
+                        <strong>Estácio</strong> - <span data-lang="pt">Programação de Algoritmos Escaláveis</span><span data-lang="en" class="hidden">Scalable Algorithm Programming</span> (Dez 2023)
+                        <span class="print-cert-id">ID: 425e3dc23d6c714eaa65a2e</span>
+                    </li>
+                    <li>
+                        <strong>Estácio</strong> - <span data-lang="pt">Programação para Internet</span><span data-lang="en" class="hidden">Internet Programming</span> (Dez 2023)
+                        <span class="print-cert-id">ID: 16e120899270146e373d161</span>
+                    </li>
+                </ul>
+
+                <!-- Courses -->
+                <h2 data-lang="pt" class="print-section-title" style="margin-top: 4px !important;">Cursos Relevantes:</h2>
+                <h2 data-lang="en" class="print-section-title hidden" style="margin-top: 4px !important;">Relevant Courses:</h2>
+                <ul class="print-course-list">
+                    <li>
+                        <strong>Rocketseat - <span data-lang="pt">"Especializar"</span><span data-lang="en" class="hidden">"Specialize"</span> (Maio 2022)</strong>
+                        <span data-lang="pt" class="print-course-desc">JavaScript Assíncrono, Promises, consumo/criação de APIs (Fetch/Axios), ReactJS, TypeScript, SQL avançado, animações CSS.</span>
+                        <span data-lang="en" class="print-course-desc hidden">Asynchronous JS, Promises, custom & public API consumption (Fetch/Axios), ReactJS, TypeScript, advanced SQL, CSS animations.</span>
+                    </li>
+                    <li>
+                        <strong>Rocketseat - <span data-lang="pt">"Fundamentar"</span><span data-lang="en" class="hidden">"Fundamentals"</span> (Maio 2022)</strong>
+                        <span data-lang="pt" class="print-course-desc">HTML5, CSS3, JavaScript, NodeJS, SQL, POO, lógica de programação e Git.</span>
+                        <span data-lang="en" class="print-course-desc hidden">HTML5, CSS3, JavaScript, NodeJS, SQL, OOP, programming logic, and Git.</span>
+                    </li>
+                    <li>
+                        <strong>Rocketseat - <span data-lang="pt">"Conectar"</span><span data-lang="en" class="hidden">"Connect"</span> (Maio 2022)</strong>
+                        <span data-lang="pt" class="print-course-desc">Fundamentos de computação, hardware/software, redes e internet.</span>
+                        <span data-lang="en" class="print-course-desc hidden">Basics of computing, hardware/software, networks, internet infrastructure.</span>
+                    </li>
+                    <li>
+                        <strong>Cisco - "Cybersecurity Essentials" (Out 2021)</strong>
+                        <span data-lang="pt" class="print-course-desc">Táticas e contramedidas cibernéticas, confidencialidade, integridade e leis.</span>
+                        <span data-lang="en" class="print-course-desc hidden">Cybercriminal tactics, security countermeasures, confidentiality, integrity, laws.</span>
+                    </li>
+                    <li>
+                        <strong>Fundação Bradesco - "Administrando BD" (Ago 2020)</strong>
+                        <span data-lang="pt" class="print-course-desc">Administração de banco de dados, schemas, instâncias, tabelas e SQL.</span>
+                        <span data-lang="en" class="print-course-desc hidden">Database administration concepts, schemas, instances, tables, SQL server management.</span>
+                    </li>
+                    <li>
+                        <strong>Fundação Bradesco - "Implementando BD" (Jul 2020)</strong>
+                        <span data-lang="pt" class="print-course-desc">Técnicas de modelagem de dados, física e conceitual, SQL Server.</span>
+                        <span data-lang="en" class="print-course-desc hidden">Database implementation step-by-step, modeling techniques, SQL Server.</span>
+                    </li>
+                    <li>
+                        <strong>Fundação Bradesco - "Modelagem de Dados" (Jun 2020)</strong>
+                        <span data-lang="pt" class="print-course-desc">Teoria relacional, normalização, cardinalidade e modelagem lógica.</span>
+                        <span data-lang="en" class="print-course-desc hidden">Relational theory, normalization, cardinality, mini-world logical modeling.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- Closes print-page div of Page 2 -->
+</div> <!-- Closes print-cv-container -->
 
     <script>
         function setLang(lang) {
@@ -932,15 +2395,22 @@
             // Toggle content
             const ptElements = document.querySelectorAll('[data-lang="pt"]');
             const enElements = document.querySelectorAll('[data-lang="en"]');
+            const btnPdf = document.getElementById('btn-pdf');
 
             if (lang === 'pt') {
                 ptElements.forEach(el => el.classList.remove('hidden'));
                 enElements.forEach(el => el.classList.add('hidden'));
                 document.title = "Currículo | Soarinho - Lucas Soares dos Santos";
+                if (btnPdf) {
+                    btnPdf.title = "Gerar PDF (Imprimir)";
+                }
             } else {
                 ptElements.forEach(el => el.classList.add('hidden'));
                 enElements.forEach(el => el.classList.remove('hidden'));
                 document.title = "Resume | Soarinho - Lucas Soares dos Santos";
+                if (btnPdf) {
+                    btnPdf.title = "Generate PDF (Print)";
+                }
             }
         }
 
@@ -953,19 +2423,25 @@
 
             if (isControlsOpen) {
                 menu.classList.remove('max-w-0', 'opacity-0');
-                menu.classList.add('max-w-[300px]', 'opacity-100');
+                menu.classList.add('max-w-[400px]', 'opacity-100');
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
             } else {
                 menu.classList.add('max-w-0', 'opacity-0');
-                menu.classList.remove('max-w-[300px]', 'opacity-100');
+                menu.classList.remove('max-w-[400px]', 'opacity-100');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
         }
 
-        // Init default language styles
-        setLang('pt');
+        // Init language based on query parameter or default to 'pt'
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang');
+        if (langParam === 'en' || langParam === 'pt') {
+            setLang(langParam);
+        } else {
+            setLang('pt');
+        }
     </script>
 
     <!-- Matrix Binary Animation Script -->
