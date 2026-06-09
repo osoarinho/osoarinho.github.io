@@ -4101,41 +4101,53 @@
             });
 
             // Mobile sidebar toggle
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileSidebar = document.getElementById('mobile-sidebar');
-            const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
-            const mobileSidebarClose = document.getElementById('mobile-sidebar-close');
+            function initMobileSidebar() {
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                const mobileSidebar = document.getElementById('mobile-sidebar');
+                const mobileSidebarOverlay = document.getElementById('mobile-sidebar-overlay');
+                const mobileSidebarClose = document.getElementById('mobile-sidebar-close');
 
-            function openSidebar() {
-                mobileSidebar.classList.add('active');
-                mobileSidebarOverlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
+                function openSidebar() {
+                    if (mobileSidebar && mobileSidebarOverlay) {
+                        mobileSidebar.classList.add('active');
+                        mobileSidebarOverlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+
+                function closeSidebar() {
+                    if (mobileSidebar && mobileSidebarOverlay) {
+                        mobileSidebar.classList.remove('active');
+                        mobileSidebarOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+
+                if (mobileMenuBtn) {
+                    mobileMenuBtn.addEventListener('click', openSidebar);
+                }
+
+                if (mobileSidebarClose) {
+                    mobileSidebarClose.addEventListener('click', closeSidebar);
+                }
+
+                if (mobileSidebarOverlay) {
+                    mobileSidebarOverlay.addEventListener('click', closeSidebar);
+                }
+
+                // Close sidebar when clicking on a link
+                if (mobileSidebar) {
+                    const mobileLinks = mobileSidebar.querySelectorAll('a');
+                    mobileLinks.forEach(link => {
+                        link.addEventListener('click', closeSidebar);
+                    });
+                }
             }
 
-            function closeSidebar() {
-                mobileSidebar.classList.remove('active');
-                mobileSidebarOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', openSidebar);
-            }
-
-            if (mobileSidebarClose) {
-                mobileSidebarClose.addEventListener('click', closeSidebar);
-            }
-
-            if (mobileSidebarOverlay) {
-                mobileSidebarOverlay.addEventListener('click', closeSidebar);
-            }
-
-            // Close sidebar when clicking on a link
-            if (mobileSidebar) {
-                const mobileLinks = mobileSidebar.querySelectorAll('a');
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', closeSidebar);
-                });
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initMobileSidebar);
+            } else {
+                initMobileSidebar();
             }
 
             // Smooth scroll
